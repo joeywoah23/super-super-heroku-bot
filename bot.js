@@ -56,7 +56,7 @@ client.on("message", message => {
       }});
     } else
   if (message.content.startsWith(config.prefix + 'restart')) {
-   if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+   if(!message.member.roles.some(r=>["《Developer》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
@@ -961,7 +961,7 @@ const help = {
 		},
 		{
 			name: 'CrystelianOS Moderation',
-			value: 'kick, ban, purge, mute, unmute, (grant, ungrant) warn.',
+			value: 'kick, ban, purge, mute, unmute, (grant, ungrant) warn, reboot.',
 			inline: true,
 		},
 		{
