@@ -55,6 +55,14 @@ client.on("message", message => {
         description: `This server has **${client.channels.size}** channels!`
       }});
     } else
+  if (message.content.startsWith(config.prefix + 'restart')) {
+   if (message.author.id !== '260246864979296256') return;
+   message.channel.send('Rebooting...').then(() => {
+     client.destroy().then(() => {
+       process.exit();
+     })
+   })
+ } else
     if (message.content.startsWith(config.prefix + 'avatar')) {
         message.channel.send(message.author.avatarURL)
     } else
