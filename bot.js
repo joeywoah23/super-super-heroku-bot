@@ -746,8 +746,7 @@ console.log("I have logged in! If at any time I crash please come back and check
       
 //"☆ abide by the discord tos!",
 //"[for reference ]",
-//"https://discordapp.com/guidelines"  	}
-});
+//"https://discordapp.com/guidelines"  	
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
