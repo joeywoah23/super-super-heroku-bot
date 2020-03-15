@@ -856,7 +856,7 @@ console.log("I have logged in! If at any time I crash please come back and check
 // EMBEDS ARE NEXT
 
 const embed = new Discord.RichEmbed()
-  .setTitle("This is your title, it can hold 256 characters")
+  .setTitle("Information/Test Embed")
   .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
