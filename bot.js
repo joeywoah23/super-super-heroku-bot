@@ -169,7 +169,7 @@ client.on("message", message => {
       let role = args.slice(1).join(' ');
           if(!role)
           return message.reply("Please mention a valid role to grant!");
-      let role = message.guild.roles.find(r => r.name === `${role}`);
+      message.guild.roles.find(r => r.name === `${role}`);
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first();
@@ -213,7 +213,7 @@ client.on("message", message => {
     let role = args.slice(1).join(' ');
         if(!role)
         return message.reply("Please mention a valid role to ungrant!");
-    let role = message.guild.roles.find(r => r.name === `${role}`);
+    message.guild.roles.find(r => r.name === `${role}`);
   
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first();
