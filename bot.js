@@ -586,7 +586,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     }
   });
   } else
-    if(message.content.startsWith(config.prefix + 'info')) {
+    if(message.content.startsWith(config.prefix + 'exampleembed')) {
       message.channel.send({embed: exampleEmbed})
     }});
 
