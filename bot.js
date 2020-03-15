@@ -450,7 +450,7 @@ if(message.content.startsWith(config.prefix + "suggest")) {
       description: "Please supply a something to suggest!"
     }});
     message.delete();
-    client.channels.get("618125415134920848").send({embed: {
+    client.channels.get("688875805522133065").send({embed: {
       color: 15844367,
       author: {
         name: client.user.username,
