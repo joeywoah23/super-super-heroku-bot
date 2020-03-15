@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
 
-bot.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     member.guild.channels.get('channelID').send("Welcome! Hope you enjoy the server :wolfheart: :snoop_luv_u: :tada:!"); 
 });
 
