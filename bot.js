@@ -963,5 +963,35 @@ const help = {
 	},
 };
 
+const version = {
+	color: 15844367,
+	title: 'Version',
+	author: {
+		name: 'Version',
+		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		url: 'https://discord.js.org',
+	},
+	description: 'Welcome to the version embed! This is where you\'ll find the version the bots running on!',
+	thumbnail: {
+		url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+	},
+	fields: [
+		{
+			name: 'CrystelianOS',
+			value: '```RUNNING ON VERSION 3```',
+		},
+		{
+			name: 'SNOOPY Worker',
+			value: '```RUNNING ON VERSION 2.0```',
+			inline: true,
+		},
+	],
+	timestamp: new Date(),
+	footer: {
+		text: 'Version',
+		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+	},
+};
+
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
