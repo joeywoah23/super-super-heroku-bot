@@ -998,7 +998,7 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.',
+			value: 'help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, suggest.',
 		},
 		{
 			name: 'Fun Commands',
