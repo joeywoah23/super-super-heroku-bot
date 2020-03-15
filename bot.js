@@ -969,10 +969,10 @@ const help = new Discord.RichEmbed()
    * Blank field, useful to create some space.
    */
   .addField("Fun Commands", "You can have a maximum of 25 fields.", true)
-  .addField("Roleplay Commands", "shoot, wigsnatch.")
-  .addField("CrystelainOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.")
-  .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect.")
-  .addField("Patch Logs", "I updated some error embeds ans the bot is now hosted on heroku! So enjoy!");
+  .addField("Roleplay Commands", "shoot, wigsnatch.", true)
+  .addField("CrystelainOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.", true)
+  .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect.", true)
+  .addField("Patch Logs", "I updated some error embeds ans the bot is now hosted on heroku! So enjoy!", true);
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
