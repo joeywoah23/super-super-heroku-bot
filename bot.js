@@ -443,7 +443,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   });;
   } else
 if(message.content.startsWith(config.prefix + "suggest")) {
-    let reason = args.slice(1).join(' ');
+    let reason = args.slice(10).join(' ');
     if(!reason) 
     return message.channel.send({embed: {
       color: 15844367,
