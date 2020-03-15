@@ -483,7 +483,7 @@ if(message.content.startsWith(config.prefix + "suggest")) {
     description: "Suggestion Sent",
     fields: [{
         name: "Suggestion has been sent to staff!",
-        value: `**${message.author.tag}**, The suggestion ${message.content} has been reported to staff! Thank you!`
+        value: `**${message.author.tag}**, The suggestion (**${reason}**) has been reported to staff! Thank you!`
       }
     ],
     footer: {
