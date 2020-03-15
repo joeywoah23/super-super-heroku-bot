@@ -3,10 +3,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
 
-client.on('guildMemberAdd', member => {
-    member.guild.channels.get('channelID').send("Welcome! Hope you enjoy the server :wolfheart: :snoop_luv_u: :tada:!"); 
-});
-
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
     if (message.author.bot) return;
@@ -714,6 +710,11 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
       
         }
         
+	client.on('guildMemberAdd', member => {
+    member.guild.channels.get('617821784107909120').send("Welcome! Hope you enjoy the server :wolfheart: :snoop_luv_u: :tada:!"); 
+});
+      
+	      
         if(command === "ban") {
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
