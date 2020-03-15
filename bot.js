@@ -972,9 +972,8 @@ const help = new Discord.RichEmbed()
   .addField("Patch Logs", "I updated some error embeds ans the bot is now hosted on heroku! So enjoy!", true);
 
 const exampleEmbed = {
-	color: 0x0099ff,
-	title: 'Some title',
-	url: 'https://discord.js.org',
+	color: 15844367,
+	title: 'Help',
 	author: {
 		name: 'Help',
 		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
