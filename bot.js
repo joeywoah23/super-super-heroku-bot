@@ -3,6 +3,10 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
 
+bot.on('guildMemberAdd', member => {
+    member.guild.channels.get('channelID').send("Welcome! Hope you enjoy the server :wolfheart: :snoop_luv_u: :tada:!"); 
+});
+
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
     if (message.author.bot) return;
