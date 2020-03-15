@@ -518,7 +518,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     } else
     if (message.content.startsWith(config.prefix + 'discordjsembed')) {
       message.channel.send({embed})
-    }
+    } else
     if (message.content.startsWith(config.prefix + 'welcomenet')) {
       if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
