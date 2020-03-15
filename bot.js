@@ -516,7 +516,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
       let location = args[2];
       message.channel.send(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
     } else
-    if (message.content.startsWith(config.prefix + 'discordjsembed')) {
+    if (message.content.startsWith(config.prefix + 'info')) {
       message.channel.send({embed})
     } else
     if (message.content.startsWith(config.prefix + 'welcomenet')) {
