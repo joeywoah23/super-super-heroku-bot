@@ -927,7 +927,7 @@ const information = new Discord.RichEmbed()
   .addField("Prefix",
     "!!")
 
-  .addField("Utility Commands", "help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.", true)
+  .addField("Utility Commands", "help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.",)
   .addField("Fun Commands","asl, cry, rip, avatar, tea, hot, lmao, banmemami, happybirthday, kungu.")
   .addField("Roleplay Commands", "shoot, wigsnatch.")
   .addField("CrystelianOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.")
@@ -945,7 +945,7 @@ const version = new Discord.RichEmbed()
   .addField("CrystelianOS",
     "```RUNNING ON VERSION 3```")
 
-  .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", true)
+  .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", )
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
