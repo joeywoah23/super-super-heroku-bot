@@ -505,7 +505,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
         message.channel.send("https://media.giphy.com/media/JwLY4ToQwe4yA/giphy.gif")
     } else
     if(message.content.startsWith(config.prefix + 'help')) {
-        message.channel.send({help})
+        message.channel.send({embed2})
     } else
     if (message.content.startsWith(config.prefix + 'kungu')) {
       message.reply("tHaT'S sO jOeY kOngO!!!")
@@ -552,7 +552,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     });
     }
     if (message.content.startsWith(config.prefix + 'version')) {
-      message.channel.send({version})
+      message.channel.send({embed3})
   } else
   if (message.content.startsWith(config.prefix + 'connect')) {
     if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -587,7 +587,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   });
   } else
     if(message.content.startsWith(config.prefix + 'info')) {
-      message.channel.send({information})
+      message.channel.send({embed1})
     }});
 
   
@@ -883,7 +883,7 @@ const embed = new Discord.RichEmbed()
   .addBlankField(true)
   .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
 
-const information = new Discord.RichEmbed()
+const embed1 = new Discord.RichEmbed()
   .setTitle("Information")
   .setAuthor("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
@@ -910,7 +910,7 @@ const information = new Discord.RichEmbed()
   .addField("OS","`RUNNING ON CrystelianOS 3`")
   .addField("This bot was made using", "[Discord.js](https://discord.js.org)");
 
- const help = new Discord.RichEmbed()
+ const embed2 = new Discord.RichEmbed()
   .setTitle("Help")
   .setAuthor("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
@@ -933,7 +933,7 @@ const information = new Discord.RichEmbed()
   .addField("Point System Commands", "rank, leaderboard/top.")
   .addField("Patch Logs", "After learning many things I have learned coding this bot I am now making many changes to embeds and more on this bot! This bot will be tested before letting it operate in this server!");
 
-const version = new Discord.RichEmbed()
+const embed3 = new Discord.RichEmbed()
   .setTitle("Version")
   .setAuthor("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setColor(15844367)
