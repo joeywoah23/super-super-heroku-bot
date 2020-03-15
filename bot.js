@@ -871,17 +871,17 @@ const embed = new Discord.RichEmbed()
    */
   .setTimestamp()
   .setURL("https://discord.js.org/#/docs/main/indev/class/RichEmbed")
-  .addField("This is a field title, it can hold 256 characters",
-    "This is a field value, it can hold 1024 characters.")
+  .addField("Developer",
+    "joeywoah_#0001")
   /*
    * Inline fields may not display as inline if the thumbnail and/or image is too big.
    */
-  .addField("Inline Field", "They can also be inline.", true)
+  .addField("GitHub Repository", "Click [here!](https://github.com/joeywoah23/snoopyworker)", true)
   /*
    * Blank field, useful to create some space.
    */
   .addBlankField(true)
-  .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
+  .addField("`OS`", "`RUNNING ON CrystelianOS`", true);
 
 const embed1 = new Discord.RichEmbed()
   .setTitle("Information")
