@@ -856,7 +856,7 @@ console.log("I have logged in! If at any time I crash please come back and check
 // EMBEDS ARE NEXT
 
 const embed = new Discord.RichEmbed()
-  .setTitle("Information/Test Embed")
+  .setTitle("Information Embed")
   .setAuthor("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
@@ -864,7 +864,6 @@ const embed = new Discord.RichEmbed()
   .setColor(15844367)
   .setDescription("Hello. Thank you for using Snoopy Worker! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
   .setFooter("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setImage("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
    * Takes a Date object, defaults to current date.
