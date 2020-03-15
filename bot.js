@@ -857,7 +857,7 @@ console.log("I have logged in! If at any time I crash please come back and check
 
 const embed = new Discord.RichEmbed()
   .setTitle("Information/Test Embed")
-  .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+  .setAuthor("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
