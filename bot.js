@@ -552,7 +552,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     });
     }
     if (message.content.startsWith(config.prefix + 'version')) {
-      message.channel.send({embed})
+      message.channel.send({embed3})
   } else
   if (message.content.startsWith(config.prefix + 'connect')) {
     if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -942,30 +942,29 @@ const embed3 = new Discord.RichEmbed()
   .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setTimestamp()
   .addField("CrystelianOS","```RUNNING ON VERSION 3```")
-  .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", )
+  .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", );
 
 const help = new Discord.RichEmbed()
-  .setTitle("This is your title, it can hold 256 characters")
-  .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+  .setTitle("Help")
+  .setAuthor("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
   .setColor(0x00AE86)
-  .setDescription("This is the main body of text, it can hold 2048 characters.")
-  .setFooter("This is the footer text, it can hold 2048 characters", "http://i.imgur.com/w1vhFSR.png")
+  .setDescription("Welcome to the help embed! You'll find most commands here! `()` - Remodel, `<>` - Beta, `[]` - WIP.")
+  .setFooter("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setImage("http://i.imgur.com/yVpymuV.png")
-  .setThumbnail("http://i.imgur.com/p2qNFag.png")
+  .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
    * Takes a Date object, defaults to current date.
    */
   .setTimestamp()
-  .setURL("https://discord.js.org/#/docs/main/indev/class/RichEmbed")
-  .addField("This is a field title, it can hold 256 characters",
-    "This is a field value, it can hold 1024 characters.")
+  .addField("Prefix",
+    "!!")
   /*
    * Inline fields may not display as inline if the thumbnail and/or image is too big.
    */
-  .addField("Inline Field", "They can also be inline.", true)
+  .addField("Utility Commands", "help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.", true)
   /*
    * Blank field, useful to create some space.
    */
