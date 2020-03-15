@@ -587,7 +587,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   });
   } else
     if(message.content.startsWith(config.prefix + 'help')) {
-      message.channel.send({embed: exampleEmbed})
+      message.channel.send({embed: help})
     }});
 
   
@@ -907,29 +907,6 @@ const embed1 = new Discord.RichEmbed()
   .addField("OS","`RUNNING ON CrystelianOS 3`")
   .addField("This bot was made using", "[Discord.js](https://discord.js.org)");
 
- const embed2 = new Discord.RichEmbed()
-  .setTitle("Help")
-  .setAuthor("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  /*
-   * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-   */
-  .setColor(15844367)
-  .setDescription("Welcome to the help embed! This is where you'll find the bots commands! `()`- Remodel, `<>`- Beta, `[]` WIP.")
-  .setFooter("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  /*
-   * Takes a Date object, defaults to current date.
-   */
-  .setTimestamp()
-  .addField("Prefix", "!!")
-  .addField("Utility Commands", "help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.",)
-  .addField("Fun Commands","asl, cry, rip, avatar, tea, hot, lmao, banmemami, happybirthday, kungu.")
-  .addField("Roleplay Commands", "shoot, wigsnatch.")
-  .addField("CrystelianOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.")
-  .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect, give, cleanup.")
-  .addField("Point System Commands", "rank, leaderboard/top.")
-  .addField("Patch Logs", "After learning many things I have learned coding this bot I am now making many changes to embeds and more on this bot! This bot will be tested before letting it operate in this server!");
-
 const embed3 = new Discord.RichEmbed()
   .setTitle("Version")
   .setAuthor("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
@@ -941,37 +918,7 @@ const embed3 = new Discord.RichEmbed()
   .addField("CrystelianOS","```RUNNING ON VERSION 3```")
   .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", );
 
-const help = new Discord.RichEmbed()
-  .setTitle("Help")
-  .setAuthor("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  /*
-   * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-   */
-  .setColor(15844367)
-  .setDescription("Welcome to the help embed! You'll find most commands here! `()` - Remodel, `<>` - Beta, `[]` - WIP.")
-  .setFooter("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setImage("http://i.imgur.com/yVpymuV.png")
-  .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  /*
-   * Takes a Date object, defaults to current date.
-   */
-  .setTimestamp()
-  .addField("Prefix",
-    "!!")
-  /*
-   * Inline fields may not display as inline if the thumbnail and/or image is too big.
-   */
-  .addField("Utility Commands", "help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.", true)
-  /*
-   * Blank field, useful to create some space.
-   */
-  .addField("Fun Commands", "You can have a maximum of 25 fields.", true)
-  .addField("Roleplay Commands", "shoot, wigsnatch.", true)
-  .addField("CrystelainOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.", true)
-  .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect.", true)
-  .addField("Patch Logs", "I updated some error embeds ans the bot is now hosted on heroku! So enjoy!", true);
-
-const exampleEmbed = {
+const help = {
 	color: 15844367,
 	title: 'Help',
 	author: {
