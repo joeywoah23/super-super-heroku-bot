@@ -504,7 +504,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     if (message.content.startsWith(config.prefix + "hot")) {
         message.channel.send("https://media.giphy.com/media/JwLY4ToQwe4yA/giphy.gif")
     } else
-    if(message.content.startsWith(config.prefix + 'help')) {
+    if(message.content.startsWith(config.prefix + 'beep')) {
         message.channel.send({embed2})
     } else
     if (message.content.startsWith(config.prefix + 'kungu')) {
@@ -586,7 +586,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     }
   });
   } else
-    if(message.content.startsWith(config.prefix + 'exampleembed')) {
+    if(message.content.startsWith(config.prefix + 'help')) {
       message.channel.send({embed: exampleEmbed})
     }});
 
@@ -976,47 +976,44 @@ const exampleEmbed = {
 	title: 'Some title',
 	url: 'https://discord.js.org',
 	author: {
-		name: 'Some name',
-		icon_url: 'https://i.imgur.com/wSTFkRM.png',
+		name: 'Help',
+		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
 		url: 'https://discord.js.org',
 	},
-	description: 'Some description here',
+	description: 'Welcome to the help embed! You\'ll find most commands here! `()` - Remodel, `<>` - Beta, `[]` - WIP.',
 	thumbnail: {
-		url: 'https://i.imgur.com/wSTFkRM.png',
+		url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
 	},
 	fields: [
 		{
-			name: 'Regular field title',
-			value: 'Some value here',
+			name: 'Utility Commands',
+			value: 'help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.',
 		},
 		{
-			name: '\u200b',
-			value: '\u200b',
+			name: 'Fun Commands',
+			value: 'asl, cry, rip, avatar, tea, hot, lmao, banmemami, happybirthday, kungu.',
 			inline: false,
 		},
 		{
-			name: 'Inline field title',
-			value: 'Some value here',
+			name: 'Roleplay Commands',
+			value: 'shoot, wigsnatch.',
 			inline: true,
 		},
 		{
-			name: 'Inline field title',
-			value: 'Some value here',
+			name: 'CrystelianOS Moderation',
+			value: 'kick, ban, purge, mute, unmute, (grant, ungrant) warn.',
 			inline: true,
 		},
 		{
-			name: 'Inline field title',
-			value: 'Some value here',
+			name: 'SNOOPY AGENCY',
+			value: 'hitlist, welcomenet, connect.',
 			inline: true,
 		},
 	],
-	image: {
-		url: 'https://i.imgur.com/wSTFkRM.png',
-	},
 	timestamp: new Date(),
 	footer: {
-		text: 'Some footer text here',
-		icon_url: 'https://i.imgur.com/wSTFkRM.png',
+		text: 'Help',
+		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
 	},
 };
 
