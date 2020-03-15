@@ -442,57 +442,6 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     }
   });;
   } else
-if(message.content.startsWith(config.prefix + "suggest")) {
-    let reason = args.slice(10).join(' ');
-    if(!reason) 
-    return message.channel.send({embed: {
-      color: 15844367,
-      description: "Please supply a something to suggest!"
-    }});
-    message.delete();
-    client.channels.get("688875805522133065").send({embed: {
-      color: 15844367,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Suggest Action",
-      fields: [{
-          name: "Member",
-          value: `${message.author.tag}`
-        },
-        {
-          name: "Suggestion",
-          value: `${reason}`
-        }
-      ],
-      timestamp: new Date(),
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Suggestion Action"
-      }
-    }
-  });
-  message.channel.send({embed: {
-    color: 15844367,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "Suggest Action",
-    description: "Suggestion Sent",
-    fields: [{
-        name: "Suggestion has been sent to staff!",
-        value: `**${message.author.tag}**, The suggestion (**${reason}**) has been reported to staff! Thank you!`
-      }
-    ],
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "Suggest Action"
-    }
-  }
-});;
-  } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
     let reason = args.slice(1).join(' ');
     let user = message.mentions.members.first();
