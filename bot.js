@@ -141,7 +141,7 @@ client.on("message", message => {
       let reason = args.slice(1).join(' ');
           if(!reason)
           return message.reply("Please mention a valid role to grant!");
-          message.guild.roles.find(r => r.name === `${reason}`);
+          let Role = message.guild.roles.find(r => r.name === `${reason}`);
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first();
@@ -157,7 +157,7 @@ client.on("message", message => {
       // or the person who made the command: let member = message.member;
       
       // Add the role!
-      member.addRole(reason).catch(console.error)
+      member.addRole(Role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
         color: 15844367,
         author: {
@@ -206,9 +206,9 @@ client.on("message", message => {
   } else
   if (message.content.startsWith(config.prefix + "ungrant")) {
     let reason = args.slice(1).join(' ');
-    message.guild.roles.find(r => r.name === `${reason}`);
         if(!reason)
         return message.reply("Please mention a valid role to ungrant!");
+	  let Role = message.guild.roles.find(r => r.name === `${reason}`);
   
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first();
@@ -224,7 +224,7 @@ client.on("message", message => {
     // or the person who made the command: let member = message.member;
     
     // Add the role!
-    member.removeRole(reason).catch(console.error)
+    member.removeRole(Role).catch(console.error)
     client.channels.get("618125415134920848").send({embed: {
       color: 15844367,
       author: {
@@ -442,6 +442,57 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     }
   });;
   } else
+if(message.content.startsWith(config.prefix + "suggest")) {
+    let reason = args.slice(1).join(' ');
+    if(!reason) 
+    return message.channel.send({embed: {
+      color: 15844367,
+      description: "Please supply a something to suggest!"
+    }});
+    message.delete();
+    client.channels.get("618125415134920848").send({embed: {
+      color: 15844367,
+      author: {
+        name: client.user.username,
+        icon_url: client.user.avatarURL
+      },
+      title: "Suggest Action",
+      fields: [{
+          name: "Member",
+          value: `${message.author.tag}`
+        },
+        {
+          name: "Suggestion",
+          value: `${reason}`
+        }
+      ],
+      timestamp: new Date(),
+      footer: {
+        icon_url: client.user.avatarURL,
+        text: "Suggestion Action"
+      }
+    }
+  });
+  message.channel.send({embed: {
+    color: 15844367,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Suggest Action",
+    description: "Suggestion Sent",
+    fields: [{
+        name: "Suggestion has been sent to staff!",
+        value: `**${message.author.tag}**, The suggestion ${message.content} has been reported to staff! Thank you!`
+      }
+    ],
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "Suggest Action"
+    }
+  }
+});;
+  } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
     let reason = args.slice(1).join(' ');
     let user = message.mentions.members.first();
@@ -509,7 +560,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
     message.channel.send(`HAPPY BIRTHDAY ${user}!! https://gph.is/g/4DAAReP`)
-  }
+  } else
     if (message.content.startsWith(config.prefix + "hot")) {
         message.channel.send("https://media.giphy.com/media/JwLY4ToQwe4yA/giphy.gif")
     } else
