@@ -552,7 +552,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     });
     }
     if (message.content.startsWith(config.prefix + 'version')) {
-      message.channel.send({embed3})
+      message.channel.send({embed: version})
   } else
   if (message.content.startsWith(config.prefix + 'connect')) {
     if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
