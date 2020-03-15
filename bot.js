@@ -3,17 +3,6 @@ const client = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
 
-
-client.on('ready', () => {
-    // Set bot status to: "Playing with JavaScript"
-    client.user.setActivity("SNOOPY WORKER 2.0!", {type: "LISTENING"})
-
-    // Alternatively, you can set the activity to any of the following:
-    // PLAYING, STREAMING, LISTENING, WATCHING
-    // For example:
-    // client.user.setActivity("TV", {type: "WATCHING"})
-})
-
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
     if (message.author.bot) return;
