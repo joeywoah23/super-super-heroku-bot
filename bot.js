@@ -587,7 +587,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   });
   } else
     if(message.content.startsWith(config.prefix + 'info')) {
-      message.channel.send({help})
+      message.channel.send({embed: exampleEmbed})
     }});
 
   
@@ -970,6 +970,55 @@ const help = new Discord.RichEmbed()
   .addField("CrystelainOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.", true)
   .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect.", true)
   .addField("Patch Logs", "I updated some error embeds ans the bot is now hosted on heroku! So enjoy!", true);
+
+const exampleEmbed = {
+	color: 0x0099ff,
+	title: 'Some title',
+	url: 'https://discord.js.org',
+	author: {
+		name: 'Some name',
+		icon_url: 'https://i.imgur.com/wSTFkRM.png',
+		url: 'https://discord.js.org',
+	},
+	description: 'Some description here',
+	thumbnail: {
+		url: 'https://i.imgur.com/wSTFkRM.png',
+	},
+	fields: [
+		{
+			name: 'Regular field title',
+			value: 'Some value here',
+		},
+		{
+			name: '\u200b',
+			value: '\u200b',
+			inline: false,
+		},
+		{
+			name: 'Inline field title',
+			value: 'Some value here',
+			inline: true,
+		},
+		{
+			name: 'Inline field title',
+			value: 'Some value here',
+			inline: true,
+		},
+		{
+			name: 'Inline field title',
+			value: 'Some value here',
+			inline: true,
+		},
+	],
+	image: {
+		url: 'https://i.imgur.com/wSTFkRM.png',
+	},
+	timestamp: new Date(),
+	footer: {
+		text: 'Some footer text here',
+		icon_url: 'https://i.imgur.com/wSTFkRM.png',
+	},
+};
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
