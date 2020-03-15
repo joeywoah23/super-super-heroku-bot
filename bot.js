@@ -439,7 +439,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     if(!user)
     return message.channel.send({embed: {
       color: 15844367,
-      description: "There was an error banning this user!"
+      description: "Please supply a user to report!"
     }}).then(msg => {
       msg.delete(10000)
     })
@@ -505,7 +505,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
         message.channel.send("https://media.giphy.com/media/JwLY4ToQwe4yA/giphy.gif")
     } else
     if(message.content.startsWith(config.prefix + 'help')) {
-        message.channel.send(help)
+        message.channel.send({help})
     } else
     if (message.content.startsWith(config.prefix + 'kungu')) {
       message.reply("tHaT'S sO jOeY kOngO!!!")
@@ -552,7 +552,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     });
     }
     if (message.content.startsWith(config.prefix + 'version')) {
-      message.channel.send(version)
+      message.channel.send({version})
   } else
   if (message.content.startsWith(config.prefix + 'connect')) {
     if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -587,7 +587,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   });
   } else
     if(message.content.startsWith(config.prefix + 'info')) {
-      message.channel.send(information)
+      message.channel.send({information})
     }});
 
   
