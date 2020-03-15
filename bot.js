@@ -950,7 +950,7 @@ const help = new Discord.RichEmbed()
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
-  .setColor(0x00AE86)
+  .setColor(15844367)
   .setDescription("Welcome to the help embed! You'll find most commands here! `()` - Remodel, `<>` - Beta, `[]` - WIP.")
   .setFooter("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setImage("http://i.imgur.com/yVpymuV.png")
@@ -968,8 +968,11 @@ const help = new Discord.RichEmbed()
   /*
    * Blank field, useful to create some space.
    */
-  .addBlankField(true)
-  .addField("Inline Field 3", "You can have a maximum of 25 fields.", true);
+  .addField("Fun Commands", "You can have a maximum of 25 fields.", true)
+  .addField("Roleplay Commands", "shoot, wigsnatch.")
+  .addField("CrystelainOS Moderation", "kick, ban, purge, mute, unmute, (grant, ungrant) warn.")
+  .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect.")
+  .addField("Patch Logs", "I updated some error embeds ans the bot is now hosted on heroku! So enjoy!");
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
