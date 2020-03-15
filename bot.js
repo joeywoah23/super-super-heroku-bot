@@ -510,18 +510,6 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     if (message.content.startsWith(config.prefix + 'kungu')) {
       message.reply("tHaT'S sO jOeY kOngO!!!")
     } else
-    if (message.content.startsWith(config.prefix + "addhitlist")) {
-      client.hitlist = require("./hitlist.json");
-      editedmessage = message.content.slice(13);
-      client.hitlist [message.author.username] = {
-        message: editedmessage
-      }
-      fs.writeFile("./hitlist.json", JSON.stringify (client.hitlist, null, 4)), err => {
-        if (err) throw err;
-        message.channel.send(`Hitlist ${editedmessage} from ${message.author.tag} has been recorded.`);
-      }
-
-    } else
     if (message.content.startsWith(config.prefix + "asl")) {
       let age = args[0]; // Remember arrays are 0-based!.
       let sex = args[1];
