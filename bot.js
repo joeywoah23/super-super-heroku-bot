@@ -877,9 +877,7 @@ const embed = new Discord.RichEmbed()
    * Inline fields may not display as inline if the thumbnail and/or image is too big.
    */
   .addField("GitHub Repository", "Click [here!](https://github.com/joeywoah23/snoopyworker)", true)
-  /*
-   * Blank field, useful to create some space.
-   */
+  .addField("This bot was made using", "[Discord.js](https://discord.js.org)")
   .addBlankField(true)
   .addField("`OS`", "`RUNNING ON CrystelianOS`", true);
 
