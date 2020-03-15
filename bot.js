@@ -56,7 +56,8 @@ client.on("message", message => {
       }});
     } else
   if (message.content.startsWith(config.prefix + 'restart')) {
-   if (message.author.id !== '260246864979296256') return;
+   if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
        process.exit();
