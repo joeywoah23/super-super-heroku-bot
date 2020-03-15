@@ -910,7 +910,7 @@ const information = new Discord.RichEmbed()
   .addField("OS","`RUNNING ON CrystelianOS 3`")
   .addField("This bot was made using", "[Discord.js](https://discord.js.org)");
 
-  const help = new Discord.RichEmbed()
+ const help = new Discord.RichEmbed()
   .setTitle("Help")
   .setAuthor("Help", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   /*
@@ -924,9 +924,7 @@ const information = new Discord.RichEmbed()
    * Takes a Date object, defaults to current date.
    */
   .setTimestamp()
-  .addField("Prefix",
-    "!!")
-
+  .addField("Prefix", "!!")
   .addField("Utility Commands", "help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version.",)
   .addField("Fun Commands","asl, cry, rip, avatar, tea, hot, lmao, banmemami, happybirthday, kungu.")
   .addField("Roleplay Commands", "shoot, wigsnatch.")
@@ -934,6 +932,7 @@ const information = new Discord.RichEmbed()
   .addField("SNOOPY AGENCY", "hitlist, welcomenet, connect, give, cleanup.")
   .addField("Point System Commands", "rank, leaderboard/top.")
   .addField("Patch Logs", "After learning many things I have learned coding this bot I am now making many changes to embeds and more on this bot! This bot will be tested before letting it operate in this server!");
+
 const version = new Discord.RichEmbed()
   .setTitle("Version")
   .setAuthor("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
@@ -942,9 +941,7 @@ const version = new Discord.RichEmbed()
   .setFooter("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setTimestamp()
-  .addField("CrystelianOS",
-    "```RUNNING ON VERSION 3```")
-
+  .addField("CrystelianOS","```RUNNING ON VERSION 3```")
   .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", )
 
 // THIS  MUST  BE  THIS  WAY
