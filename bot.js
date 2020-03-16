@@ -775,10 +775,7 @@ client.on("message", message => {
     
     // Act upon level up by sending a message and updating the user's level in enmap.
     if (client.points.get(key, "level") < curLevel) {
-      message.channel.send({embed: {
-              color: 15844367,
-              description: `${user}, Congrats! You just advanced to level **${curLevel}**! Keep leveling!`
-            }});
+      message.reply(`You've leveled up to level **${curLevel}**! Ain't that dandy?`);
       client.points.set(key, curLevel, "level");
     }
   }
@@ -886,10 +883,9 @@ if(command === "give") {
 
   // And we save it!
   client.points.set(`${message.guild.id}-${user.id}`, userPoints, "points")
- message.channel.send({embed: {
-              color: 15844367,
-              description: `${user.tag} has been given ${pointsToAdd} points and is now at ${userPoints} points!`
-            }});
+
+  message.channel.send(`${user.tag} has received ${pointsToAdd} points and now stands at ${userPoints} points.`);
+}
 
 if(command === "cleanup") {
   // Let's clean up the database of all "old" users, 
@@ -903,14 +899,14 @@ if(command === "cleanup") {
   // So we get only users that haven't been online for a month, or are no longer in the guild.
   const rightNow = new Date();
   const toRemove = filtered.filter(data => {
-    return !message.guild.members.has(data.user) || rightNow - 1209600000 > data.lastSeen;
+    return !message.guild.members.has(data.user) || rightNow - 2592000000 > data.lastSeen;
   });
 
   toRemove.forEach(data => {
     client.points.delete(`${message.guild.id}-${data.user}`);
   });
 
-  message.channel.send(`I've cleaned up ${toRemove.size} old user points!.`);
+  message.channel.send(`I've cleaned up ${toRemove.size} old farts.`);
 }
       
 	      
@@ -1092,7 +1088,7 @@ if(command === "cleanup") {
               description: `There was an error purging these messages: ${error}`
             }}));
         }
-
+      });
 
 
 
