@@ -639,6 +639,182 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
         
+	        const Enmap = require("enmap");
+client.points = new Enmap({name: "points"});
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (message.guild) {
+    // Let's simplify the `key` part of this.
+    const key = `${message.guild.id}-${message.author.id}`;
+    client.points.ensure(key, {
+      user: message.author.id,
+      guild: message.guild.id,
+      points: 0,
+      level: 1
+    });
+    client.points.inc(key, "points");
+  }
+  // Rest of message handler
+});
+client.on("message", message => {
+  // As usual, ignore all bots.
+  if (message.author.bot) return;
+  
+  // If this is not in a DM, execute the points code.
+  if (message.guild) {
+    // We'll use the key often enough that simplifying it is worth the trouble.
+    const key = `${message.guild.id}-${message.author.id}`;
+
+    // Triggers on new users we haven't seen before.
+    client.points.ensure(`${message.guild.id}-${message.author.id}`, {
+      user: message.author.id,
+      guild: message.guild.id,
+      points: 0,
+      level: 1
+    });
+    
+    client.points.inc(key, "points");
+    
+    // Calculate the user's current level
+    const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
+    
+    // Act upon level up by sending a message and updating the user's level in enmap.
+    if (client.points.get(key, "level") < curLevel) {
+      message.reply(`You've leveled up to level **${curLevel}**! Ain't that dandy?`);
+      client.points.set(key, curLevel, "level");
+    }
+  }
+  // Rest of message handler
+});
+if (command === "rank") {
+  const key = `${message.guild.id}-${message.author.id}`;
+  return message.channel.send({embed: {
+    color: 15844367,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Rank",
+    description: "Your Rank!",
+    fields: [{
+        name: "Member",
+        value: `${message.author.tag}`
+      },
+      {
+        name: "Points",
+        value: `${client.points.get(key, "points")}`
+      },
+      {
+        name: "Rank/Level",
+        value: `${client.points.get(key, "level")}`
+      }
+    ],
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "Rank"
+    }
+  }
+});;;
+//${client.points.get(key, "points")} = points
+//${client.points.get(key, "level")} = level
+}
+if(command === "leaderboard") {
+  // Get a filtered list (for this guild only), and convert to an array while we're at it.
+  const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
+
+  // Sort it to get the top results... well... at the top. Y'know.
+  const sorted = filtered.sort((a, b) => b.points - a.points);
+
+  // Slice it, dice it, get the top 10 of it!
+  const top10 = sorted.splice(0, 10);
+
+  // Now shake it and show it! (as a nice embed, too!)
+  const embed = new Discord.RichEmbed()
+    .setTitle("Leaderboard")
+    .setAuthor(client.user.username, client.user.avatarURL)
+    .setDescription("Our top 10 points leaders!")
+    .setColor(15844367);
+  for(const data of top10) {
+    embed.addField(client.users.get(data.user).tag, `${data.points} points (level ${data.level})`);
+  }
+  return message.channel.send({embed});
+}
+if(command === "top") {
+  // Get a filtered list (for this guild only), and convert to an array while we're at it.
+  const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
+
+  // Sort it to get the top results... well... at the top. Y'know.
+  const sorted = filtered.sort((a, b) => b.points - a.points);
+
+  // Slice it, dice it, get the top 10 of it!
+  const top10 = sorted.splice(0, 10);
+
+  // Now shake it and show it! (as a nice embed, too!)
+  const embed = new Discord.RichEmbed()
+    .setTitle("Leaderboard")
+    .setAuthor(client.user.username, client.user.avatarURL)
+    .setDescription("Our top 10 points leaders!")
+    .setColor(15844367);
+  for(const data of top10) {
+    embed.addField(client.users.get(data.user).tag, `${data.points} points (level ${data.level})`);
+  }
+  return message.channel.send({embed});
+}
+
+if(command === "give") {
+  // Limited to guild owner - adjust to your own preference!
+  if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+    return message.reply("You're not the boss of me, you can't do that!");
+
+  const user = message.mentions.users.first() || client.users.get(args[0]);
+  if(!user) return message.reply("You must mention someone or give their ID!");
+
+  const pointsToAdd = parseInt(args[1], 10);
+  if(!pointsToAdd) 
+    return message.reply("You didn't tell me how many points to give...")
+
+  // Ensure there is a points entry for this user.
+  client.points.ensure(`${message.guild.id}-${user.id}`, {
+    user: message.author.id,
+    guild: message.guild.id,
+    points: 0,
+    level: 1
+  });
+
+  // Get their current points.
+  let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");
+  userPoints += pointsToAdd;
+  
+
+  // And we save it!
+  client.points.set(`${message.guild.id}-${user.id}`, userPoints, "points")
+
+  message.channel.send(`${user.tag} has received ${pointsToAdd} points and now stands at ${userPoints} points.`);
+}
+
+if(command === "cleanup") {
+  // Let's clean up the database of all "old" users, 
+  // and those who haven't been around for... say a month.
+  if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+  return message.reply("You're not the boss of me, you can't do that!");
+  // Get a filtered list (for this guild only).
+  const filtered = client.points.filter( p => p.guild === message.guild.id );
+
+  // We then filter it again (ok we could just do this one, but for clarity's sake...)
+  // So we get only users that haven't been online for a month, or are no longer in the guild.
+  const rightNow = new Date();
+  const toRemove = filtered.filter(data => {
+    return !message.guild.members.has(data.user) || rightNow - 2592000000 > data.lastSeen;
+  });
+
+  toRemove.forEach(data => {
+    client.points.delete(`${message.guild.id}-${data.user}`);
+  });
+
+  message.channel.send(`I've cleaned up ${toRemove.size} old farts.`);
+}
+      
+	      
         // Let's go with a few common example commands! Feel free to delete or change those.
 
         if(command === "kick") {
