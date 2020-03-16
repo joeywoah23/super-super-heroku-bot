@@ -1092,7 +1092,7 @@ if(command === "cleanup") {
               description: `There was an error purging these messages: ${error}`
             }}));
         }
-      });
+
 
 
 
