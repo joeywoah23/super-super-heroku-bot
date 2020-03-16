@@ -632,19 +632,17 @@ client.on('message', async message => {
 	} else if (message.content.startsWith(`${prefix}stop`)) {
 		stop(message, serverQueue);
 		return;
-	} else {
-		message.channel.send('You need to enter a valid command!')
-	}
+	} 
 });
 
 async function execute(message, serverQueue) {
 	const args = message.content.split(' ');
 
 	const voiceChannel = message.member.voiceChannel;
-	if (!voiceChannel) return message.channel.send('You need to be in a voice channel to play music!');
+	if (!voiceChannel) return message.reply('You need to be in a voice channel to play music!');
 	const permissions = voiceChannel.permissionsFor(message.client.user);
 	if (!permissions.has('CONNECT') || !permissions.has('SPEAK')) {
-		return message.channel.send('I need the permissions to join and speak in your voice channel!');
+		return message.reply('I need the permissions to join and speak in your voice channel!');
 	}
 
 	const songInfo = await ytdl.getInfo(args[1]);
@@ -685,13 +683,13 @@ async function execute(message, serverQueue) {
 }
 
 function skip(message, serverQueue) {
-	if (!message.member.voiceChannel) return message.channel.send('You have to be in a voice channel to stop the music!');
-	if (!serverQueue) return message.channel.send('There is no song that I could skip!');
+	if (!message.member.voiceChannel) return message.reply('You have to be in a voice channel to stop the music!');
+	if (!serverQueue) return message.reply('There is no song that I could skip!');
 	serverQueue.connection.dispatcher.end();
 }
 
 function stop(message, serverQueue) {
-	if (!message.member.voiceChannel) return message.channel.send('You have to be in a voice channel to stop the music!');
+	if (!message.member.voiceChannel) return message.reply('You have to be in a voice channel to stop the music!');
 	serverQueue.songs = [];
 	serverQueue.connection.dispatcher.end();
 }
@@ -707,7 +705,7 @@ function play(guild, song) {
 
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on('end', () => {
-			console.log('Music ended!');
+			message.reply('Music ended!');
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
 		})
@@ -716,26 +714,7 @@ function play(guild, song) {
 		});
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 }
-    
 
-    client.on('message', message => {
-        // Voice only works in guilds, if the message does not come from a guild,
-        // we ignore it
-        if (!message.guild) return;
-      
-        if (message.content === '/join') {
-          // Only try to join the sender's voice channel if they are in one themselves
-          if (message.member.voiceChannel) {
-            message.member.voiceChannel.join()
-              .then(connection => { // Connection is an instance of VoiceConnection
-                message.reply('I have connected to the voice channel!');
-              })
-              .catch(console.log);
-          } else {
-            message.reply('You need to join a voice channel!');
-          }
-        }
-      });
 
       client.on("message", async message => {
         // This event will run on every single message received, from any channel or DM.
