@@ -692,7 +692,7 @@ function stop(message, serverQueue) {
  serverQueue.songs = [];
  serverQueue.connection.dispatcher.end();
 }
-}
+};
     
 
     client.on('message', message => {
