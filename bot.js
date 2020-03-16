@@ -277,6 +277,138 @@ client.on("message", message => {
   }
 });;
 } else
+	if (message.content.startsWith(config.prefix + "rban")) {
+      let reason = args.slice(1).join(' ');
+          if(!reason) reason = "No reason provided";
+          let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
+    
+      // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
+      let member = message.mentions.members.first();
+      if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      return message.reply("You can\'t do that!");
+      if(!member)
+            return message.channel.send({embed: {
+              color: 15844367,
+              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
+            }}).then(msg => {
+              msg.delete(10000)
+            })
+      // or the person who made the command: let member = message.member;
+      
+      // Add the role!
+      member.addRole(Role).catch(console.error)
+      client.channels.get("618125415134920848").send({embed: {
+        color: 15844367,
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        title: "RBan Action",
+        fields: [{
+            name: "Moderator",
+            value: `${message.author.tag}`
+          },
+          {
+            name: "Rolebanned",
+            value: `${user}`
+          },
+          {
+          name: "Reason",
+            value: `${reason}`
+          }
+        ],
+        timestamp: new Date(),
+        footer: {
+          icon_url: client.user.avatarURL,
+          text: "RBan Action"
+        }
+      }
+    });
+    message.channel.send({embed: {
+      color: 15844367,
+      author: {
+        name: client.user.username,
+        icon_url: client.user.avatarURL
+      },
+      title: "RBan Action",
+          fields: [{
+          name: "Rban",
+          value: `**${message.author.tag}**, **${member}** has been rolebanned for **${reason}**`
+        }
+      ],
+      footer: {
+        icon_url: client.user.avatarURL,
+        text: "RBan Action"
+      }
+    }
+  });;
+	} else
+if (message.content.startsWith(config.prefix + "urb")) {
+      let reason = args.slice(1).join(' ');
+          if(!reason) reason = "No reason provided";
+          let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
+    
+      // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
+      let member = message.mentions.members.first();
+      if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      return message.reply("You can\'t do that!");
+      if(!member)
+            return message.channel.send({embed: {
+              color: 15844367,
+              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
+            }}).then(msg => {
+              msg.delete(10000)
+            })
+      // or the person who made the command: let member = message.member;
+      
+      // Add the role!
+      member.removeRole(Role).catch(console.error)
+      client.channels.get("618125415134920848").send({embed: {
+        color: 15844367,
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL
+        },
+        title: "URBan Action",
+        fields: [{
+            name: "Moderator",
+            value: `${message.author.tag}`
+          },
+          {
+            name: "URBanned",
+            value: `${user}`
+          },
+          {
+          name: "Reason",
+            value: `${reason}`
+          }
+        ],
+        timestamp: new Date(),
+        footer: {
+          icon_url: client.user.avatarURL,
+          text: "URBan Action"
+        }
+      }
+    });
+    message.channel.send({embed: {
+      color: 15844367,
+      author: {
+        name: client.user.username,
+        icon_url: client.user.avatarURL
+      },
+      title: "RoleBan Action",
+          fields: [{
+          name: "Roleban",
+          value: `**${message.author.tag}**, **${member}** has been rolebanned for **${reason}**`
+        }
+      ],
+      footer: {
+        icon_url: client.user.avatarURL,
+        text: "Roleban Action"
+      }
+    }
+  });;
+	} else
 if (message.content.startsWith(config.prefix + "hitlist")) {
   if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
@@ -1294,7 +1426,7 @@ const help = {
 		},
 		{
 			name: 'CrystelianOS Moderation',
-			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot.',
+			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, rban, urb.',
 			inline: true,
 		},
 		{
