@@ -1132,7 +1132,7 @@ const help = {
 		},
 		{
 			name: 'Points Commands',
-			value: 'rank, leaderboard/top',
+			value: 'rank, leaderboard/top.',
 			inline: false,
 		},
 		{
