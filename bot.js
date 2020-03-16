@@ -80,6 +80,10 @@ client.on("message", message => {
       }});
     } else
     if (message.content.startsWith(config.prefix + "mute")) {
+
+if(message.author)
+return message.reply("You can\'t punish yourself!");
+
       let role = message.guild.roles.find(r => r.name === "Muted");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
@@ -278,6 +282,10 @@ client.on("message", message => {
 });;
 } else
 	if (message.content.startsWith(config.prefix + "rban")) {
+
+if(message.author)
+return message.reply("You can\'t punish yourself!");
+
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
@@ -344,6 +352,10 @@ client.on("message", message => {
   });;
 	} else
 if (message.content.startsWith(config.prefix + "urb")) {
+
+if(message.author)
+return message.reply("You can\'t unpunish yourself!");
+
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
@@ -410,6 +422,10 @@ if (message.content.startsWith(config.prefix + "urb")) {
   });;
 	} else
 if (message.content.startsWith(config.prefix + "hitlist")) {
+
+if(message.author)
+return message.reply("You can\'t punish yourself!");
+
   if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
   let member = message.mentions.members.first();
@@ -457,6 +473,8 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
 } else
   if (message.content.startsWith(config.prefix + "unmute"))
     {let role = message.guild.roles.find(r => r.name === "Muted");
+if(message.author)
+return message.reply("You can\'t unpunish yourself!");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first();
@@ -520,6 +538,8 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
         message.channel.send("https://gph.is/g/469ALg8")
     } else
     if (message.content.startsWith(config.prefix + "warn")) {
+if(message.author)
+return message.reply("You can\'t punish yourself!");
       let reason = args.slice(1).join(' ');
       let user = message.mentions.members.first();
       if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -581,6 +601,10 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   });;
   } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
+
+if(message.author)
+return message.reply("You can\'t report yourself!");
+
     let reason = args.slice(1).join(' ');
     let user = message.mentions.members.first();
     if(!user)
@@ -1097,6 +1121,10 @@ if(command === "cleanup") {
         // Let's go with a few common example commands! Feel free to delete or change those.
 
         if(command === "kick") {
+
+if(message.author)
+return message.reply("You can\'t punish yourself!");
+
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
           // Please read on Array.some() to understand this bit: 
           // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
@@ -1180,6 +1208,10 @@ if(command === "cleanup") {
       
 	      
         if(command === "ban") {
+
+if(message.author)
+return message.reply("You can\'t punish yourself!");
+
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
           if(!message.member.roles.some(r=>["《Developer》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
