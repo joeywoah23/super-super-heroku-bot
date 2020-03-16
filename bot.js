@@ -524,7 +524,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
       description: "Please supply a suggestion!"
     }}).then(msg => {
       msg.delete(10000)
-    }});
+    });
     client.channels.get("618125415134920848").send({embed: {
       color: 15844367,
       author: {
