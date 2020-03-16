@@ -621,25 +621,6 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
         }
       });
 
-    client.on('message', message => {
-        // Voice only works in guilds, if the message does not come from a guild,
-        // we ignore it
-        if (!message.guild) return;
-      
-        if (message.content === '/join') {
-          // Only try to join the sender's voice channel if they are in one themselves
-          if (message.member.voiceChannel) {
-            message.member.voiceChannel.disconnect()
-              .then(connection => { // Connection is an instance of VoiceConnection
-                message.reply('I have disconnected from the voice channel!');
-              })
-              .catch(console.log);
-          } else {
-            message.reply('You must join the Voice Channel to disconnect me!');
-          }
-        }
-      });
-
       client.on("message", async message => {
         // This event will run on every single message received, from any channel or DM.
         
