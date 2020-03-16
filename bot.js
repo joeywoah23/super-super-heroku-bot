@@ -1131,6 +1131,11 @@ const help = {
 			inline: false,
 		},
 		{
+			name: 'Points Commands',
+			value: 'rank, leaderboard/top',
+			inline: false,
+		},
+		{
 			name: 'Roleplay Commands',
 			value: 'shoot, wigsnatch.',
 			inline: true,
