@@ -61,7 +61,7 @@ client.on("message", message => {
         description: `This server has **${client.channels.size}** channels!`
       }});
     } else
-  if (message.content.startsWith(config.prefix + 'restart')) {
+  if (message.content.startsWith(config.prefix + 'reboot')) {
    if(!message.member.roles.some(r=>["《Developer》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
@@ -515,6 +515,58 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
     if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
     message.channel.send(`HAPPY BIRTHDAY ${user}!! https://gph.is/g/4DAAReP`)
+  } else
+  if(message.content.startsWith(config.prefix + "suggest")) {
+    let reason = args.slice(1).join(' ');
+    if(!reason)
+    return message.channel.send({embed: {
+      color: 15844367,
+      description: "Please supply a suggestion!"
+    }}).then(msg => {
+      msg.delete(10000)
+    })
+    client.channels.get("618125415134920848").send({embed: {
+      color: 15844367,
+      author: {
+        name: client.user.username,
+        icon_url: client.user.avatarURL
+      },
+      title: "Suggestion Action",
+      fields: [{
+          name: "Member",
+          value: `${message.author.tag}`
+        },
+        {
+          name: "Suggestion",
+          value: `${reason}`
+        }
+      ],
+      timestamp: new Date(),
+      footer: {
+        icon_url: client.user.avatarURL,
+        text: "Suggestion Action"
+      }
+    }
+  });
+  message.channel.send({embed: {
+    color: 15844367,
+    author: {
+      name: client.user.username,
+      icon_url: client.user.avatarURL
+    },
+    title: "Suggestion Action",
+    description: "Suggestion Sender",
+    fields: [{
+        name: "Suggestion has been sent!",
+        value: `**${message.author.tag}**, The suggestion has been sent to staff! Thank you!`
+      }
+    ],
+    footer: {
+      icon_url: client.user.avatarURL,
+      text: "Suggestion Action"
+    }
+  }
+});;
   } else
     if (message.content.startsWith(config.prefix + "hot")) {
         message.channel.send("https://media.giphy.com/media/JwLY4ToQwe4yA/giphy.gif")
