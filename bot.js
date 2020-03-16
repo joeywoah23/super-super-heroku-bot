@@ -1247,6 +1247,11 @@ const help = {
 			inline: false,
 		},
 		{
+			name: "Music Commands",
+			value: "play, stop, skip",
+			inline: false
+		},
+		{
 			name: 'Points Commands',
 			value: 'rank, leaderboard/top.',
 			inline: false,
