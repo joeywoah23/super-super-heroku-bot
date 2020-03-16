@@ -1270,7 +1270,7 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, suggest.',
+			value: 'help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest].',
 		},
 		{
 			name: 'Fun Commands',
@@ -1279,7 +1279,7 @@ const help = {
 		},
 		{
 			name: "Music Commands",
-			value: "play, stop, skip",
+			value: "<play, stop, skip>",
 			inline: false
 		},
 		{
@@ -1294,7 +1294,7 @@ const help = {
 		},
 		{
 			name: 'CrystelianOS Moderation',
-			value: 'kick, ban, purge, mute, unmute, (grant, ungrant) warn, reboot.',
+			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot.',
 			inline: true,
 		},
 		{
