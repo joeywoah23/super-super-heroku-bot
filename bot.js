@@ -632,9 +632,6 @@ client.on('message', async message => {
 	} else if (message.content.startsWith(`${prefix}stop`)) {
 		stop(message, serverQueue);
 		return;
-	} else if (message.content.startsWith(`${prefix}p`)) {
-		execute(message, serverQueue);
-		return;
 	}
 });
 
