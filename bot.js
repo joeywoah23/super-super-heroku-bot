@@ -4,6 +4,10 @@ const config = require("./config.json");
 const ytdl = require('ytdl-core');
 const fs = require("fs");
 const queue = new Map();
+const {
+	prefix,
+	token,
+} = require('./config.json');
 
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
