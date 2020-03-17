@@ -33,7 +33,7 @@ client.on("message", message => {
     } else
     if(command === "apicheck") {
       message.channel.send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         description: `API Latency is **${Math.round(client.ping)}**ms!`
       }});
     } else
@@ -45,7 +45,7 @@ client.on("message", message => {
     } else
     if (message.content.startsWith(config.prefix + 'latency')) {
       message.channel.send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         description: `Latency is **${message.createdTimestamp - message.createdTimestamp}**ms!`
       }});
     } else
@@ -63,7 +63,7 @@ client.on("message", message => {
     } else
     if (message.content.startsWith(config.prefix + 'channelcount')) {
       message.channel.send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         description: `This server has **${client.channels.size}** channels!`
       }});
     } else
@@ -78,7 +78,7 @@ client.on("message", message => {
  } else
     if (message.content.startsWith(config.prefix + 'membercount')) {
       message.channel.send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         description: `This server has **${client.users.size}** members!`
       }});
     } else
@@ -91,7 +91,7 @@ client.on("message", message => {
       if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member) return message.channel.send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
       }}).then(msg => {
         msg.delete(10000)
@@ -104,7 +104,7 @@ return message.reply("You can\'t punish yourself!");
       // Add the role!
       member.addRole(role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -131,7 +131,7 @@ return message.reply("You can\'t punish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -161,7 +161,7 @@ return message.reply("You can\'t punish yourself!");
       return message.reply("You can\'t do that!");
       if(!member)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }}).then(msg => {
               msg.delete(10000)
@@ -171,7 +171,7 @@ return message.reply("You can\'t punish yourself!");
       // Add the role!
       member.addRole(Role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -198,7 +198,7 @@ return message.reply("You can\'t punish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -228,7 +228,7 @@ return message.reply("You can\'t punish yourself!");
     return message.reply("You can\'t do that!");
     if(!member)
           return message.channel.send({embed: {
-            color: 15844367,
+            color: "#f7abab",
             description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
           }}).then(msg => {
             msg.delete(10000)
@@ -238,7 +238,7 @@ return message.reply("You can\'t punish yourself!");
     // Add the role!
     member.removeRole(Role).catch(console.error)
     client.channels.get("618125415134920848").send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -265,7 +265,7 @@ return message.reply("You can\'t punish yourself!");
     }
   });
   message.channel.send({embed: {
-    color: 15844367,
+    color: "#f7abab",
     author: {
       name: client.user.username,
       icon_url: client.user.avatarURL
@@ -295,7 +295,7 @@ return message.reply("You can\'t punish yourself!");
       return message.reply("You can\'t do that!");
       if(!member)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }}).then(msg => {
               msg.delete(10000)
@@ -307,7 +307,7 @@ return message.reply("You can\'t punish yourself!");
       // Add the role!
       member.addRole(Role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -334,7 +334,7 @@ return message.reply("You can\'t punish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -364,7 +364,7 @@ if (message.content.startsWith(config.prefix + "urb")) {
       return message.reply("You can\'t do that!");
       if(!member)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }}).then(msg => {
               msg.delete(10000)
@@ -377,7 +377,7 @@ return message.reply("You can\'t unpunish yourself!");
       // Add the role!
       member.removeRole(Role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -404,7 +404,7 @@ return message.reply("You can\'t unpunish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -430,7 +430,7 @@ if (message.content.startsWith(config.prefix + "hitlist")) {
   let reason = args.slice(1).join(' ');
   if(!member)
           return message.channel.send({embed: {
-            color: 15844367,
+            color: "#f7abab",
             description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
           }}).then(msg => {
             msg.delete(10000)
@@ -440,11 +440,11 @@ return message.reply("You can\'t punish yourself!");
   if(!reason)
     return message.reply("Mention someone to add to **THE HITLIST**");
   message.channel.send({embed: {
-    color: 15844367,
+    color: "#f7abab",
     description: `${member} has been added to **ADMINISTATOR HITLIST** for **${reason}**!`
   }});
   client.channels.get("618125415134920848").send({embed: {
-    color: 15844367,
+    color: "#f7abab",
     author: {
       name: client.user.username,
       icon_url: client.user.avatarURL
@@ -480,7 +480,7 @@ return message.reply("You can\'t punish yourself!");
       return message.reply("You can\'t do that!");
       if(!member)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }}).then(msg => {
               msg.delete(10000)
@@ -494,7 +494,7 @@ return message.reply("You can\'t unpunish yourself!");
       // Remove a role!
       member.removeRole(role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -517,7 +517,7 @@ return message.reply("You can\'t unpunish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -545,7 +545,7 @@ return message.reply("You can\'t unpunish yourself!");
       return message.reply("You can\'t do that!");
       if(!user)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }}).then(msg => {
               msg.delete(10000)
@@ -556,7 +556,7 @@ return message.reply("You can\'t punish yourself!");
       // or the person who made the command: let member = message.member;
       if(!reason) reason = "No reason provided";
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -583,7 +583,7 @@ return message.reply("You can\'t punish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -607,7 +607,7 @@ return message.reply("You can\'t punish yourself!");
     let user = message.mentions.members.first();
     if(!user)
     return message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       description: "Please supply a user to report!"
     }}).then(msg => {
       msg.delete(10000)
@@ -617,12 +617,12 @@ if(user === message.author)
 return message.reply("You can\'t report yourself!");
     if(!reason) 
     return message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       description: "Please supply a reason!"
     }});
     message.delete();
     client.channels.get("618125415134920848").send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -649,7 +649,7 @@ return message.reply("You can\'t report yourself!");
     }
   });
   message.channel.send({embed: {
-    color: 15844367,
+    color: "#f7abab",
     author: {
       name: client.user.username,
       icon_url: client.user.avatarURL
@@ -677,13 +677,13 @@ return message.reply("You can\'t report yourself!");
     let reason = args.slice(1).join(' ');
     if(!reason)
     return message.channel.send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       description: "Please supply a suggestion!"
     }}).then(msg => {
       msg.delete(10000)
     });
     client.channels.get("618125415134920848").send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -706,7 +706,7 @@ return message.reply("You can\'t report yourself!");
     }
   });
   message.channel.send({embed: {
-    color: 15844367,
+    color: "#f7abab",
     author: {
       name: client.user.username,
       icon_url: client.user.avatarURL
@@ -748,11 +748,11 @@ return message.reply("You can\'t report yourself!");
       return message.reply("You can\'t do that!");
       //"Hello. Welcome to the `SNOOPY WORKER NETWORK`. All moderation commands and report commands will now be transmitted throughout the `SNOOPY WORKER NETWORK`. Thank you for using Snoopy Worker."
       message.channel.send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         description: "Hello. Welcome to the `SNOOPY WORKER NETWORK`. All moderation commands and report commands will now be transmitted throughout the `SNOOPY WORKER NETWORK`. Thank you for using Snoopy Worker."
       }});
       client.channels.get("618125415134920848").send({embed: {
-        color: 15844367,
+        color: "#f7abab",
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -783,7 +783,7 @@ return message.reply("You can\'t report yourself!");
       return message.reply("You can\'t do that!");
     message.reply("Connected to Wi-fi. Network details sent to #🗂》mod-logs!")
     client.channels.get("618125415134920848").send({embed: {
-      color: 15844367,
+      color: "#f7abab",
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
@@ -895,7 +895,7 @@ client.on("message", message => {
 if (command === "rank") {
   const key = `${message.guild.id}-${message.author.id}`;
   return message.channel.send({embed: {
-    color: 15844367,
+    color: "#f7abab",
     author: {
       name: client.user.username,
       icon_url: client.user.avatarURL
@@ -939,7 +939,7 @@ if(command === "leaderboard") {
     .setTitle("Leaderboard")
     .setAuthor(client.user.username, client.user.avatarURL)
     .setDescription("Our top 10 points leaders!")
-    .setColor(15844367);
+    .setColor("#f7abab");
   for(const data of top10) {
     embed.addField(client.users.get(data.user).tag, `${data.points} points (level ${data.level})`);
   }
@@ -960,7 +960,7 @@ if(command === "top") {
     .setTitle("Leaderboard")
     .setAuthor(client.user.username, client.user.avatarURL)
     .setDescription("Our top 10 points leaders!")
-    .setColor(15844367);
+    .setColor("#f7abab");
   for(const data of top10) {
     embed.addField(client.users.get(data.user).tag, `${data.points} points (level ${data.level})`);
   }
@@ -1043,7 +1043,7 @@ client.on("message", async message => {
           let member = message.mentions.members.first() || message.guild.members.get(args[0]);
           if(!member)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }});
 	
@@ -1052,7 +1052,7 @@ return message.reply("You can\'t punish yourself!");
 		
           if(!member.kickable) 
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "There was an error kicking this user!"
             }});
           // **CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!
@@ -1065,7 +1065,7 @@ return message.reply("You can\'t punish yourself!");
           await member.kick(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
             client.channels.get("618125415134920848").send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               author: {
                 name: client.user.username,
                 icon_url: client.user.avatarURL
@@ -1092,7 +1092,7 @@ return message.reply("You can\'t punish yourself!");
             }
           });
           message.channel.send({embed: {
-            color: 15844367,
+            color: "#f7abab",
             author: {
               name: client.user.username,
               icon_url: client.user.avatarURL
@@ -1122,7 +1122,7 @@ return message.reply("You can\'t punish yourself!");
           let member = message.mentions.members.first();
           if(!member)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }});
 
@@ -1131,7 +1131,7 @@ return message.reply("You can\'t punish yourself!");
 		
           if(!member.bannable) 
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "There was an error banning this user!"
             }});
       
@@ -1141,7 +1141,7 @@ return message.reply("You can\'t punish yourself!");
           await member.ban(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`))
             client.channels.get("618125415134920848").send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               author: {
                 name: client.user.username,
                 icon_url: client.user.avatarURL
@@ -1168,7 +1168,7 @@ return message.reply("You can\'t punish yourself!");
             }
           });
           message.channel.send({embed: {
-            color: 15844367,
+            color: "#f7abab",
             author: {
               name: client.user.username,
               icon_url: client.user.avatarURL
@@ -1197,7 +1197,7 @@ return message.reply("You can\'t punish yourself!");
           // Ooooh nice, combined conditions. <3
           if(!deleteCount || deleteCount < 2 || deleteCount > 100)
             return message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: "Please provide a number between 2 and 100 for the number of messages to delete"
             }});
           
@@ -1206,7 +1206,7 @@ return message.reply("You can\'t punish yourself!");
           const fetched = await message.channel.fetchMessages({limit: deleteCount});
           message.channel.bulkDelete(fetched)
             .catch(error => message.channel.send({embed: {
-              color: 15844367,
+              color: "#f7abab",
               description: `There was an error purging these messages: ${error}`
             }}));
         }
@@ -1498,7 +1498,7 @@ const embed = new Discord.RichEmbed()
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
-  .setColor(15844367)
+  .setColor("#f7abab")
   .setDescription("Hello. Thank you for using Snoopy Worker! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
   .setFooter("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
@@ -1523,7 +1523,7 @@ const embed1 = new Discord.RichEmbed()
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
-  .setColor(15844367)
+  .setColor("#f7abab")
   .setDescription("Hello. Thank you for using Snoopy Worker! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
   .setFooter("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
@@ -1547,7 +1547,7 @@ const embed1 = new Discord.RichEmbed()
 const embed3 = new Discord.RichEmbed()
   .setTitle("Version")
   .setAuthor("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setColor(15844367)
+  .setColor("#f7abab")
   .setDescription("Welcome to the version embed! This is where you'll find the version the bots running on!")
   .setFooter("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
   .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
@@ -1556,7 +1556,7 @@ const embed3 = new Discord.RichEmbed()
   .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", );
 
 const help = {
-	color: 15844367,
+	color: "#f7abab",
 	title: 'Help',
 	author: {
 		name: 'Help',
@@ -1611,7 +1611,7 @@ const help = {
 };
 
 const version = {
-	color: 15844367,
+	color: "#f7abab",
 	title: 'Version',
 	author: {
 		name: 'Version',
