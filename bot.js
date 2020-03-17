@@ -31,22 +31,9 @@ client.on("message", message => {
         message.delete();
         message.channel.send(text);
     } else
-			    if(command === `avatar`){
-	if(message.channel.type === 'dm') return message.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
-        let mentions = message.mentions.members.first()
-        if(!mentions) {
-          let sicon = message.author.avatarURL()
-          let avatarembed1 = new Discord.RichEmbed()
-          .setImage(message.author.avatarURL)
-          .setColor("#5074b3")
-          message.channel.send({avatarembed1})
-        } else {
-          let sicon = mentions.user.avatarURL()
-          let avatarembed2 = new Discord.RichEmbed()
-          .setColor("#5074b3")
-          .setImage(sicon)
-          message.channel.send({avatarembed2})
-        }
+if (message.content === 'what is my avatar') {
+    // Send the user's avatar URL
+    message.reply(message.author.displayAvatarURL());
     } else
     if(command === "apicheck") {
       message.channel.send({embed: {
