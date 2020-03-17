@@ -1023,7 +1023,7 @@ if(command === "cleanup") {
       
 	      
         // Let's go with a few common example commands! Feel free to delete or change those.
-client.on('message', async msg => {
+client.on("message", async message => {
   // As usual, ignore all bots.
   if (message.author.bot) return;
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
