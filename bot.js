@@ -1233,16 +1233,16 @@ client.on('message', async msg =>{
         let mentions = msg.mentions.members.first()
         if(!mentions) {
           let sicon = msg.author.avatarURL
-          let embed = new Discord.RichEmbed()
+          let embed27 = new Discord.RichEmbed()
           .setImage(msg.author.avatarURL)
           .setColor("#5074b3")
-          msg.channel.send({embed})
+          msg.channel.send({embed27})
         } else {
           let sicon = mentions.user.avatarURL
-          let embed = new Discord.RichEmbed()
+          let embed28 = new Discord.RichEmbed()
           .setColor("#5074b3")
           .setImage(sicon)
-          msg.channel.send({embed})
+          msg.channel.send({embed28})
         }
     };
 });
