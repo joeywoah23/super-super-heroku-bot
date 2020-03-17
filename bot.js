@@ -2,6 +2,10 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 const ytdl = require('ytdl-core');
+const youtube = new YouTube("AIzaSyD747gqlEB_p4UD-OYKWra5G6E3hP3cuHc"); //
+const fetchVideoInfo = require('youtube-info'); //
+const getYoutubeID = require('get-youtube-id'); //
+const YouTube = require('simple-youtube-api'); //
 const fs = require("fs");
 const queue = new Map();
 const {
