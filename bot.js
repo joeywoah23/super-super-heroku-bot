@@ -33,7 +33,7 @@ client.on("message", message => {
     } else
     if(command === "apicheck") {
       message.channel.send({embed: {
-        color: "#f7abab",
+        color: 247, 171, 171
         description: `API Latency is **${Math.round(client.ping)}**ms!`
       }});
     } else
@@ -45,7 +45,7 @@ client.on("message", message => {
     } else
     if (message.content.startsWith(config.prefix + 'latency')) {
       message.channel.send({embed: {
-        color: "#f7abab",
+        color: 247, 171, 171
         description: `Latency is **${message.createdTimestamp - message.createdTimestamp}**ms!`
       }});
     } else
@@ -63,7 +63,7 @@ client.on("message", message => {
     } else
     if (message.content.startsWith(config.prefix + 'channelcount')) {
       message.channel.send({embed: {
-        color: "#f7abab",
+        color: [113, 10, 243],
         description: `This server has **${client.channels.size}** channels!`
       }});
     } else
@@ -78,7 +78,7 @@ client.on("message", message => {
  } else
     if (message.content.startsWith(config.prefix + 'membercount')) {
       message.channel.send({embed: {
-        color: "#f7abab",
+        color: [113, 10, 243],
         description: `This server has **${client.users.size}** members!`
       }});
     } else
@@ -91,7 +91,7 @@ client.on("message", message => {
       if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member) return message.channel.send({embed: {
-        color: "#f7abab",
+        color: [113, 10, 243],
         description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
       }}).then(msg => {
         msg.delete(10000)
@@ -104,7 +104,7 @@ return message.reply("You can\'t punish yourself!");
       // Add the role!
       member.addRole(role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
-        color: "#f7abab",
+        color: [113, 10, 243],
         author: {
           name: client.user.username,
           icon_url: client.user.avatarURL
@@ -131,7 +131,7 @@ return message.reply("You can\'t punish yourself!");
       }
     });
     message.channel.send({embed: {
-      color: "#f7abab",
+      color: [113, 10, 243],
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
