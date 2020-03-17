@@ -19,15 +19,6 @@ const talkedRecently = new Set();
 
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
-	if (talkedRecently.has(message.author.id))
-  return;
-
-// Adds the user to the set so that they can't talk for 2.5 seconds
-talkedRecently.add(message.author.id);
-setTimeout(() => {
-  // Removes the user from the set after 2.5 seconds
-  talkedRecently.delete(message.author.id);
-}, 2500);
     if (message.author.bot) return;
     // This is where we'll put our code.
     if (message.content.indexOf(config.prefix) !== 0) return;
@@ -838,13 +829,6 @@ return message.reply("You can\'t report yourself!");
         if(message.content.indexOf(config.prefix) !== 0) return;
 	       if (talkedRecently.has(message.author.id))
   return;
-
-// Adds the user to the set so that they can't talk for 2.5 seconds
-talkedRecently.add(message.author.id);
-setTimeout(() => {
-  // Removes the user from the set after 2.5 seconds
-  talkedRecently.delete(message.author.id);
-}, 2500);
         
         // Here we separate our "command" name, and our "arguments" for the command. 
         // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
@@ -873,15 +857,7 @@ client.on("message", message => {
 client.on("message", message => {
   // As usual, ignore all bots.
   if (message.author.bot) return;
-   if (talkedRecently.has(message.author.id))
-  return;
 
-// Adds the user to the set so that they can't talk for 2.5 seconds
-talkedRecently.add(message.author.id);
-setTimeout(() => {
-  // Removes the user from the set after 2.5 seconds
-  talkedRecently.delete(message.author.id);
-}, 2500);
   // If this is not in a DM, execute the points code.
   if (message.guild) {
     // We'll use the key often enough that simplifying it is worth the trouble.
@@ -1349,6 +1325,9 @@ client.on('message', async msg => {
         return undefined;
         
 	} else if (command === `stop`) {
+		let member = message.mentions.members.first();
+      if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      return message.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
         if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
@@ -1358,6 +1337,9 @@ client.on('message', async msg => {
         return undefined;
         
 	} else if (command === `vol`) {
+		let member = message.mentions.members.first();
+      if(!message.member.roles.some(r=>["《Developer》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      return message.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
 		if (!serverQueue) return msg.channel.send('You only can use this command while music is playing!');
@@ -1608,7 +1590,7 @@ const help = {
 		},
 		{
 			name: "Music Commands",
-			value: "<play, stop, skip>",
+			value: "play, stop, skip, np, queue.",
 			inline: false
 		},
 		{
