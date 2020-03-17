@@ -35,7 +35,7 @@ client.on("message", message => {
 	if(message.channel.type === 'dm') return message.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
         let mentions = message.mentions.members.first()
         if(!mentions) {
-          let sicon = message.author.displayAvatarURL()
+          let sicon = message.author.avatarURL()
           let avatarembed1 = new Discord.RichEmbed()
           .setImage(message.author.avatarURL)
           .setColor("#5074b3")
