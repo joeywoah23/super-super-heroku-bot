@@ -1229,21 +1229,70 @@ client.on('message', async msg =>{
         let mentions = msg.mentions.members.first()
         if(!mentions) {
           let sicon = msg.author.avatarURL
-          let avatar1 = new Discord.RichEmbed()
-	  .addField("Avatar", `This is ${sicon}'s avatar!`)
-          .setImage(msg.author.avatarURL)
-          .setColor("#5074b3")
-          msg.channel.send({avatar1})
+const avatar1 = {
+	color: 16231339,
+	title: 'Avatar',
+	url: 'https://discord.js.org',
+	author: {
+		name: 'Crystelian',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		url: 'https://discord.js.org',
+	},
+	description: 'Avatar\'s Central!',
+	thumbnail: {
+		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+	},
+	fields: [
+		{
+			name: 'Avatar',
+			value: 'This is ${mentions}\'s avatar!',
+		},
+	],
+	image: {
+		url: '${sicon}',
+	},
+	timestamp: new Date(),
+	footer: {
+		text: 'Crystelian',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+	},
+};
+          msg.channel.send({embed: avatar1})
         } else {
           let sicon = mentions.user.avatarURL
-          let avatar2 = new Discord.RichEmbed()
-	  .addField("Avatar", `This is ${sicon}'s avatar!`)
-          .setColor("#5074b3")
-          .setImage(sicon)
-          msg.channel.send({avatar2})
+const avatar2 = {
+	color: 16231339,
+	title: 'Avatar',
+	url: 'https://discord.js.org',
+	author: {
+		name: 'Crystelian',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		url: 'https://discord.js.org',
+	},
+	description: 'Avatar\'s Central!',
+	thumbnail: {
+		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+	},
+	fields: [
+		{
+			name: 'Avatar',
+			value: 'This is ${mentions}\'s avatar!',
+		},
+	],
+	image: {
+		url: '${sicon}',
+	},
+	timestamp: new Date(),
+	footer: {
+		text: 'Crystelian',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+	},
+};
+          msg.channel.send({embed: avatar2})
         }
     };
 });
+
 
 client.on('message', async msg => { 
 	if (msg.author.bot) return undefined;
