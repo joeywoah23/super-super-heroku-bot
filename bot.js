@@ -907,7 +907,7 @@ function skip(message, serverQueue) {
 function stop(message, serverQueue) {
 	if (!message.member.voiceChannel) return message.reply('You have to be in a voice channel to stop the music!');
 	serverQueue.songs = [];
-	serverQueue.voiceChannel.leave();
+	serverQueue.connection.dispatcher.end();
 }
 
 function play(guild, song) {
@@ -929,6 +929,7 @@ function play(guild, song) {
 			console.error(error);
 		});
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+}
 
 
       client.on("message", async message => {
