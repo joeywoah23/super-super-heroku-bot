@@ -839,6 +839,8 @@ return message.reply("You can\'t report yourself!");
 	        const Enmap = require("enmap");
 client.points = new Enmap({name: "points"});
 client.on("message", message => {
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
   if (message.author.bot) return;
   if (message.guild) {
     // Let's simplify the `key` part of this.
