@@ -16,8 +16,6 @@ const {
 } = require('./config.json');
 const talkedRecently = new Set();
 
-asdasdadadad
-
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
     if (message.author.bot) return;
