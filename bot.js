@@ -1,5 +1,3 @@
-'use strict';
-
 const Discord = require("discord.js");
 const Util = require('discord.js');
 const client = new Discord.Client();
@@ -1249,7 +1247,7 @@ const avatar1 = {
 		},
 	],
 	image: {
-		url: '${sicon}',
+		url: sicon,
 	},
 	timestamp: new Date(),
 	footer: {
@@ -1280,7 +1278,7 @@ const avatar2 = {
 		},
 	],
 	image: {
-		url: '${sicon}',
+		url: sicon,
 	},
 	timestamp: new Date(),
 	footer: {
