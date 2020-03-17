@@ -15,7 +15,7 @@ const {
 	token,
 } = require('./config.json');
 const talkedRecently = new Set();
-
+ asdoiiansdanbdbasudb
 
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
