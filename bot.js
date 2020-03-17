@@ -10,7 +10,9 @@ const {
 } = require('./config.json');
 
 let nopunishID = {
-    "272575383520673793",
+	// Riley
+    "272575383520673793"
+	// Joey
     "630817206145646602"
 }
 
