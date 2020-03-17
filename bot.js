@@ -1227,6 +1227,27 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
+    if(command === `avatar`){
+	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
+        let mentions = msg.mentions.members.first()
+        if(!mentions) {
+          let sicon = msg.author.avatarURL
+          let avatar1 = new Discord.RichEmbed()
+	  .setField("Avatar", `This is ${sicon}'s avatar!`)
+          .setImage(msg.author.avatarURL)
+          .setColor("#5074b3")
+          msg.channel.send({avatar1})
+        } else {
+          let sicon = mentions.user.avatarURL
+          let avatar2 = new Discord.RichEmbed()
+	  .setField("Avatar", `This is ${sicon}'s avatar!`)
+          .setColor("#5074b3")
+          .setImage(sicon)
+          msg.channel.send({avatar2})
+        }
+    };
+});
+
 client.on('message', async msg => { 
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
@@ -1534,12 +1555,6 @@ const embed = new Discord.RichEmbed()
   .addBlankField(true)
   .addField("`OS`", "`RUNNING ON CrystelianOS`", true);
 
-client.on("message", async message => {
-const avatarEmbed1 = new Discord.MessageEmbed()
-	.setTitle('Avatar')
-	.setImage(message.author.avatarURL);
-});
-	
 const help = {
 	color: 16231339,
 	title: 'Help',
