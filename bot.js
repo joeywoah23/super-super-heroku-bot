@@ -898,6 +898,7 @@ async function execute(message, serverQueue) {
 
 }
 
+client.on("message", async message => {
 function skip(message, serverQueue) {
 	if (!message.member.voiceChannel) return message.reply('You have to be in a voice channel to stop the music!');
 	if (!serverQueue) return message.reply('There is no song that I could skip!');
