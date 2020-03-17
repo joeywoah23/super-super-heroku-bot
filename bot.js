@@ -72,7 +72,7 @@ setTimeout(() => {
       }});
     } else
   if (message.content.startsWith(config.prefix + 'reboot')) {
-   if(!message.member.roles.some(r=>["《Developer》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+   if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
