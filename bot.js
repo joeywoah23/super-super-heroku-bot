@@ -33,10 +33,6 @@ client.on("message", message => {
         message.delete();
         message.channel.send(text);
     } else
-if (message.content === 'what is my avatar') {
-    // Send the user's avatar URL
-    message.reply(message.author.displayAvatarURL());
-    } else
     if(command === "apicheck") {
       message.channel.send({embed: {
         color: 16231339,
@@ -607,6 +603,9 @@ return message.reply("You can\'t punish yourself!");
     }
   });;
   } else
+	  if (message.content.startsWith(config.prefix + 'avatar')) {
+		  message.channel.send({avatarEmbed1});
+	  } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
 
     let reason = args.slice(1).join(' ');
@@ -1228,25 +1227,6 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === `avatar`){
-	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
-        let mentions = msg.mentions.members.first()
-        if(!mentions) {
-          let sicon = msg.author.avatarURL
-          let embed27 = new Discord.RichEmbed()
-          .setImage(msg.author.avatarURL)
-          .setColor("#5074b3")
-          msg.channel.send({embed27})
-        } else {
-          let sicon = mentions.user.avatarURL
-          let embed28 = new Discord.RichEmbed()
-          .setColor("#5074b3")
-          .setImage(sicon)
-          msg.channel.send({embed28})
-        }
-    };
-});
-
 client.on('message', async msg => { 
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
@@ -1554,6 +1534,12 @@ const embed = new Discord.RichEmbed()
   .addBlankField(true)
   .addField("`OS`", "`RUNNING ON CrystelianOS`", true);
 
+client.on("message", async message => {
+const avatarEmbed1 = new Discord.MessageEmbed()
+	.setTitle('Avatar')
+	.setImage(message.author.avatarURL);
+});
+	
 const help = {
 	color: 16231339,
 	title: 'Help',
