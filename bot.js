@@ -33,7 +33,7 @@ client.on("message", message => {
     } else
     if(command === "apicheck") {
       message.channel.send({embed: {
-        color: 'LUMINOUS_VIVID_PINK',
+        color: 16580705,
         description: `API Latency is **${Math.round(client.ping)}**ms!`
       }});
     } else
@@ -45,7 +45,7 @@ client.on("message", message => {
     } else
     if (message.content.startsWith(config.prefix + 'latency')) {
       message.channel.send({embed: {
-        color: 'LUMINOUS_VIVID_PINK',
+        color: 16580705,
         description: `Latency is **${message.createdTimestamp - message.createdTimestamp}**ms!`
       }});
     } else
