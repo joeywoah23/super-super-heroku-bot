@@ -1036,7 +1036,7 @@ if(command === "cleanup") {
       
 	      
         // Let's go with a few common example commands! Feel free to delete or change those.
-
+client.on('message', async msg => { 
         if(command === "kick") {
 
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
