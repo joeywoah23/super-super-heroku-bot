@@ -1495,14 +1495,14 @@ console.log("I have logged in! If at any time I crash please come back and check
 
 const embed = new Discord.RichEmbed()
   .setTitle("Information Embed")
-  .setAuthor("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
+  .setAuthor("Information", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
   .setColor(16231339)
   .setDescription("Hello. Thank you for using Snoopy Worker! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
-  .setFooter("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
+  .setFooter("Information", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+  .setThumbnail("https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
   /*
    * Takes a Date object, defaults to current date.
    */
@@ -1518,55 +1518,17 @@ const embed = new Discord.RichEmbed()
   .addBlankField(true)
   .addField("`OS`", "`RUNNING ON CrystelianOS`", true);
 
-const embed1 = new Discord.RichEmbed()
-  .setTitle("Information")
-  .setAuthor("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  /*
-   * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-   */
-  .setColor(16231339)
-  .setDescription("Hello. Thank you for using Snoopy Worker! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
-  .setFooter("Information", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  /*
-   * Takes a Date object, defaults to current date.
-   */
-  .setTimestamp()
-  .addField("Developer",
-    "joeywoah_#0001")
-  /*
-   * Inline fields may not display as inline if the thumbnail and/or image is too big.
-   */
-  .addField("GitHub Repository", "[GitHub](https://github.com/joeywoah23/snoopyworker)", true)
-  /*
-   * Blank field, useful to create some space.
-   */
-  .addBlankField(true)
-  .addField("OS","`RUNNING ON CrystelianOS 3`")
-  .addField("This bot was made using", "[Discord.js](https://discord.js.org)");
-
-const embed3 = new Discord.RichEmbed()
-  .setTitle("Version")
-  .setAuthor("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setColor(16231339)
-  .setDescription("Welcome to the version embed! This is where you'll find the version the bots running on!")
-  .setFooter("Version", "https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setThumbnail("https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot")
-  .setTimestamp()
-  .addField("CrystelianOS","```RUNNING ON VERSION 3```")
-  .addField("Snoopy Worker", "```RUNNING ON VERSION 2.0```", );
-
 const help = {
 	color: 16231339,
 	title: 'Help',
 	author: {
 		name: 'Help',
-		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 		url: 'https://discord.js.org',
 	},
 	description: 'Welcome to the help embed! You\'ll find most commands here! `()` - Remodel, `<>` - Beta, `[]` - WIP.',
 	thumbnail: {
-		url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 	fields: [
 		{
@@ -1607,7 +1569,7 @@ const help = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Help',
-		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 };
 
@@ -1616,12 +1578,12 @@ const version = {
 	title: 'Version',
 	author: {
 		name: 'Version',
-		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 		url: 'https://discord.js.org',
 	},
 	description: 'Welcome to the version embed! This is where you\'ll find the version the bots running on!',
 	thumbnail: {
-		url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 	fields: [
 		{
@@ -1637,7 +1599,7 @@ const version = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Version',
-		icon_url: 'https://cdn.discordapp.com/app-icons/682455200212058144/fe741000f4323b9afbaf7e208f4b7706.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 };
 
