@@ -1230,14 +1230,14 @@ client.on('message', async msg =>{
         if(!mentions) {
           let sicon = msg.author.avatarURL
           let avatar1 = new Discord.RichEmbed()
-	  .setField("Avatar", `This is ${sicon}'s avatar!`)
+	  .addField("Avatar", `This is ${sicon}'s avatar!`)
           .setImage(msg.author.avatarURL)
           .setColor("#5074b3")
           msg.channel.send({avatar1})
         } else {
           let sicon = mentions.user.avatarURL
           let avatar2 = new Discord.RichEmbed()
-	  .setField("Avatar", `This is ${sicon}'s avatar!`)
+	  .addField("Avatar", `This is ${sicon}'s avatar!`)
           .setColor("#5074b3")
           .setImage(sicon)
           msg.channel.send({avatar2})
