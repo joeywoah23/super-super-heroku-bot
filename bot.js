@@ -1129,7 +1129,6 @@ return message.reply("You can\'t punish yourself!");
           msg.channel.send({embed})
         }
     };
-});
 	
         if(command === "ban") {
 
