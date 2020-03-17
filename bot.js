@@ -9,7 +9,6 @@ const YouTube = require('simple-youtube-api'); //
 const youtube = new YouTube("AIzaSyD747gqlEB_p4UD-OYKWra5G6E3hP3cuHc"); //
 const fs = require("fs");
 const gif = require("gif-search");
-const client = new Discord.Client({disableEveryone: true});
 const queue = new Map();
 const {
 	prefix,
