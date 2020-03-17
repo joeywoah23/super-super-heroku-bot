@@ -1542,7 +1542,7 @@ const help = {
 		},
 		{
 			name: "Music Commands",
-			value: "play, stop, skip, np, queue.",
+			value: "play, skip, np, queue, pause, resume.",
 			inline: false
 		},
 		{
@@ -1557,7 +1557,7 @@ const help = {
 		},
 		{
 			name: 'CrystelianOS Moderation',
-			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, rban, urb.',
+			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, rban, urb, stop.',
 			inline: true,
 		},
 		{
