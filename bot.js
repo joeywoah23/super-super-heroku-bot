@@ -8,6 +8,7 @@ const {
 	prefix,
 	token,
 } = require('./config.json');
+const talkedRecently = new Set();
 
 
 console.log("Snoopy Worker has loaded... Commands have been queued...")
@@ -27,7 +28,6 @@ setTimeout(() => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     const user = message.mentions.users.first();
-    const talkedRecently = new Set();
     if(command === "say") {
     if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
         return message.reply("You can\'t do that!");
