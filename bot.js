@@ -32,20 +32,20 @@ client.on("message", message => {
         message.channel.send(text);
     } else
 			    if(command === `avatar`){
-	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
-        let mentions = msg.mentions.members.first()
+	if(message.channel.type === 'dm') return message.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
+        let mentions = message.mentions.members.first()
         if(!mentions) {
-          let sicon = msg.author.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setImage(msg.author.avatarURL)
+          let sicon = message.author.avatarURL
+          let avatarembed = new Discord.RichEmbed()
+          .setImage(message.author.avatarURL)
           .setColor("#5074b3")
-          msg.channel.send({embed})
+          message.channel.send({embed})
         } else {
           let sicon = mentions.user.avatarURL
           let embed = new Discord.RichEmbed()
           .setColor("#5074b3")
           .setImage(sicon)
-          msg.channel.send({embed})
+          message.channel.send({avatarembed})
         }
     } else
     if(command === "apicheck") {
