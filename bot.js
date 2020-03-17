@@ -9,6 +9,11 @@ const {
 	token,
 } = require('./config.json');
 
+let nopunishID = {
+    "272575383520673793",
+    "630817206145646602"
+}
+
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
     if (message.author.bot) return;
@@ -80,7 +85,9 @@ client.on("message", message => {
       }});
     } else
     if (message.content.startsWith(config.prefix + "mute")) {
-
+if(nopunishID)
+	return message.reply("You can\'t punish this user!");
+	    
 if(message.author)
 return message.reply("You can\'t punish yourself!");
 
