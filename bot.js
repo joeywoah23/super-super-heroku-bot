@@ -885,6 +885,13 @@ client.on("message", message => {
   }
   // Rest of message handler
 });
+
+client.on("message", message => {
+  // As usual, ignore all bots.
+  if (message.author.bot) return;
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
+
 if (command === "rank") {
   const key = `${message.guild.id}-${message.author.id}`;
   return message.channel.send({embed: {
@@ -1012,10 +1019,16 @@ if(command === "cleanup") {
 
   message.channel.send(`I've cleaned up ${toRemove.size} old farts.`);
 }
+});
       
 	      
         // Let's go with a few common example commands! Feel free to delete or change those.
-client.on('message', async msg => { 
+client.on('message', async msg => {
+  // As usual, ignore all bots.
+  if (message.author.bot) return;
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
+
         if(command === "kick") {
 
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
