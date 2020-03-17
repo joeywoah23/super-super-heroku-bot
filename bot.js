@@ -930,7 +930,7 @@ function play(guild, song) {
 			console.error(error);
 		});
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-}
+});
 
 
       client.on("message", async message => {
