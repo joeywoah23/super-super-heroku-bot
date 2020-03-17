@@ -31,6 +31,23 @@ client.on("message", message => {
         message.delete();
         message.channel.send(text);
     } else
+			    if(command === `avatar`){
+	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
+        let mentions = msg.mentions.members.first()
+        if(!mentions) {
+          let sicon = msg.author.avatarURL
+          let embed = new Discord.RichEmbed()
+          .setImage(msg.author.avatarURL)
+          .setColor("#5074b3")
+          msg.channel.send({embed})
+        } else {
+          let sicon = mentions.user.avatarURL
+          let embed = new Discord.RichEmbed()
+          .setColor("#5074b3")
+          .setImage(sicon)
+          msg.channel.send({embed})
+        }
+    } else
     if(command === "apicheck") {
       message.channel.send({embed: {
         color: 16231339,
@@ -1306,24 +1323,6 @@ client.on('message', async msg => {
             
         }
 
-			    if(command === `avatar`){
-	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
-        let mentions = msg.mentions.members.first()
-        if(!mentions) {
-          let sicon = msg.author.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setImage(msg.author.avatarURL)
-          .setColor("#5074b3")
-          msg.channel.send({embed})
-        } else {
-          let sicon = mentions.user.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setColor("#5074b3")
-          .setImage(sicon)
-          msg.channel.send({embed})
-        }
-    };
-	
         
 	} else if (command === `skip`) {
 
@@ -1464,7 +1463,7 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
 }
 
-
+console.log("All Music Commands have been loaded!");
 console.log("All Moderation, Fun, Roleplay, and Agent commands have been loaded!");
 console.log("Snoopy Worker is now ready for use!");
 console.log("I have logged in! If at any time I crash please come back and check these logs!");
