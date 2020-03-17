@@ -81,9 +81,6 @@ client.on("message", message => {
       }});
     } else
     if (message.content.startsWith(config.prefix + "mute")) {
-	    
-if(message.author)
-return message.reply("You can\'t punish yourself!");
 
       let role = message.guild.roles.find(r => r.name === "Muted");
     
@@ -97,6 +94,8 @@ return message.reply("You can\'t punish yourself!");
       }}).then(msg => {
         msg.delete(10000)
       }) 
+if(member === message.author)
+return message.reply("You can\'t punish yourself!");
       //made the command: let member = message.member;
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
@@ -284,9 +283,6 @@ return message.reply("You can\'t punish yourself!");
 } else
 	if (message.content.startsWith(config.prefix + "rban")) {
 
-if(message.author)
-return message.reply("You can\'t punish yourself!");
-
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
@@ -302,6 +298,8 @@ return message.reply("You can\'t punish yourself!");
             }}).then(msg => {
               msg.delete(10000)
             })
+	if(member === message.author)
+return message.reply("You can\'t punish yourself!");
       // or the person who made the command: let member = message.member;
       
       // Add the role!
@@ -354,9 +352,6 @@ return message.reply("You can\'t punish yourself!");
 	} else
 if (message.content.startsWith(config.prefix + "urb")) {
 
-if(message.author)
-return message.reply("You can\'t unpunish yourself!");
-
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
@@ -372,6 +367,9 @@ return message.reply("You can\'t unpunish yourself!");
             }}).then(msg => {
               msg.delete(10000)
             })
+	
+if(member === message.author)
+return message.reply("You can\'t unpunish yourself!");
       // or the person who made the command: let member = message.member;
       
       // Add the role!
@@ -409,23 +407,20 @@ return message.reply("You can\'t unpunish yourself!");
         name: client.user.username,
         icon_url: client.user.avatarURL
       },
-      title: "RoleBan Action",
+      title: "URBan Action",
           fields: [{
-          name: "Roleban",
+          name: "URBan",
           value: `**${message.author.tag}**, **${member}** has been rolebanned for **${reason}**`
         }
       ],
       footer: {
         icon_url: client.user.avatarURL,
-        text: "Roleban Action"
+        text: "URBan Action"
       }
     }
   });;
 	} else
 if (message.content.startsWith(config.prefix + "hitlist")) {
-
-if(message.author)
-return message.reply("You can\'t punish yourself!");
 
   if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
@@ -438,6 +433,8 @@ return message.reply("You can\'t punish yourself!");
           }}).then(msg => {
             msg.delete(10000)
           })
+	if(member === message.author)
+return message.reply("You can\'t punish yourself!");
   if(!reason)
     return message.reply("Mention someone to add to **THE HITLIST**");
   message.channel.send({embed: {
@@ -474,8 +471,6 @@ return message.reply("You can\'t punish yourself!");
 } else
   if (message.content.startsWith(config.prefix + "unmute"))
     {let role = message.guild.roles.find(r => r.name === "Muted");
-if(message.author)
-return message.reply("You can\'t unpunish yourself!");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first();
@@ -488,6 +483,9 @@ return message.reply("You can\'t unpunish yourself!");
             }}).then(msg => {
               msg.delete(10000)
             })
+     
+if(member === message.author)
+return message.reply("You can\'t unpunish yourself!");
       // or the person who made the command: let member = message.member;
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
@@ -539,8 +537,6 @@ return message.reply("You can\'t unpunish yourself!");
         message.channel.send("https://gph.is/g/469ALg8")
     } else
     if (message.content.startsWith(config.prefix + "warn")) {
-if(message.author)
-return message.reply("You can\'t punish yourself!");
       let reason = args.slice(1).join(' ');
       let user = message.mentions.members.first();
       if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -552,6 +548,8 @@ return message.reply("You can\'t punish yourself!");
             }}).then(msg => {
               msg.delete(10000)
             })
+	    if(user === message.author)
+return message.reply("You can\'t punish yourself!");
       // **CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!
       // or the person who made the command: let member = message.member;
       if(!reason) reason = "No reason provided";
@@ -603,9 +601,6 @@ return message.reply("You can\'t punish yourself!");
   } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
 
-if(message.author)
-return message.reply("You can\'t report yourself!");
-
     let reason = args.slice(1).join(' ');
     let user = message.mentions.members.first();
     if(!user)
@@ -615,6 +610,9 @@ return message.reply("You can\'t report yourself!");
     }}).then(msg => {
       msg.delete(10000)
     })
+	  
+if(user === message.author)
+return message.reply("You can\'t report yourself!");
     if(!reason) 
     return message.channel.send({embed: {
       color: 15844367,
