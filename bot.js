@@ -603,9 +603,6 @@ return message.reply("You can\'t punish yourself!");
     }
   });;
   } else
-	  if (message.content.startsWith(config.prefix + 'avatar')) {
-		  message.channel.send({avatarEmbed1});
-	  } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
 
     let reason = args.slice(1).join(' ');
