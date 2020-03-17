@@ -907,7 +907,7 @@ function skip(message, serverQueue) {
 function stop(message, serverQueue) {
 	if (!message.member.voiceChannel) return message.reply('You have to be in a voice channel to stop the music!');
 	serverQueue.songs = [];
-	serverQueue.connection.dispatcher.end();
+	serverQueue.voiceChannel.leave();
 }
 
 function play(guild, song) {
