@@ -12,6 +12,15 @@ const {
 
 console.log("Snoopy Worker has loaded... Commands have been queued...")
 client.on("message", message => {
+	if (talkedRecently.has(message.author.id))
+  return;
+
+// Adds the user to the set so that they can't talk for 2.5 seconds
+talkedRecently.add(message.author.id);
+setTimeout(() => {
+  // Removes the user from the set after 2.5 seconds
+  talkedRecently.delete(message.author.id);
+}, 2500);
     if (message.author.bot) return;
     // This is where we'll put our code.
     if (message.content.indexOf(config.prefix) !== 0) return;
@@ -924,6 +933,7 @@ function play(guild, song) {
 
 
       client.on("message", async message => {
+	     
         // This event will run on every single message received, from any channel or DM.
         
         // It's good practice to ignore other bots. This also makes your bot ignore itself
@@ -933,6 +943,15 @@ function play(guild, song) {
         // Also good practice to ignore any message that does not start with our prefix, 
         // which is set in the configuration file.
         if(message.content.indexOf(config.prefix) !== 0) return;
+	       if (talkedRecently.has(message.author.id))
+  return;
+
+// Adds the user to the set so that they can't talk for 2.5 seconds
+talkedRecently.add(message.author.id);
+setTimeout(() => {
+  // Removes the user from the set after 2.5 seconds
+  talkedRecently.delete(message.author.id);
+}, 2500);
         
         // Here we separate our "command" name, and our "arguments" for the command. 
         // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
@@ -961,7 +980,15 @@ client.on("message", message => {
 client.on("message", message => {
   // As usual, ignore all bots.
   if (message.author.bot) return;
-  
+   if (talkedRecently.has(message.author.id))
+  return;
+
+// Adds the user to the set so that they can't talk for 2.5 seconds
+talkedRecently.add(message.author.id);
+setTimeout(() => {
+  // Removes the user from the set after 2.5 seconds
+  talkedRecently.delete(message.author.id);
+}, 2500);
   // If this is not in a DM, execute the points code.
   if (message.guild) {
     // We'll use the key often enough that simplifying it is worth the trouble.
