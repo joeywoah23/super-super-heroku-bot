@@ -36,16 +36,16 @@ client.on("message", message => {
         let mentions = message.mentions.members.first()
         if(!mentions) {
           let sicon = message.author.avatarURL
-          let avatarembed = new Discord.RichEmbed()
+          let avatarembed1 = new Discord.RichEmbed()
           .setImage(message.author.avatarURL)
           .setColor("#5074b3")
-          message.channel.send({embed})
+          message.channel.send({avatarembed1})
         } else {
           let sicon = mentions.user.avatarURL
-          let embed = new Discord.RichEmbed()
+          let avatarembed2 = new Discord.RichEmbed()
           .setColor("#5074b3")
           .setImage(sicon)
-          message.channel.send({avatarembed})
+          message.channel.send({avatarembed2})
         }
     } else
     if(command === "apicheck") {
