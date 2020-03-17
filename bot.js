@@ -1121,9 +1121,6 @@ if(command === "cleanup") {
 
         if(command === "kick") {
 
-if(message.author)
-return message.reply("You can\'t punish yourself!");
-
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
           // Please read on Array.some() to understand this bit: 
           // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
@@ -1139,6 +1136,10 @@ return message.reply("You can\'t punish yourself!");
               color: 15844367,
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }});
+	
+if(member === message.author)
+return message.reply("You can\'t punish yourself!");
+		
           if(!member.kickable) 
             return message.channel.send({embed: {
               color: 15844367,
@@ -1208,9 +1209,6 @@ return message.reply("You can\'t punish yourself!");
 	      
         if(command === "ban") {
 
-if(message.author)
-return message.reply("You can\'t punish yourself!");
-
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
           if(!message.member.roles.some(r=>["《Developer》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -1222,6 +1220,10 @@ return message.reply("You can\'t punish yourself!");
               color: 15844367,
               description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
             }});
+
+if(member === message.author)
+return message.reply("You can\'t punish yourself!");
+		
           if(!member.bannable) 
             return message.channel.send({embed: {
               color: 15844367,
