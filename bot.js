@@ -354,7 +354,7 @@ return message.reply("You can\'t punish yourself!");
 	} else
 if (message.content.startsWith(config.prefix + "step1rb")) {
 	let member = message.mentions.members.first();
-let roles = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》");
+let role = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》");
 	if(!member)
             return message.channel.send({embed: {
               color: 16231339,
@@ -364,7 +364,7 @@ let roles = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod�
             })
 	if(!message.member.roles.some(r=>["《Developer》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
-	member.removeRoles(roles).catch(console.error)
+	member.removeRoles(role).catch(console.error)
 	message.reply("Done!");
 } else
 if (message.content.startsWith(config.prefix + "urb")) {
