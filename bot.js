@@ -62,7 +62,7 @@ return message.reply("You can\'t punish yourself!");
     let gRole = message.guild.roles.find(r => r.name === `RoleBanned`); //Gets the SUSPENDED role
 let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
-    rMember.removeRoles(rMember.roles).then(console.log).catch(console.error).then(rMember.addRole(gRole)); //Removes all roles
+    rMember.removeRoles(rMember.roles).catch(console.error); //Removes all roles
      //Adds suspended Role
 client.channels.get("618125415134920848").send({embed: {
         color: 16231339,
@@ -91,7 +91,7 @@ client.channels.get("618125415134920848").send({embed: {
         }
       }
     });
-
+rMember.addRoles(gRole).catch(console.error);
     message.channel.send({embed: {
       color: 16231339,
       author: {
@@ -412,7 +412,7 @@ return message.reply("You can\'t unpunish yourself!");
       title: "URBan Action",
           fields: [{
           name: "URBan",
-          value: `**${message.author.tag}**, **${member}** has been rolebanned for **${reason}**`
+          value: `**${message.author.tag}**, **${member}** has been unrolebanned for **${reason}**`
         }
       ],
       footer: {
@@ -1392,6 +1392,7 @@ client.on('message', async msg => {
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
 
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
+		msg.channel.send("Ok. I have skipped the song!");
         return undefined;
         
 	} else if (msg.content.startsWith(config.prefix + `stop`)) {
@@ -1404,6 +1405,7 @@ client.on('message', async msg => {
         
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
+		msg.channel.send("OK. I have stopped the music and disconnected from your voice channel.");
         return undefined;
         
 	} else if (msg.content.startsWith(config.prefix + `vol`)) {
