@@ -288,10 +288,9 @@ return message.reply("You can\'t punish yourself!");
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
-		let RmvRoles = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
-      let member = message.mentions.members.first();
+let member = message.mentions.member.first();
       if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member)
@@ -354,6 +353,21 @@ member.removeRole(RmvRoles).catch(console.error)
     }
   });;
 	} else
+if (message.content.startsWith(config.prefix + step1rb)) {
+	let member = message.mentions.member.first();
+let roles = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》");
+	if(!member)
+            return message.channel.send({embed: {
+              color: 16231339,
+              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
+            }}).then(msg => {
+              msg.delete(10000)
+            })
+	if(!message.member.roles.some(r=>["《Developer》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      return message.reply("You can\'t do that!");
+	member.removeRoles(roles).catch(console.error)
+	message.reply("Done!");
+} else
 if (message.content.startsWith(config.prefix + "urb")) {
 
       let reason = args.slice(1).join(' ');
