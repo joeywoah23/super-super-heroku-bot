@@ -1243,7 +1243,7 @@ const avatar1 = {
 	fields: [
 		{
 			name: 'Avatar',
-			value: 'This is ${mentions}\'s avatar!',
+			value: "This is ${mentions}'s avatar!",
 		},
 	],
 	image: {
@@ -1274,7 +1274,7 @@ const avatar2 = {
 	fields: [
 		{
 			name: 'Avatar',
-			value: 'This is ${mentions}\'s avatar!',
+			value: "This is ${mentions}'s avatar!",
 		},
 	],
 	image: {
@@ -1363,12 +1363,12 @@ client.on('message', async msg => {
 
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
 							maxMatches: 1,
-							time: 15000,
+							time: 10000,
 							errors: ['time']
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('No one respone a number!!');
+						return msg.channel.send('No one responed a number in time!! Queue request has been canceled.');
                     }
                     
 					const videoIndex = parseInt(response.first().content);
