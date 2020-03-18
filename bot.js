@@ -288,6 +288,7 @@ return message.reply("You can\'t punish yourself!");
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
+		let RmvRoles = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first();
@@ -303,11 +304,9 @@ return message.reply("You can\'t punish yourself!");
 	if(member === message.author)
 return message.reply("You can\'t punish yourself!");
       // or the person who made the command: let member = message.member;
-      
-		if(message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
-      member.removeRole;
 
       // Add the role!
+member.removeRole(RmvRoles).catch(console.error)
       member.addRole(Role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
         color: 16231339,
