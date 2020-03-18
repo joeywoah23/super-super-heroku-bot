@@ -304,6 +304,9 @@ return message.reply("You can\'t punish yourself!");
 return message.reply("You can\'t punish yourself!");
       // or the person who made the command: let member = message.member;
       
+		if(message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      member.removeRole;
+
       // Add the role!
       member.addRole(Role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
@@ -892,7 +895,7 @@ client.on("message", message => {
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
 
-if (command === "rank") {
+if (message.content.startsWith(config.prefix + "rank")) {
   const key = `${message.guild.id}-${message.author.id}`;
   return message.channel.send({embed: {
     color: 16231339,
@@ -924,7 +927,7 @@ if (command === "rank") {
 //${client.points.get(key, "points")} = points
 //${client.points.get(key, "level")} = level
 }
-if(command === "leaderboard") {
+if(message.content.startsWith + "leaderboard")) {
   // Get a filtered list (for this guild only), and convert to an array while we're at it.
   const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
 
@@ -945,7 +948,7 @@ if(command === "leaderboard") {
   }
   return message.channel.send({embed});
 }
-if(command === "top") {
+if(message.content.startsWith(config.prefix + "top")) {
   // Get a filtered list (for this guild only), and convert to an array while we're at it.
   const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
 
@@ -967,7 +970,7 @@ if(command === "top") {
   return message.channel.send({embed});
 }
 		
-if(command === "give") {
+if(message.content.startsWith(config.prefix + "give")) {
   // Limited to guild owner - adjust to your own preference!
   if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
     return message.reply("You're not the boss of me, you can't do that!");
@@ -998,7 +1001,7 @@ if(command === "give") {
   message.channel.send(`${user.tag} has received ${pointsToAdd} points and now stands at ${userPoints} points.`);
 }
 
-if(command === "cleanup") {
+if(message.content.startsWith(config.prefix + "cleanup")) {
   // Let's clean up the database of all "old" users, 
   // and those who haven't been around for... say a month.
   if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -1029,7 +1032,7 @@ client.on("message", async message => {
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
 
-        if(command === "kick") {
+        if(message.content.startsWith(config.prefix + "kick")) {
 
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
           // Please read on Array.some() to understand this bit: 
@@ -1113,7 +1116,7 @@ return message.reply("You can\'t punish yourself!");
         }
           
 
-        if(command === "ban") {
+        if(message.content.startsWith(config.prefix + "ban")) {
 
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
@@ -1188,7 +1191,7 @@ return message.reply("You can\'t punish yourself!");
         });;
         }
         
-        if(command === "purge") {
+        if(message.content.startsWith(config.prefix + "purge")) {
           // This command removes all messages from all users in the channel, up to 100.
           if(!message.member.roles.some(r=>["《Developer》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
             return message.reply("You can\'t do that!");
@@ -1222,7 +1225,7 @@ client.on('message', async msg =>{
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-    if(command === `avatar`){
+    if(msg.content.startsWith(config.prefix + `avatar`)) {
 	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
         let mentions = msg.mentions.members.first()
         if(!mentions) {
@@ -1305,7 +1308,7 @@ client.on('message', async msg => {
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 
-	if (command === `play`) {
+	if (msg.contenr.startsWith(config.prefix + `play`)) {
 		const voiceChannel = msg.member.voiceChannel;
         
         if (!voiceChannel) return msg.channel.send("I can't find you in any voice channel!");
@@ -1386,7 +1389,7 @@ client.on('message', async msg => {
         }
 
         
-	} else if (command === `skip`) {
+	} else if (msg.content.startsWith(config.prefix + `skip`)) {
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
@@ -1394,7 +1397,7 @@ client.on('message', async msg => {
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
         return undefined;
         
-	} else if (command === `stop`) {
+	} else if (msg.content.startsWith(config.prefix + `stop`)) {
 		let member = msg.mentions.members.first();
       if(!msg.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return msg.reply("You can\'t do that!");
@@ -1406,7 +1409,7 @@ client.on('message', async msg => {
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
         return undefined;
         
-	} else if (command === `vol`) {
+	} else if (msg.content.startsWith(config.prefix + `vol`)) {
 		let member = msg.mentions.members.first();
       if(!msg.member.roles.some(r=>["《Developer》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return msg.reply("You can\'t do that!");
@@ -1420,7 +1423,7 @@ client.on('message', async msg => {
         
         return msg.channel.send(`Volume Now is **${args[1]}**`);
 
-	} else if (command === `np`) {
+	} else if (msg.content.startsWith(config.prefix + `np`)) {
 
 		if (!serverQueue) return msg.channel.send('There is no Queue!');
 		const embedNP = new Discord.RichEmbed()
@@ -1428,7 +1431,7 @@ client.on('message', async msg => {
 	    .setDescription(`Now playing **${serverQueue.songs[0].title}**`)
         return msg.channel.sendEmbed(embedNP);
         
-	} else if (command === `queue`) {
+	} else if (msg.content.startsWith(config.prefix + `queue`)) {
 		
 		if (!serverQueue) return msg.channel.send('There is no Queue!!');
 		let index = 0;
@@ -1440,14 +1443,14 @@ client.on('message', async msg => {
 **Now playing :** **${serverQueue.songs[0].title}**`)
         .setColor(16231339)
 		return msg.channel.sendEmbed(embedqu);
-	} else if (command === `pause`) {
+	} else if (msg.content.startsWith(config.prefix + `pause`)) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 			return msg.channel.send('Ok, paused');
 		}
 		return msg.channel.send('There is no Queue to Pause!');
-	} else if (command === "resume") {
+	} else if (msg.content.startsWith(config.prefix + "resume")) {
 
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
