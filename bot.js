@@ -740,6 +740,11 @@ return message.reply("You can\'t report yourself!");
       let location = args[2];
       message.channel.send(`Hello ${message.author.username}, I see you're a ${age} year old ${sex} from ${location}. Wanna date?`);
     } else
+if (message.content.startsWith(config.prefix + "multiply")) {
+	let number1 = args[0];
+	let number2 = args[1];
+	message.channel.send(`The answer to ${number1} x ${number2} = ${number1 - number2}.`);
+} else
     if (message.content.startsWith(config.prefix + 'info')) {
       message.channel.send({embed})
     } else
