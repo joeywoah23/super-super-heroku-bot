@@ -1243,7 +1243,7 @@ const avatar1 = {
 	fields: [
 		{
 			name: 'Avatar',
-			value: "This is ${mentions}'s avatar!",
+			value: "Order up! Here's the avatar you ordered!",
 		},
 	],
 	image: {
@@ -1274,7 +1274,7 @@ const avatar2 = {
 	fields: [
 		{
 			name: 'Avatar',
-			value: "This is ${mentions}'s avatar!",
+			value: "Order up! Here's the avatar you ordered!",
 		},
 	],
 	image: {
