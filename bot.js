@@ -59,7 +59,7 @@ if (message.content.startsWith(config.prefix + "roleban")) {
             })
 	if(rMember === message.author)
 return message.reply("You can\'t punish yourself!");
-    let gRole = message.guild.roles.find('name', 'RoleBanned'); //Gets the SUSPENDED role
+    let gRole = message.guild.roles.find(r => r.name === `RoleBanned`); //Gets the SUSPENDED role
 let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
     rMember.removeRoles(rMember.roles).then(console.log).catch(console.error); //Removes all roles
