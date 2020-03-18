@@ -1077,12 +1077,11 @@ client.on("message", message => {
 client.on("message", message => {
 if(message.content.startsWith(config.prefix + "warn")) {
   // Limited to guild owner - adjust to your own preference!
+		const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
     return message.reply("You're not the boss of me, you can't do that!");
-	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const user = message.mentions.users.first() || client.users.get(args[0]);
   if(!user) return message.reply("You must mention someone or give their ID!");
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const warningToAdd = parseInt(args[1], 10);
   if(!warningToAdd) 
     return message.reply("You didn't tell me how many points to give...")
