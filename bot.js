@@ -927,7 +927,7 @@ if (message.content.startsWith(config.prefix + "rank")) {
 //${client.points.get(key, "points")} = points
 //${client.points.get(key, "level")} = level
 }
-if(message.content.startsWith + "leaderboard")) {
+if(message.content.startsWith(config.prefix + "leaderboard")) {
   // Get a filtered list (for this guild only), and convert to an array while we're at it.
   const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
 
