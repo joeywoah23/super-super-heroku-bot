@@ -353,7 +353,7 @@ member.removeRole(RmvRoles).catch(console.error)
     }
   });;
 	} else
-if (message.content.startsWith(config.prefix + step1rb)) {
+if (message.content.startsWith(config.prefix + "step1rb")) {
 	let member = message.mentions.member.first();
 let roles = message.guild.roles.find(r => r.name === "《Trial Mod》", "《Mod》", "《Head Mod》", "《Head Admin》", "《Manager》");
 	if(!member)
