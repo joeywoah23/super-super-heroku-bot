@@ -1073,6 +1073,7 @@ client.on("message", message => {
       guild: message.guild.id,
       warnings: 0,
     });
+client.on("message", message => {
 if(message.content.startsWith(config.prefix + "warn")) {
   // Limited to guild owner - adjust to your own preference!
   if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -1092,7 +1093,6 @@ if(message.content.startsWith(config.prefix + "warn")) {
     points: 0,
     level: 1
   });
-
   // Get their current points.
   let userWarnings = client.points.get(`${message.guild.id}-${user.id}`, "warnings");
   userWarnings += warningToAdd;
@@ -1101,9 +1101,9 @@ if(message.content.startsWith(config.prefix + "warn")) {
   // And we save it!
   client.warnings.set(`${message.guild.id}-${user.id}`, userWarnings, "warnings")
 
-  message.channel.send(`${user.tag} has received ${warningToAdd} points and now stands at ${userPoints} points.`);
+  message.channel.send(`${user.tag} has received ${warningToAdd} warnings and now stands at ${userWarnings} warns.`);
 }
-      
+  });
 	      
         // Let's go with a few common example commands! Feel free to delete or change those.
 client.on("message", async message => {
