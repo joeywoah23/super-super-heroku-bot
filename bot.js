@@ -743,7 +743,22 @@ return message.reply("You can\'t report yourself!");
 if (message.content.startsWith(config.prefix + "multiply")) {
 	let number1 = args[0];
 	let number2 = args[1];
-	message.channel.send(`The answer to ${number1} x ${number2} = ${number1 - number2}.`);
+	message.reply(`The answer to ${number1} x ${number2} = ${number1 * number2}.`);
+} else
+if (message.content.startsWith(config.prefix + "add")) {
+	let number1 = args[0];
+	let number2 = args[1];
+	message.reply(`The answer to ${number1} + ${number2} = ${number1 + number2}.`);
+} else
+if (message.content.startsWith(config.prefix + "subtract")) {
+	let number1 = args[0];
+	let number2 = args[1];
+	message.reply(`The answer to ${number1} - ${number2} = ${number1 - number2}.`);
+} else
+if (message.content.startsWith(config.prefix + 'divide')) {
+	let number1 = args[0];
+	let number2 = args[1];
+	message.reply(`The answer to ${number1} / ${number2} = ${number1 / number2}.`);
 } else
     if (message.content.startsWith(config.prefix + 'info')) {
       message.channel.send({embed})
