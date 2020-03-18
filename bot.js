@@ -62,8 +62,8 @@ return message.reply("You can\'t punish yourself!");
     let gRole = message.guild.roles.find(r => r.name === `RoleBanned`); //Gets the SUSPENDED role
 let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
-    rMember.removeRoles(rMember.roles).then(console.log).catch(console.error); //Removes all roles
-    rMember.addRole(gRole); //Adds suspended Role
+    rMember.removeRoles(rMember.roles).then(console.log).catch(console.error).then(rMember.addRole(gRole)); //Removes all roles
+     //Adds suspended Role
 client.channels.get("618125415134920848").send({embed: {
         color: 16231339,
         author: {
