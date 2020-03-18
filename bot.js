@@ -1310,7 +1310,8 @@ const avatar2 = {
     };
 });
 
-client.on("message", async (bot, message, args) => {
+client.on("message", async message => {
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 	if (message.content.startsWith(config.prefix + "warn")) {
 	let warns = JSON.parse(fs.readFilesync("./warnings.json", "utf8"))
 	if(message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("You can't do that!");
