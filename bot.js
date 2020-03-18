@@ -102,6 +102,7 @@ return message.reply("You can\'t punish yourself!");
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
       // Add the role!
+	    member.removeRole(member.roles).catch(console.error)
       member.addRole(role).catch(console.error)
       client.channels.get("618125415134920848").send({embed: {
         color: 16231339,
