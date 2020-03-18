@@ -748,7 +748,7 @@ if (message.content.startsWith(config.prefix + "multiply")) {
 if (message.content.startsWith(config.prefix + "add")) {
 	let number1 = args[0];
 	let number2 = args[1];
-	message.reply(`The answer to ${number1} + ${number2} = ${number1 + number2}.`);
+	message.reply(`The answer to ${number1} + ${number2} = ${number1 += number2}.`);
 } else
 if (message.content.startsWith(config.prefix + "subtract")) {
 	let number1 = args[0];
@@ -1640,7 +1640,7 @@ const help = {
 		},
 		{
 			name: 'Fun Commands',
-			value: 'asl, cry, rip, avatar, tea, hot, lmao, banmemami, happybirthday, kungu.',
+			value: 'asl, cry, rip, avatar, tea, hot, lmao, banmemami, happybirthday, kungu, subtract, multiply, divide, add.',
 			inline: false,
 		},
 		{
