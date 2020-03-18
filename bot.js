@@ -538,7 +538,7 @@ return message.reply("You can\'t unpunish yourself!");
     if (message.content.startsWith(config.prefix + "lmao")) {
         message.channel.send("https://gph.is/g/469ALg8")
     } else
-    if (message.content.startsWith(config.prefix + "warn")) {
+    if (message.content.startsWith(config.prefix + "warn2323")) {
       let reason = args.slice(1).join(' ');
       let user = message.mentions.members.first();
       if(!message.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
@@ -856,7 +856,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
       });
-	        const Enmap = require("enmap");
+const Enmap = require("enmap");
 client.points = new Enmap({name: "points"});
 client.on("message", message => {
   if (message.author.bot) return;
@@ -1040,6 +1040,69 @@ if(message.content.startsWith(config.prefix + "cleanup")) {
   message.channel.send(`I've cleaned up ${toRemove.size} old farts.`);
 }
 });
+
+client.warnings = new Enmap({name: "warnings"});
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (message.guild) {
+    // Let's simplify the `key` part of this.
+    const key = `${message.guild.id}-${message.author.id}`;
+    client.warnings.ensure(key, {
+      user: message.author.id,
+      guild: message.guild.id,
+      warnings: 0,
+    });
+    client.warnings.inc(key, "warnings");
+  }
+  // Rest of message handler
+});
+client.on("message", message => {
+  // As usual, ignore all bots.
+  if (message.author.bot) return;
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+        const command = args.shift().toLowerCase();
+
+  // If this is not in a DM, execute the points code.
+  if (message.guild) {
+    // We'll use the key often enough that simplifying it is worth the trouble.
+    const key = `${message.guild.id}-${message.author.id}`;
+
+    // Triggers on new users we haven't seen before.
+    client.warnings.ensure(`${message.guild.id}-${message.author.id}`, {
+      user: message.author.id,
+      guild: message.guild.id,
+      warnings: 0,
+    });
+if(message.content.startsWith(config.prefix + "warn")) {
+  // Limited to guild owner - adjust to your own preference!
+  if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
+    return message.reply("You're not the boss of me, you can't do that!");
+
+  const user = message.mentions.users.first() || client.users.get(args[0]);
+  if(!user) return message.reply("You must mention someone or give their ID!");
+
+  const warningToAdd = parseInt(args[1], 10);
+  if(!warningToAdd) 
+    return message.reply("You didn't tell me how many points to give...")
+
+  // Ensure there is a points entry for this user.
+  client.points.ensure(`${message.guild.id}-${user.id}`, {
+    user: message.author.id,
+    guild: message.guild.id,
+    points: 0,
+    level: 1
+  });
+
+  // Get their current points.
+  let userWarnings = client.points.get(`${message.guild.id}-${user.id}`, "warnings");
+  userWarnings += warningToAdd;
+  
+
+  // And we save it!
+  client.warnings.set(`${message.guild.id}-${user.id}`, userWarnings, "warnings")
+
+  message.channel.send(`${user.tag} has received ${warningToAdd} points and now stands at ${userPoints} points.`);
+}
       
 	      
         // Let's go with a few common example commands! Feel free to delete or change those.
