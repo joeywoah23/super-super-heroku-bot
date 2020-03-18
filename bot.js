@@ -17,7 +17,7 @@ const {
 const talkedRecently = new Set();
 
 console.log("Snoopy Worker has loaded... Commands have been queued...")
-client.on("message", message => {
+client.on("message", async message => {
     if (message.author.bot) return;
     // This is where we'll put our code.
     if (message.content.indexOf(config.prefix) !== 0) return;
@@ -67,6 +67,29 @@ client.on("message", message => {
         description: `This server has **${client.channels.size}** channels!`
       }});
     } else
+if (message.content.startsWith(config.prefix + "roleban")) {
+  if (message.member.hasPermission('MANAGE_ROLES')) {
+    let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])); //Gets the user
+    if (!rMember) return message.reply("That user does not exist.");
+    let gRole = message.guild.roles.find('name', 'SUSPENDED'); //Gets the SUSPENDED role
+
+    rMember.removeRoles(rMember.roles).then(console.log).catch(console.error); //Removes all roles
+    rMember.addRole(gRole.id); //Adds suspended Role
+
+
+    message.channel.send("User was suspended."); //Messages the channel that the user was suspended
+
+    try {
+      await rMember.send("You have been suspended."); //Tries to DM User
+    } catch (e) {
+      message.channel.send("We tried to DM the user to let them know, but their DM's are locked."); //Announces that their DMs are locked
+    }
+
+
+  } else {
+    message.channel.send("You do not have permission to use this command.");
+  }
+} else
   if (message.content.startsWith(config.prefix + 'reboot')) {
    if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
       return message.reply("You can\'t do that!");
