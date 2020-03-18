@@ -1066,13 +1066,14 @@ client.on("message", message => {
   if (message.guild) {
     // We'll use the key often enough that simplifying it is worth the trouble.
     const key = `${message.guild.id}-${message.author.id}`;
-
+  }
     // Triggers on new users we haven't seen before.
     client.warnings.ensure(`${message.guild.id}-${message.author.id}`, {
       user: message.author.id,
       guild: message.guild.id,
       warnings: 0,
     });
+  });
 client.on("message", message => {
 if(message.content.startsWith(config.prefix + "warn")) {
   // Limited to guild owner - adjust to your own preference!
