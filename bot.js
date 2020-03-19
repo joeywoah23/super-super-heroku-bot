@@ -123,7 +123,7 @@ rMember.addRoles(gRole).catch(console.error);
 	message.channel.send(`**${user}** has been expelled from school by **${message.author}** for **${reason}**!`);
 	} else
 if (message.content.startsWith(config.prefix + "suspend")) {
-let reason = args.slice(2).join(' ');
+let reason = args.slice(3).join(' ');
           if(!reason) reason = "No reason provided";
 let time = args[2];
 	if (!time) time = "3days";
