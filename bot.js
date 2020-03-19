@@ -117,6 +117,11 @@ rMember.addRoles(gRole).catch(console.error);
       message.channel.send("We tried to DM the user to let them know, but their DM's are locked."); //Announces that their DMs are locked
     }  
 } else
+	if (message.content.startsWith(config.prefix + "expel")) {
+		let reason = args.slice(1).join(' ');
+          if(!reason) reason = "No reason provided";
+	message.channel.send(`**${user}** has been expelled from school by **${message.author}** for **${reason}**!`);
+	} else
     if (message.content.startsWith(config.prefix + "banmemami")) {
       message.reply("https://imgur.com/a/XNIFUJl")
     } else
