@@ -126,6 +126,7 @@ if (message.content.startsWith(config.prefix + "suspend")) {
 let reason = args.slice(2).join(' ');
           if(!reason) reason = "No reason provided";
 let time = args[2];
+	if (!time) time = "3days";
 	message.channel.send(`**${user}** has been suspended for **${time}** by **${message.author}** for **${reason}**!`);
 } else
     if (message.content.startsWith(config.prefix + "banmemami")) {
