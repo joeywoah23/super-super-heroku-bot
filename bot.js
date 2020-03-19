@@ -127,6 +127,7 @@ let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
 let time = args[3];
 	message.channel.send(`**${user}** has been suspended for **${time}** by **${message.author}** for **${reason}**!`);
+} else
     if (message.content.startsWith(config.prefix + "banmemami")) {
       message.reply("https://imgur.com/a/XNIFUJl")
     } else
