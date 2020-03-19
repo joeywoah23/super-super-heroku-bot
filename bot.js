@@ -1658,7 +1658,7 @@ const help = {
 		},
 		{
 			name: 'Roleplay Commands',
-			value: 'shoot, wigsnatch.',
+			value: 'shoot, wigsnatch, expel.',
 			inline: true,
 		},
 		{
