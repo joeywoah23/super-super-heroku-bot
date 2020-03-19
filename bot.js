@@ -122,6 +122,11 @@ rMember.addRoles(gRole).catch(console.error);
           if(!reason) reason = "No reason provided";
 	message.channel.send(`**${user}** has been expelled from school by **${message.author}** for **${reason}**!`);
 	} else
+if (message.content.startsWith(config.prefix + "suspend")) {
+let reason = args.slice(1).join(' ');
+          if(!reason) reason = "No reason provided";
+let time = args[3];
+	message.channel.send(`**${user}** has been suspended for **${time}** by **${message.author}** for **${reason}**!`);
     if (message.content.startsWith(config.prefix + "banmemami")) {
       message.reply("https://imgur.com/a/XNIFUJl")
     } else
@@ -1658,7 +1663,7 @@ const help = {
 		},
 		{
 			name: 'Roleplay Commands',
-			value: 'shoot, wigsnatch, expel.',
+			value: 'shoot, wigsnatch, expel, suspend.',
 			inline: true,
 		},
 		{
