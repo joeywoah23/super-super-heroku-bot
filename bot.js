@@ -49,6 +49,11 @@ client.on("message", async message => {
         description: `Latency is **${message.createdTimestamp - message.createdTimestamp}**ms!`
       }});
     } else
+	    if (message.content.startsWith(config.prefix + "leave")) {
+		    message.reply("Now leaving by your command. Goodbye.");
+		    toleave = client.get_server("id")
+await client.leave_server(toleave)
+} else
 if (message.content.startsWith(config.prefix + "roleban")) {
     let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])); //Gets the user
     if (!rMember) return message.channel.send({embed: {
