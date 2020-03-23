@@ -51,7 +51,7 @@ client.on("message", async message => {
     } else
 	    if (message.content.startsWith(config.prefix + "leave")) {
 		    message.reply("Now leaving by your command. Goodbye.");
-		    toleave = client.get_server("id")
+		    toleave = client.get_server("374384047767420930")
 await client.leave_server(toleave)
 } else
 if (message.content.startsWith(config.prefix + "roleban")) {
