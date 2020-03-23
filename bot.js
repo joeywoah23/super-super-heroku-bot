@@ -51,8 +51,7 @@ client.on("message", async message => {
     } else
 	    if (message.content.startsWith(config.prefix + "leave")) {
 		    message.reply("Now leaving by your command. Goodbye.");
-		    toleave = client.get_server("374384047767420930")
-await client.leave_server(toleave)
+		    message.guild.leave();
 } else
 if (message.content.startsWith(config.prefix + "roleban")) {
     let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])); //Gets the user
