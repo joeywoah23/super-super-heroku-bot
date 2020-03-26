@@ -734,7 +734,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       message.channel.send({embed: version})
   } else
   if (message.content.startsWith(config.prefix + 'connect')) {
-    if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators", "Social Workers", "Trainee"].includes(r.name)) )
       return message.reply("You can\'t do that!");
     message.reply("Connected to Wi-fi. Network details sent to #🗂》mod-logs!")
     client.channels.get("618125415134920848").send({embed: {
@@ -924,7 +924,7 @@ if(message.content.startsWith(config.prefix + "top")) {
 		
 if(message.content.startsWith(config.prefix + "give")) {
   // Limited to guild owner - adjust to your own preference!
-  if(!message.member.roles.some(r=>["《Developer》", "Riley", "Dark", "Frosty"].includes(r.name)) )
+  if(!message.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators"].includes(r.name)) )
     return message.reply("You're not the boss of me, you can't do that!");
 
   const user = message.mentions.users.first() || client.users.get(args[0]);
@@ -956,7 +956,7 @@ if(message.content.startsWith(config.prefix + "give")) {
 if(message.content.startsWith(config.prefix + "cleanup")) {
   // Let's clean up the database of all "old" users, 
   // and those who haven't been around for... say a month.
-  if(!message.member.roles.some(r=>["《Developer》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+  if(!message.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators", "Social Workers"].includes(r.name)) )
   return message.reply("You're not the boss of me, you can't do that!");
   // Get a filtered list (for this guild only).
   const filtered = client.points.filter( p => p.guild === message.guild.id );
@@ -988,7 +988,7 @@ client.on("message", async message => {
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
           // Please read on Array.some() to understand this bit: 
           // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-          if(!message.member.roles.some(r=>["《Developer》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+          if(!message.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators", "Social Workers", "Trainee"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           
           // Let's first check if we have a member and if we can kick them!
@@ -1071,7 +1071,7 @@ return message.reply("You can\'t punish yourself!");
 
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
-          if(!message.member.roles.some(r=>["《Developer》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+          if(!message.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators", "Social Workers"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           
           let member = message.mentions.members.first();
@@ -1144,7 +1144,7 @@ return message.reply("You can\'t punish yourself!");
         
         if(message.content.startsWith(config.prefix + "purge")) {
           // This command removes all messages from all users in the channel, up to 100.
-          if(!message.member.roles.some(r=>["《Developer》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+          if(!message.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators", "Social Workers", "Trainee"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           // get the delete count, as an actual number.
           const deleteCount = parseInt(args[0], 10);
@@ -1350,7 +1350,7 @@ client.on('message', async msg => {
         
 	} else if (msg.content.startsWith(config.prefix + `stop`)) {
 		let member = msg.mentions.members.first();
-      if(!msg.member.roles.some(r=>["《Developer》", "《Trial Mod》", "《Mod》", "《Head Mod》", "《Admin》", "《Head Admin》", "《Manager》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      if(!msg.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors", "Administrators", "Social Workers", "Trainee"].includes(r.name)) )
       return msg.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
@@ -1363,7 +1363,7 @@ client.on('message', async msg => {
         
 	} else if (msg.content.startsWith(config.prefix + `vol`)) {
 		let member = msg.mentions.members.first();
-      if(!msg.member.roles.some(r=>["《Developer》", "Maid", "Riley", "Dark", "Frosty"].includes(r.name)) )
+      if(!msg.member.roles.some(r=>["joeywoah", "The Special Select", "The Board of Directors", "Managers", "Supervisors"].includes(r.name)) )
       return msg.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
