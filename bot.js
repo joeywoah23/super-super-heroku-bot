@@ -106,7 +106,7 @@ return message.reply("You can\'t punish yourself!");
       // Add the role!
 	    member.removeRole(member.roles).catch(console.error)
       member.addRole(role).catch(console.error)
-      client.channels.get("618125415134920848").send({embed: {
+      client.channels.get("695153276601106443").send({embed: {
         color: 16231339,
         author: {
           name: client.user.username,
