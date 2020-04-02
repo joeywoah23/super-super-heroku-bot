@@ -931,7 +931,7 @@ return message.reply("You can\'t punish yourself!");
             title: "Kick Action",
                 fields: [{
                 name: "Kick",
-                value: `**${message.author.tag}**, User ${member} has been kicked from the server because: **${reason}**.`
+                value: `**${message.author.tag}**, User ${member} has been kicked from the server for **${reason}**.`
               }
             ],
             footer: {
@@ -1008,7 +1008,7 @@ return message.reply("You can\'t punish yourself!");
             title: "Ban Action",
                 fields: [{
                 name: "Ban",
-                value: `**${message.author.tag}**, User ${member} has been banned from the server because: **${reason}**.`
+                value: `**${message.author.tag}**, User ${member} has been banned from the server for **${reason}**.`
               }
             ],
             footer: {
