@@ -70,7 +70,7 @@ client.on("message", async message => {
       }});
     } else
   if (message.content.startsWith(config.prefix + 'reboot')) {
-   if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", Uhh i need this role for a sec,"♡ Supervisors", "♡ Administrators"].includes(r.name)) )
+   if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "Uhh i need this role for a sec", "♡ Supervisors", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
