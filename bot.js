@@ -173,7 +173,7 @@ return message.reply("You can\'t punish yourself!");
       
       // Add the role!
       member.addRole(Role).catch(console.error)
-      client.channels.get("618125415134920848").send({embed: {
+      client.channels.get("695153276601106443").send({embed: {
         color: 16231339,
         author: {
           name: client.user.username,
@@ -240,7 +240,7 @@ return message.reply("You can\'t punish yourself!");
     
     // Add the role!
     member.removeRole(Role).catch(console.error)
-    client.channels.get("618125415134920848").send({embed: {
+    client.channels.get("695153276601106443").send({embed: {
       color: 16231339,
       author: {
         name: client.user.username,
@@ -427,7 +427,7 @@ return message.reply("You can\'t unpunish yourself!");
           if(!reason) reason = "No reason provided";
       // Remove a role!
       member.removeRole(role).catch(console.error)
-      client.channels.get("618125415134920848").send({embed: {
+      client.channels.get("695153276601106443").send({embed: {
         color: 16231339,
         author: {
           name: client.user.username,
@@ -1091,7 +1091,7 @@ return message.reply("You can\'t punish yourself!");
           
           await member.ban(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`))
-            client.channels.get("618125415134920848").send({embed: {
+            client.channels.get("695153276601106443").send({embed: {
               color: 16231339,
               author: {
                 name: client.user.username,
