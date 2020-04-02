@@ -25,7 +25,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
     const user = message.mentions.members.first() || client.users.get(args[0]);
     if(command === "say") {
-    if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
         return message.reply("You can\'t do that!");
         let text = args.join(" ");
         message.delete();
@@ -70,7 +70,7 @@ client.on("message", async message => {
       }});
     } else
   if (message.content.startsWith(config.prefix + 'reboot')) {
-   if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "Uhh i need this role for a sec", "♡ Supervisors", "♡ Administrators"].includes(r.name)) )
+   if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
@@ -90,7 +90,7 @@ client.on("message", async message => {
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
-      if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "Uhh i need this role for a sec", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member) return message.channel.send({embed: {
         color: 16231339,
@@ -160,7 +160,7 @@ return message.reply("You can\'t punish yourself!");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
-      if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member)
             return message.channel.send({embed: {
@@ -227,7 +227,7 @@ return message.reply("You can\'t punish yourself!");
   
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first() || client.users.get(args[0]);
-    if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["♡ Administrators"].includes(r.name)) )
     return message.reply("You can\'t do that!");
     if(!member)
           return message.channel.send({embed: {
@@ -286,131 +286,12 @@ return message.reply("You can\'t punish yourself!");
   }
 });;
 } else
-if (message.content.startsWith(config.prefix + "urb")) {
-
-      let reason = args.slice(1).join(' ');
-          if(!reason) reason = "No reason provided";
-          let Role = message.guild.roles.find(r => r.name === `RoleBanned`);
-    
-      // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
-      let member = message.mentions.members.first() || client.users.get(args[0]);
-      if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
-      return message.reply("You can\'t do that!");
-      if(!member)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-            }}).then(msg => {
-              msg.delete(10000)
-            })
-	
-if(member === message.author)
-return message.reply("You can\'t unpunish yourself!");
-      // or the person who made the command: let member = message.member;
-      
-      // Add the role!
-      member.removeRole(Role).catch(console.error)
-      client.channels.get("618125415134920848").send({embed: {
-        color: 16231339,
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        title: "URBan Action",
-        fields: [{
-            name: "Moderator",
-            value: `${message.author.tag}`
-          },
-          {
-            name: "URBanned",
-            value: `${user}`
-          },
-          {
-          name: "Reason",
-            value: `${reason}`
-          }
-        ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: client.user.avatarURL,
-          text: "URBan Action"
-        }
-      }
-    });
-    message.channel.send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "URBan Action",
-          fields: [{
-          name: "URBan",
-          value: `**${message.author.tag}**, **${member}** has been unrolebanned for **${reason}**`
-        }
-      ],
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "URBan Action"
-      }
-    }
-  });;
-	} else
-if (message.content.startsWith(config.prefix + "wlistadd")) {
-
-  if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors"].includes(r.name)) )
-      return message.reply("You can\'t do that!");
-  let member = message.mentions.members.first() || client.users.get(args[0]);
-  let reason = args.slice(1).join(' ');
-  if(!member)
-          return message.channel.send({embed: {
-            color: 16231339,
-            description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-          }}).then(msg => {
-            msg.delete(10000)
-          })
-	if(member === message.author)
-return message.reply("You can\'t punish yourself!");
-  if(!reason)
-    return message.reply("Mention someone to add to **THE WATCHLIST**");
-  message.channel.send({embed: {
-    color: "#f7abab",
-    description: `${member} has been added to **THE WATCHLIST** for **${reason}**!`
-  }});
-  client.channels.get("618125415134920848").send({embed: {
-    color: 16231339,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "HITLIST Action",
-    fields: [{
-        name: "Administrator",
-        value: `${message.author.tag}`
-      },
-      {
-        name: "User added to the HITLIST",
-        value: `${user}`
-      },
-      {
-        name: "Reason",
-        value: `${reason}`
-      }
-    ],
-    timestamp: new Date(),
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "AGENCY PACKAGE"
-    }
-  }
-});
-} else
   if (message.content.startsWith(config.prefix + "unmute"))
     {let role = message.guild.roles.find(r => r.name === "Muted");
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
-      if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators", "♡ Social Workers", "♡ Intern"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member)
             return message.channel.send({embed: {
@@ -475,7 +356,7 @@ return message.reply("You can\'t unpunish yourself!");
     if (message.content.startsWith(config.prefix + "warn")) {
       let reason = args.slice(1).join(' ');
       let user = message.mentions.members.first() || client.users.get(args[0]);
-      if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!user)
             return message.channel.send({embed: {
@@ -603,7 +484,7 @@ return message.reply("You can\'t report yourself!");
 });;
   } else
   if(message.content.startsWith(config.prefix + "happybirthday")) {
-    if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
     message.channel.send(`HAPPY BIRTHDAY ${user}!! https://gph.is/g/4DAAReP`)
   } else
@@ -695,7 +576,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       message.channel.send({embed})
     } else
     if (message.content.startsWith(config.prefix + 'welcomenet')) {
-      if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       //"Hello. Welcome to the `SNOOPY WORKER NETWORK`. All moderation commands and report commands will now be transmitted throughout the `SNOOPY WORKER NETWORK`. Thank you for using Snoopy Worker."
       message.channel.send({embed: {
@@ -730,7 +611,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       message.channel.send({embed: version})
   } else
   if (message.content.startsWith(config.prefix + 'connect')) {
-    if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
     message.reply("Connected to Wi-fi. Network details sent to #🗂》mod-logs!")
     client.channels.get("618125415134920848").send({embed: {
@@ -920,7 +801,7 @@ if(message.content.startsWith(config.prefix + "top")) {
 		
 if(message.content.startsWith(config.prefix + "give")) {
   // Limited to guild owner - adjust to your own preference!
-  if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators"].includes(r.name)) )
+  if(!message.member.roles.some(r=>["♡ Administrators"].includes(r.name)) )
     return message.reply("You're not the boss of me, you can't do that!");
 
   const user = message.mentions.users.first() || client.users.get(args[0]);
@@ -984,7 +865,7 @@ client.on("message", async message => {
           // This command must be limited to mods and admins. In this example we just hardcode the role names.
           // Please read on Array.some() to understand this bit: 
           // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-          if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+          if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           
           // Let's first check if we have a member and if we can kick them!
@@ -1067,7 +948,7 @@ return message.reply("You can\'t punish yourself!");
 
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
-          if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers"].includes(r.name)) )
+          if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           
           let member = message.mentions.members.first() || client.users.get(args[0]);
@@ -1140,7 +1021,7 @@ return message.reply("You can\'t punish yourself!");
         
         if(message.content.startsWith(config.prefix + "purge")) {
           // This command removes all messages from all users in the channel, up to 100.
-          if(!message.member.roles.some(r=>["♡ the coolest", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+          if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           // get the delete count, as an actual number.
           const deleteCount = parseInt(args[0], 10);
@@ -1346,7 +1227,7 @@ client.on('message', async msg => {
         
 	} else if (msg.content.startsWith(config.prefix + `stop`)) {
 		let member = msg.mentions.members.first();
-      if(!msg.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+      if(!msg.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
       return msg.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
@@ -1359,7 +1240,7 @@ client.on('message', async msg => {
         
 	} else if (msg.content.startsWith(config.prefix + `vol`)) {
 		let member = msg.mentions.members.first();
-      if(!msg.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors"].includes(r.name)) )
+      if(!msg.member.roles.some(r=>["♡ Administrators"].includes(r.name)) )
       return msg.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
