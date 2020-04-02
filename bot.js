@@ -1070,7 +1070,7 @@ return message.reply("You can\'t punish yourself!");
           if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers"].includes(r.name)) )
             return message.reply("You can\'t do that!");
           
-          let member = message.mentions.members.first();
+          let member = message.mentions.members.first() || message.guild.members.get(args[0]);
           if(!member)
             return message.channel.send({embed: {
               color: 16231339,
