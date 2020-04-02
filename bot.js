@@ -70,7 +70,7 @@ client.on("message", async message => {
       }});
     } else
   if (message.content.startsWith(config.prefix + 'reboot')) {
-   if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators"].includes(r.name)) )
+   if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", Uhh i need this role for a sec,"♡ Supervisors", "♡ Administrators"].includes(r.name)) )
       return message.reply("You can\'t do that!");
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
@@ -90,7 +90,7 @@ client.on("message", async message => {
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
-      if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", "♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
+      if(!message.member.roles.some(r=>["♡ joeywoah", "♡ The Special Select", Uhh i need this role for a sec,"♡ The Board of Directors", "♡ Managers", "♡ Supervisors", "♡ Administrators","♡ Social Workers", "♡ Intern"].includes(r.name)) )
       return message.reply("You can\'t do that!");
       if(!member) return message.channel.send({embed: {
         color: 16231339,
