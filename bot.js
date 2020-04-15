@@ -25,7 +25,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
     const user = message.mentions.members.first() || client.users.get(args[0]);
     if(command === "say") {
-    if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
+    if (!message.member.hasPermission("KICK_MEMBERS"))
         return message.reply("You can\'t do that!");
         let text = args.join(" ");
         message.delete();
@@ -50,7 +50,7 @@ client.on("message", async message => {
       }});
     } else
 	    if (message.content.startsWith(config.prefix + "leave")) {
-if (!message.member.permissions.has('MANAGE_MESSAGES'))
+if (!message.member.hasPermission('BAN_MEMBERS'))
 	return message.reply("You can\'t do that!");
 		    message.reply("Now leaving by your command. Goodbye.");
 		    message.guild.leave();
