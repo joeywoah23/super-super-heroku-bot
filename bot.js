@@ -1229,8 +1229,8 @@ client.on('message', async msg => {
         
 	} else if (msg.content.startsWith(config.prefix + `stop`)) {
 		let member = msg.mentions.members.first();
-      if (!message.member.hasPermission("MANAGE_MESSAGES"))
-        return message.reply("You can\'t do that!");
+      if (!msg.member.hasPermission("MANAGE_MESSAGES"))
+        return msg.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
         if (!serverQueue) return msg.channel.send("There is no Queue to stop!!");
@@ -1242,8 +1242,8 @@ client.on('message', async msg => {
         
 	} else if (msg.content.startsWith(config.prefix + `vol`)) {
 		let member = msg.mentions.members.first();
-      if (!message.member.hasPermission("MANAGE_GUILD"))
-        return message.reply("You can\'t do that!");
+      if (!msg.member.hasPermission("MANAGE_GUILD"))
+        return msg.reply("You can\'t do that!");
 
 		if (!msg.member.voiceChannel) return msg.channel.send("You Must be in a Voice channel to Run the Music commands!");
 		if (!serverQueue) return msg.channel.send('You only can use this command while music is playing!');
@@ -1258,7 +1258,7 @@ client.on('message', async msg => {
 
 		if (!serverQueue) return msg.channel.send('There is no Queue!');
 		const embedNP = new Discord.RichEmbed()
-	.setcolor(16231339)
+	.setColor(16231339)
 	    .setDescription(`Now playing **${serverQueue.songs[0].title}**`)
         return msg.channel.sendEmbed(embedNP);
         
