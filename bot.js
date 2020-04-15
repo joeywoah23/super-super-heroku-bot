@@ -6,7 +6,7 @@ const ytdl = require('ytdl-core');
 const fetchVideoInfo = require('youtube-info'); //
 const getYoutubeID = require('get-youtube-id'); //
 const YouTube = require('simple-youtube-api'); //
-const youtube = new YouTube(process.env.YOUTUB_API_KEY); //
+const youtube = new YouTube(process.env.YOUTUBE_API_KEY); //
 const fs = require("fs");
 const gif = require("gif-search");
 const queue = new Map();
@@ -1293,7 +1293,9 @@ client.on('message', async msg => {
 	} else if (msg.content.startsWith(config.prefix + "loop")) {
 if (serverQueue && serverQueue.playing) {
 	serverQueue.playing = true
-	looping
+	serverQueue.looping = true
+} msg.reply("Now looping!")
+	    }
 
 
 	return undefined;
