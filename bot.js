@@ -60,7 +60,8 @@ if (!message.member.hasPermission('BAN_MEMBERS'))
         message.channel.send('https://gph.is/g/4MWX3bx');
     } else
 	    if(message.content.startsWith(config.prefix + 'shard')) {
-		    message.channel.send(`This bot is on **Shard ${message.guild.shardID}**.`)
+		    message.channel.send(`This bot is on **Shard ${message.guild.shardID}**.`);
+	    } else
     if(message.content.startsWith(config.prefix + 'cry')) {
         message.channel.send('https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif')
     } else
