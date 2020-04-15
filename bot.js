@@ -50,6 +50,8 @@ client.on("message", async message => {
       }});
     } else
 	    if (message.content.startsWith(config.prefix + "leave")) {
+if (!message.member.permissions.has('MANAGE_MESSAGES'))
+	return message.reply("You can\'t do that!");
 		    message.reply("Now leaving by your command. Goodbye.");
 		    message.guild.leave();
 } else
