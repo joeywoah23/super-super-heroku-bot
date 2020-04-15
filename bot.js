@@ -1290,17 +1290,7 @@ client.on('message', async msg => {
             
 		}
 		return msg.channel.send('Queue is empty!');
-	} else if (msg.content.startsWith(config.prefix + "loop")) {
-if (serverQueue && serverQueue.playing) {
-	serverQueue.playing = true;
-	serverQueue.looping = true;
-	msg.reply("Now looping!");
-} else {
-	serverQueue.playing = true;
-	serverQueue.looping = false;
-	msg.reply("Stopped Looping.");
-} if (!serverQueue && serverQueue.playing)
-	msg.reply("There is no queue to loop!");
+	}
 	    }
 	
 
