@@ -154,6 +154,14 @@ return message.reply("You can\'t punish yourself!");
     }
   });;
     } else
+if (message.content.startsWith("k")) {
+	message.channel.send({embed: {
+              color: 16231339,
+              description: 'Please refrain from saying "k" by itself.'
+            }}).then(msg => {
+              msg.delete(10000)
+            });
+} else
     if (message.content.startsWith(config.prefix + "grant")) {
       let reason = args.slice(1).join(' ');
           if(!reason)
