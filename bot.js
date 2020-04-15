@@ -1291,7 +1291,6 @@ client.on('message', async msg => {
 		}
 		return msg.channel.send('Queue is empty!');
 	}
-	    }
 	
 
 
