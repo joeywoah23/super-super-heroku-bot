@@ -1106,7 +1106,7 @@ return message.reply("You can\'t punish yourself!");
 	}
 	
         if(message.content.startsWith(config.prefix + "purge")) {
-		message.react('')
+		message.react('✅')
           // This command removes all messages from all users in the channel, up to 100.
           if (!message.member.hasPermission("MANAGE_MESSAGES"))
         return message.reply("You can\'t do that!");
