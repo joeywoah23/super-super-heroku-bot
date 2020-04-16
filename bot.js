@@ -648,7 +648,7 @@ let ticketEmbed = new Discord.RichEmbed()
 .setColor(16231339)
 .setThumbnail(client.user.avatarURL)
 .addField("Ticket Open", `${message.author} Your ticket has been created.`);
-
+message.author.send("The ticket channel has been created. Only a moderator can close the ticket. Any unnecessary tickets will not be tolerated and you will recieve a punishment.");
 let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
 if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
 
