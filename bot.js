@@ -1460,7 +1460,6 @@ const applyText = (canvas, text) => {
 client.on('guildMemberAdd', async (member, guild) => {
 	const channel = member.guild.channels.find(ch => ch.name === '♡-･ﾟwelcome');
 	if (!channel) return;
-
 	const canvas = Canvas.createCanvas(700, 250);
 	const ctx = canvas.getContext('2d');
 
@@ -1472,7 +1471,7 @@ client.on('guildMemberAdd', async (member, guild) => {
 
 	ctx.font = '28px sans-serif';
 	ctx.fillStyle = '#ffffff';
-	ctx.fillText(`Welcome to ${guild.name},`, canvas.width / 2.5, canvas.height / 3.5);
+	ctx.fillText(`Welcome to angela's dreamuhs,`, canvas.width / 2.5, canvas.height / 3.5);
 
 	ctx.font = applyText(canvas, `${member.displayName}!`);
 	ctx.fillStyle = '#ffffff';
