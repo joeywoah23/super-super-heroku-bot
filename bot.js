@@ -1446,25 +1446,34 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
 }
 
+const applyText = (canvas, text) => {
+	const ctx = canvas.getContext('2d');
+	let fontSize = 70;
+
+	do {
+		ctx.font = `${fontSize -= 10}px sans-serif`;
+	} while (ctx.measureText(text).width > canvas.width - 300);
+
+	return ctx.font;
+};
+
 client.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.find(ch => ch.name === '♡-･ﾟwelcome');
+	const channel = member.guild.channels.find(ch => ch.name === 'member-log');
 	if (!channel) return;
 
 	const canvas = Canvas.createCanvas(700, 250);
 	const ctx = canvas.getContext('2d');
 
-	const background = await Canvas.loadImage('https://lh3.googleusercontent.com/proxy/aPjjAdiEpi2ls8_KArrmNUoTWctxxNX5SHQ2IX7uHigtLU9JESHdWJ95VwVGQcbCkM-bZCuYoN-GKgJ7FFbItBC4HwWr052lZ9IflPM');
+	const background = await Canvas.loadImage('./wallpaper.jpg');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-	// Slightly smaller text placed above the member's display name
 	ctx.font = '28px sans-serif';
 	ctx.fillStyle = '#ffffff';
 	ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
 
-	// Add an exclamation point here and below
 	ctx.font = applyText(canvas, `${member.displayName}!`);
 	ctx.fillStyle = '#ffffff';
 	ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
