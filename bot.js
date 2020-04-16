@@ -43,7 +43,7 @@ if (command === "announce") {
         return message.reply("You can\'t do that!");
         let text = args.join(" ");
         message.delete();
-        message.channel.send("/tts" + text);
+        message.channel.send("/tts " + text);
 } else
     if(command === "apicheck") {
       message.channel.send({embed: {
