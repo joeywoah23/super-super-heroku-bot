@@ -653,9 +653,6 @@ let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
 if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
 
 ticketchannel.send(ticketEmbed);
-let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
-if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
-
 	  
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
