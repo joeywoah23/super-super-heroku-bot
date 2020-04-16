@@ -656,7 +656,7 @@ function getRandomInt(max) {
 }
 let ticketid = getRandomInt(10000);
 let name = `ticket-${message.author.username}-${ticketid}`;
-
+name.send("@<699795454468030476> Your help is needed!");
 message.guild.createChannel(name, "text")
 .then(m => {
     m.overwritePermissions(message.guild.id, {
@@ -714,7 +714,8 @@ if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets 
   });
   } else
     if(message.content.startsWith(config.prefix + 'help')) {
-      message.author.send({embed: help})
+      message.author.send({embed: help});
+	    message.channel.send("Check your DMs!");
     }});
 
       client.on("message", async message => {
