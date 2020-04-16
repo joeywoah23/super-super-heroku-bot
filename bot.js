@@ -1015,7 +1015,7 @@ return message.reply("You can\'t punish yourself!");
           // Now, time for a swift kick in the nuts!
           await member.kick(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-            client.channels.get("618125415134920848").send({embed: {
+            client.channels.get("695153276601106443").send({embed: {
               color: 16231339,
               author: {
                 name: client.user.username,
