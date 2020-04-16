@@ -16,6 +16,11 @@ const {
 } = require('./config.json');
 const talkedRecently = new Set();
 
+// Set the bot's "Playing: " status (must be in an event!)
+client.on("ready", () => {
+    client.user.setActivity("Update v4.0", { type: "PLAYING"})
+})
+
 console.log("Crystelian has loaded... Commands have been queued...")
 client.on("message", async message => {
     if (message.author.bot) return;
@@ -31,13 +36,6 @@ client.on("message", async message => {
         message.delete();
         message.channel.send(text);
     } else
-	if(command === "dm") {
-		let vUser = message.mentions.members.first() || client.users.get(args[0]);
-		let reason = args.slice(1).join(' ');
-          	if(!reason) message.reply("Please supply something to DM.");
-        	message.delete();
-		message.vUser.send(reason);
-	} else
     if(command === "apicheck") {
       message.channel.send({embed: {
         color: 16231339,
@@ -1572,7 +1570,7 @@ const version = {
 	fields: [
 		{
 			name: 'CrystelianOS',
-			value: '```RUNNING ON VERSION 3```',
+			value: '```RUNNING ON VERSION 4```',
 		},
 		{
 			name: 'AgentProjectOS',
