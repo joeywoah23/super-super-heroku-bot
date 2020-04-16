@@ -561,7 +561,7 @@ if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggest
     description: "Crystelian Suggestions Module",
     fields: [{
         name: "Suggestion has been sent!",
-        value: `**${message.author.tag}**, The suggestion has been sent to #<689632513395654752>! Thank you!`
+        value: `**${message.author.tag}**, The suggestion has been sent to the suggestions channel! Thank you!`
       }
     ],
     footer: {
@@ -642,7 +642,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       message.channel.send({embed: version})
   } else
   if (message.content.startsWith(config.prefix + 'openticket')) {
-
+let notifyrole = message.guild.roles.find(r => r.name === "👑 Royalty 👑");
 let ticketEmbed = new Discord.RichEmbed()
 .setDescription("Crystelian Ticket Module")
 .setColor(16231339)
@@ -653,7 +653,10 @@ let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
 if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
 
 ticketchannel.send(ticketEmbed);
+let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
+if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
 
+	  
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -670,7 +673,7 @@ message.guild.createChannel(name, "text")
         VIEW_CHANNEL: true
     })
 })
-
+ticketchannel.send(`@<notifyrole.id>, Your help is needed in #<name.id> by ${message.author.tag}.`);
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
