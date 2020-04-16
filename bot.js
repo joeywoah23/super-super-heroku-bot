@@ -633,6 +633,44 @@ if (message.content.startsWith(config.prefix + 'divide')) {
     if (message.content.startsWith(config.prefix + 'version')) {
       message.channel.send({embed: version})
   } else
+  if (message.content.startsWith(config.prefix + 'openticket')) {
+
+let ticketEmbed = new Discord.RichEmbed()
+.setDescription("Crystelian Ticket Module")
+.setColor(16231339)
+.setThumbnail(client.user.avatarURL)
+.addField("New Ticket", `${message.author} your ticket has been created.`);
+
+let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
+if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
+
+ticketchannel.send(ticketEmbed);
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+let ticketid = getRandomInt(10000);
+let name = `ticket-${message.author.username}-${ticketid}`;
+
+message.guild.createChannel(name, "text")
+.then(m => {
+    m.overwritePermissions(message.guild.id, {
+        VIEW_CHANNEL: false
+    })
+
+    m.overwritePermissions(message.author.id, {
+        VIEW_CHANNEL: true
+    })
+})
+//channel.delete()
+} else
+if (message.content.startsWith(config.prefix + 'closeticket')) {
+  const fetchedChannel = message.guild.channels.find(r => r.name === args.join(' '));
+
+  if (command === 'delete') {
+      fetchedChannel.delete();
+  }
+} else
   if (message.content.startsWith(config.prefix + 'connect')) {
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
         return message.reply("You can\'t do that!");
@@ -668,104 +706,6 @@ if (message.content.startsWith(config.prefix + 'divide')) {
     if(message.content.startsWith(config.prefix + 'help')) {
       message.channel.send({embed: help})
     }});
-//////////////////
-client.on('messageDelete', async (message, guild) => {
-  const logs = message.guild.channels.find(channel => channel.name === "♡-･ﾟmod-logs");
-  if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
-    message.guild.createChannel('♡-crystelian-logs', 'text');
-  }
-  if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) { 
-    client.channels.get("618125415134920848").send('The logs channel does not exist and tried to create the channel but I am lacking permissions')
-  }  
-  const entry = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'}).then(audit => audit.entries.first())
-  let user = ""
-    if (entry.extra.channel.id === message.channel.id
-      && (entry.target.id === message.author.id)
-      && (entry.createdTimestamp > (Date.now() - 5000))
-      && (entry.extra.count >= 1)) {
-    user = entry.executor.username
-  } else { 
-    user = message.author.username
-  }
-  logs.send(`A message was deleted in ${message.channel.name} by ${user}!`);
-})
-
-client.on('guildBanAdd', async (guild, user, message) => {
-	const fetchedLogs = await guild.fetchAuditLogs({
-		limit: 1,
-		type: 'MEMBER_BAN_ADD',
-	});
-	// Since we only have 1 audit log entry in this collection, we can simply grab the first one
-	const banLog = fetchedLogs.entries.first();
-
-	// Let's perform a sanity check here and make sure we got *something*
-	if (!banLog) return console.log(`${user.tag} was banned from ${guild.name} but no audit log could be found.`);
-
-	const logs = message.guild.channels.find(channel => channel.name === "♡-･ﾟmod-logs");
-  if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
-    message.guild.createChannel('♡-crystelian-logs', 'text');
-  }
-  if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) { 
-    client.channels.get("618125415134920848").send('The logs channel does not exist and tried to create the channel but I am lacking permissions')
-  }  
-
-	// We now grab the user object of the person who banned the user
-	// Let us also grab the target of this action to double check things
-	const { executor, target } = banLog;
-
-	// And now we can update our output with a bit more information
-	// We will also run a check to make sure the log we got was for the same kicked member
-	if (target.id === user.id) {
-		logs.send(`${user.tag} got hit with the swift hammer of justice in the guild ${guild.name}, wielded by the mighty ${executor.tag}`);
-	} else {
-		logs.send(`${user.tag} got hit with the swift hammer of justice in the guild ${guild.name}, audit log fetch was inconclusive.`);
-	}
-});
-
-client.on('guildMemberRemove', (member, message, guild) => {
-	const logs = message.guild.channels.find(channel => channel.name === "♡-･ﾟmod-logs");
-  if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
-    message.guild.createChannel('♡-crystelian-logs', 'text');
-  }
-  if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) { 
-    client.channels.get("618125415134920848").send('The logs channel does not exist and tried to create the channel but I am lacking permissions')
-  }  
-	logs.send(`${member.user.tag} left the server.`);
-});
-
-client.on('guildMemberRemove', async (member, message, guild) => {
-	const fetchedLogs = await member.guild.fetchAuditLogs({
-		limit: 1,
-		type: 'MEMBER_KICK',
-	});
-	// Since we only have 1 audit log entry in this collection, we can simply grab the first one
-	const kickLog = fetchedLogs.entries.first();
-
-	// Let's perform a sanity check here and make sure we got *something*
-	if (!kickLog) return console.log(`${member.user.tag} left the guild, most likely of their own will.`);
-
-	const logs = message.guild.channels.find(channel => channel.name === "♡-･ﾟmod-logs");
-  if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
-    message.guild.createChannel('♡-crystelian-logs', 'text');
-  }
-  if (!message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) { 
-    client.channels.get("618125415134920848").send('The logs channel does not exist and tried to create the channel but I am lacking permissions')
-  }  
-	
-	// We now grab the user object of the person who kicked our member
-	// Let us also grab the target of this action to double check things
-	const { executor, target } = kickLog;
-
-	// And now we can update our output with a bit more information
-	// We will also run a check to make sure the log we got was for the same kicked member
-	if (target.id === member.id) {
-		logs.send(`${member.user.tag} left the guild but was kicked by ${executor.tag}?`);
-	} else {
-		logs.send(`${member.user.tag} left the guild, audit log fetch was inconclusive.`);
-	}
-});
-
-/////////////////
 
       client.on("message", async message => {
 	     
@@ -788,7 +728,7 @@ client.on('guildMemberRemove', async (member, message, guild) => {
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
         const command = args.shift().toLowerCase();
       });
-const Enmap = require("enmap");
+/* const Enmap = require("enmap");
 client.points = new Enmap({name: "points"});
 client.on("message", message => {
   if (message.author.bot) return;
@@ -971,7 +911,7 @@ if(message.content.startsWith(config.prefix + "cleanup")) {
 
   message.channel.send(`I've cleaned up ${toRemove.size} old farts.`);
 }
-});
+}); */
 
         // Let's go with a few common example commands! Feel free to delete or change those.
 client.on("message", async message => {
