@@ -37,6 +37,7 @@ client.on("message", async message => {
           	if(!reason) message.reply("Please supply something to DM.");
         	message.delete();
 		message.vUser.send(reason);
+	} else
     if(command === "apicheck") {
       message.channel.send({embed: {
         color: 16231339,
