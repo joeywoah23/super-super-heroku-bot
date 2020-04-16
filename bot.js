@@ -1094,11 +1094,13 @@ return message.reply("You can\'t punish yourself!");
         }
         
 	if(message.content.startsWith(config.prefix + 'lockdown')) {
-	if (message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true })).then(message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });)	
+	if (message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true }))
+	message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });
 	message.channel.send("This channel has been locked down.");
 	} else
 	if(message.content.startsWith(config.prefix + 'lockdown')) {
-	if (message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false })).then(message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true });)	
+	if (message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false }))
+	message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true });	
 	message.channel.send("This channel has been unlocked.");
 	}
 	
