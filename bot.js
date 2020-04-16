@@ -669,7 +669,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       message.channel.send({embed: help})
     }});
 //////////////////
-client.on('messageDelete', async (message) => {
+client.on('messageDelete', async (message, guild) => {
   const logs = message.guild.channels.find(channel => channel.name === "♡-･ﾟmod-logs");
   if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
     message.guild.createChannel('♡-crystelian-logs', 'text');
@@ -722,7 +722,7 @@ client.on('guildBanAdd', async (guild, user, message) => {
 	}
 });
 
-client.on('guildMemberRemove', (member, message) => {
+client.on('guildMemberRemove', (member, message, guild) => {
 	const logs = message.guild.channels.find(channel => channel.name === "♡-･ﾟmod-logs");
   if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
     message.guild.createChannel('♡-crystelian-logs', 'text');
@@ -733,7 +733,7 @@ client.on('guildMemberRemove', (member, message) => {
 	logs.send(`${member.user.tag} left the server.`);
 });
 
-client.on('guildMemberRemove', async (member, message) => {
+client.on('guildMemberRemove', async (member, message, guild) => {
 	const fetchedLogs = await member.guild.fetchAuditLogs({
 		limit: 1,
 		type: 'MEMBER_KICK',
