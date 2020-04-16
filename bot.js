@@ -517,7 +517,9 @@ return message.reply("You can\'t report yourself!");
     message.channel.send(`HAPPY BIRTHDAY ${user}!! https://gph.is/g/4DAAReP`)
   } else
   if(message.content.startsWith(config.prefix + "suggest")) {
-    let reason = args.slice(0).join(' ');
+	  let suggestchannel = message.guild.channels.find(`name`, "♡-･ﾟsuggestions");
+if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggestions channel.");
+    let reason = args.join(' ');
     if(!reason)
     return message.channel.send({embed: {
       color: 16231339,
@@ -525,7 +527,8 @@ return message.reply("You can\'t report yourself!");
     }}).then(msg => {
       msg.delete(10000)
     });
-    client.channels.get("618125415134920848").send({embed: {
+	  message.delete();
+    suggestchannel.send({embed: {
       color: 16231339,
       author: {
         name: client.user.username,
@@ -555,10 +558,10 @@ return message.reply("You can\'t report yourself!");
       icon_url: client.user.avatarURL
     },
     title: "Suggestion Action",
-    description: "Suggestion Sender",
+    description: "Crystelian Suggestions Module",
     fields: [{
         name: "Suggestion has been sent!",
-        value: `**${message.author.tag}**, The suggestion has been sent to staff! Thank you!`
+        value: `**${message.author.tag}**, The suggestion has been sent to #<689632513395654752>! Thank you!`
       }
     ],
     footer: {
@@ -656,7 +659,7 @@ function getRandomInt(max) {
 }
 let ticketid = getRandomInt(10000);
 let name = `ticket-${message.author.username}-${ticketid}`;
-name.send("@<699795454468030476> Your help is needed!");
+
 message.guild.createChannel(name, "text")
 .then(m => {
     m.overwritePermissions(message.guild.id, {
@@ -667,6 +670,7 @@ message.guild.createChannel(name, "text")
         VIEW_CHANNEL: true
     })
 })
+
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
