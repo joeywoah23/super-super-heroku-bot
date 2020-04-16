@@ -662,7 +662,6 @@ message.guild.createChannel(name, "text")
         VIEW_CHANNEL: true
     })
 })
-//channel.delete()
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
@@ -680,14 +679,14 @@ if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets 
   if (message.content.startsWith(config.prefix + 'connect')) {
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
         return message.reply("You can\'t do that!");
-    message.reply("Connected to Wi-fi. Network details sent to #🗂》mod-logs!")
+    message.reply("Connected to Wi-fi. Network details sent to #<695153276601106443>!")
     client.channels.get("618125415134920848").send({embed: {
       color: 16231339,
       author: {
         name: client.user.username,
         icon_url: client.user.avatarURL
       },
-      title: "SNOOPY WORKER NETWORK",
+      title: "Crystelian Network ",
       fields: [{
           name: "WiFi Connection",
           value: `Skynet-5`
@@ -710,7 +709,7 @@ if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets 
   });
   } else
     if(message.content.startsWith(config.prefix + 'help')) {
-      message.channel.send({embed: help})
+      message.author.send({embed: help})
     }});
 
       client.on("message", async message => {
@@ -1540,7 +1539,7 @@ const help = {
 		},
 		{
 			name: 'Agency Package',
-			value: 'wlistadd, welcomenet, connect.',
+			value: 'wlistadd, welcomenet, connect, closeticket.',
 			inline: true,
 		},
 	],
