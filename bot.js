@@ -40,6 +40,14 @@ client.on("message", async message => {
     if(command === "shoot") {
       message.channel.send(`${message.author} shot ${user}! https://gph.is/1f1KOgp`)
     } else
+	if(command === "sayin") {
+	client.channels.get(args[0]);
+	if (!args[0]) message.reply("Please supply a channel to say something in.");
+	let reason = args.slice(1).join(' ');
+	if (!reason) message.reply("Please supply something to say.");
+	message.delete();
+	message.channels.get(`${args[0]}`).send(reason)
+	} else
     if(command === "wigsnatch") {
       message.channel.send(`${message.author} snatched ${user}'s weave! https://gph.is/2vuHYua`)
     } else
