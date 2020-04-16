@@ -1457,7 +1457,7 @@ const applyText = (canvas, text) => {
 	return ctx.font;
 };
 
-client.on('guildMemberAdd', async member => {
+client.on('guildMemberAdd', async (member, guild) => {
 	const channel = member.guild.channels.find(ch => ch.name === '♡-･ﾟwelcome');
 	if (!channel) return;
 
@@ -1472,7 +1472,7 @@ client.on('guildMemberAdd', async member => {
 
 	ctx.font = '28px sans-serif';
 	ctx.fillStyle = '#ffffff';
-	ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
+	ctx.fillText(`Welcome to ${guild.name},`, canvas.width / 2.5, canvas.height / 3.5);
 
 	ctx.font = applyText(canvas, `${member.displayName}!`);
 	ctx.fillStyle = '#ffffff';
