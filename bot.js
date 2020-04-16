@@ -38,6 +38,13 @@ client.on("message", async message => {
         message.delete();
         message.channel.send(text);
     } else
+if (command === "announce") {
+	if (!message.member.hasPermission("KICK_MEMBERS"))
+        return message.reply("You can\'t do that!");
+        let text = args.join(" ");
+        message.delete();
+        message.channel.send("/tts" + text);
+} else
     if(command === "apicheck") {
       message.channel.send({embed: {
         color: 16231339,
