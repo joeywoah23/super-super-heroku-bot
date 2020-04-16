@@ -717,6 +717,7 @@ if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets 
   });
   } else
     if(message.content.startsWith(config.prefix + 'help')) {
+	 message.react('📬')
       message.author.send({embed: help});
 	    message.channel.send("Check your DMs!");
     }});
@@ -1103,6 +1104,7 @@ return message.reply("You can\'t punish yourself!");
 	}
 	
         if(message.content.startsWith(config.prefix + "purge")) {
+		message.react('')
           // This command removes all messages from all users in the channel, up to 100.
           if (!message.member.hasPermission("MANAGE_MESSAGES"))
         return message.reply("You can\'t do that!");
@@ -1252,6 +1254,7 @@ client.on('message', async msg => {
                 await handleVideo(video2, msg, voiceChannel, true); 
             }
 			return msg.channel.send(`**${playlist.title}**, Just added to the queue!`);
+			msg.react('🎶')
 		} else {
 
 			try {
@@ -1305,7 +1308,7 @@ client.on('message', async msg => {
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
 
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
-		msg.channel.send("Ok. I have skipped the song!");
+		msg.react('⏩')
         return undefined;
         
 	} else if (msg.content.startsWith(config.prefix + `stop`)) {
@@ -1318,7 +1321,7 @@ client.on('message', async msg => {
         
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
-		msg.channel.send("OK. I have stopped the music and disconnected from your voice channel.");
+		msg.react('🛑');
         return undefined;
         
 	} else if (msg.content.startsWith(config.prefix + `vol`)) {
@@ -1359,7 +1362,7 @@ client.on('message', async msg => {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('Ok, paused');
+			return msg.react('⏸');
 		}
 		return msg.channel.send('There is no Queue to Pause!');
 	} else if (msg.content.startsWith(config.prefix + "resume")) {
@@ -1367,7 +1370,7 @@ client.on('message', async msg => {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
-            return msg.channel.send('Ok, resumed!');
+            return msg.react('▶')
             
 		}
 		return msg.channel.send('Queue is empty!');
