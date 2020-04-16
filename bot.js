@@ -46,7 +46,7 @@ client.on("message", async message => {
 	let reason = args.slice(1).join(' ');
 	if (!reason) message.reply("Please supply something to say.");
 	message.delete();
-	message.channels.get(`${args[0]}`).send(reason)
+	message.channel.get(`${args[0]}`).send(reason)
 	} else
     if(command === "wigsnatch") {
       message.channel.send(`${message.author} snatched ${user}'s weave! https://gph.is/2vuHYua`)
