@@ -665,11 +665,17 @@ message.guild.createChannel(name, "text")
 //channel.delete()
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
-  const fetchedChannel = message.guild.channels.find(r => r.name === args.join(' '));
-
-  if (command === 'delete') {
-      fetchedChannel.delete();
-  }
+	if (!message.member.hasPermission("MANAGE_CHANNELS"))
+        return message.reply("You can\'t do that!");
+channel.delete(message.channel)
+	let closeticketEmbed = new Discord.RichEmbed()
+.setDescription("Crystelian Ticket Module")
+.setColor(16231339)
+.setThumbnail(client.user.avatarURL)
+.addField("Ticket Close", `${message.author} You have closed a ticket. Thank you for using Crystelian Tickets.`);
+	let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
+if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
+	ticketchannel.send(closeticketEmbed);
 } else
   if (message.content.startsWith(config.prefix + 'connect')) {
     if (!message.member.hasPermission("MANAGE_CHANNELS"))
