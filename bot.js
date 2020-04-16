@@ -1094,9 +1094,11 @@ return message.reply("You can\'t punish yourself!");
         }
         
 	if(message.content.startsWith(config.prefix + 'lockdown')) {
-	channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });	
+	message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });	
+	message.channel.send("This channel has been locked down.");
 	} else {
-	channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true });
+	message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true });
+	message.channel.send("This channel has been unlocked.");
 	}
 	
         if(message.content.startsWith(config.prefix + "purge")) {
