@@ -8,6 +8,7 @@ const getYoutubeID = require('get-youtube-id'); //
 const YouTube = require('simple-youtube-api'); //
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY); //
 const fs = require("fs");
+const chalk = require('chalk');
 const Canvas = require('canvas');
 const gif = require("gif-search");
 const queue = new Map();
@@ -22,7 +23,7 @@ client.on("ready", () => {
     client.user.setActivity("Update v4.0", { type: "PLAYING"})
 })
 
-console.log("Crystelian has loaded... Commands have been queued...")
+console.log(chalk.bgCyan('Crystelian:'), 'Loaded! Now Loading Commands...');
 client.on("message", async message => {
     if (message.author.bot) return;
     // This is where we'll put our code.
@@ -1490,7 +1491,7 @@ client.on('guildMemberAdd', async (member, guild) => {
 	channel.send(`Welcome to the server, ${member}!`, attachment);
 });
 
-console.log("All Music Commands have been loaded!");
+console.log(chalk.bgGreen('Crystelian:'), 'Successfully loaded CrystelianOS.');
 
 //"server rules",
 //"please abide by these rules in order to allow for everyone to have a good time ! :lovebongocat:",
