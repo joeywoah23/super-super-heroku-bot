@@ -647,7 +647,7 @@ let ticketEmbed = new Discord.RichEmbed()
 .setDescription("Crystelian Ticket Module")
 .setColor(16231339)
 .setThumbnail(client.user.avatarURL)
-.addField("New Ticket", `${message.author} your ticket has been created.`);
+.addField("Ticket Open", `${message.author} Your ticket has been created.`);
 
 let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
 if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
@@ -670,7 +670,6 @@ message.guild.createChannel(name, "text")
         VIEW_CHANNEL: true
     })
 })
-ticketchannel.send(`@<${notifyrole.id}>, Your help is needed in #<${name.id}> by ${message.author.tag}.`);
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
@@ -1094,6 +1093,12 @@ return message.reply("You can\'t punish yourself!");
         });;
         }
         
+	if(message.content.startsWith(config.prefix + 'lockdown')) {
+	channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });	
+	} else {
+	channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true });
+	}
+	
         if(message.content.startsWith(config.prefix + "purge")) {
           // This command removes all messages from all users in the channel, up to 100.
           if (!message.member.hasPermission("MANAGE_MESSAGES"))
