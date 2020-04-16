@@ -41,10 +41,13 @@ client.on("message", async message => {
       message.channel.send(`${message.author} shot ${user}! https://gph.is/1f1KOgp`)
     } else
 	if(command === "sayin") {
+	if (!message.member.hasPermission("KICK_MEMBERS"))
+        return message.reply("You can\'t do that!");
 	let reason = args.slice(1).join(' ');
           if(!reason) message.reply("Please supply something to say!");
 	let sayChannel = message.mentions.channels.first();
 	if(!sayChannel) message.reply("Please supply a channel!")
+	message.delete();
 	message.guild.channels.find(t => t.id == sayChannel.id).send(reason);
 	} else
     if(command === "wigsnatch") {
@@ -1465,7 +1468,7 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help, info, say, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest].',
+			value: 'help, info, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest].',
 		},
 		{
 			name: 'Fun Commands',
@@ -1489,7 +1492,7 @@ const help = {
 		},
 		{
 			name: 'CrystelianOS Moderation',
-			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, stop.',
+			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, stop, sayin, say.',
 			inline: true,
 		},
 		{
