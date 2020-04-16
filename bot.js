@@ -1453,7 +1453,7 @@ client.on('guildMemberAdd', async member => {
 	const canvas = Canvas.createCanvas(700, 250);
 	const ctx = canvas.getContext('2d');
 
-	const background = await Canvas.loadImage('./wallpaper.jpg');
+	const background = await Canvas.loadImage('https://lh3.googleusercontent.com/proxy/aPjjAdiEpi2ls8_KArrmNUoTWctxxNX5SHQ2IX7uHigtLU9JESHdWJ95VwVGQcbCkM-bZCuYoN-GKgJ7FFbItBC4HwWr052lZ9IflPM');
 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 	ctx.strokeStyle = '#74037b';
