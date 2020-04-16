@@ -670,7 +670,7 @@ message.guild.createChannel(name, "text")
         VIEW_CHANNEL: true
     })
 })
-ticketchannel.send(`@<notifyrole.id>, Your help is needed in #<name.id> by ${message.author.tag}.`);
+ticketchannel.send(`@<${notifyrole.id}>, Your help is needed in #<${name.id}> by ${message.author.tag}.`);
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
