@@ -667,7 +667,7 @@ message.guild.createChannel(name, "text")
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
         return message.reply("You can\'t do that!");
-channel.delete(message.channel)
+	message.channel.delete();
 	let closeticketEmbed = new Discord.RichEmbed()
 .setDescription("Crystelian Ticket Module")
 .setColor(16231339)
