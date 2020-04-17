@@ -8,6 +8,7 @@ const fetchVideoInfo = require('youtube-info'); //
 const getYoutubeID = require('get-youtube-id'); //
 const YouTube = require('simple-youtube-api'); //
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY); //
+const moment = require("moment");
 const fs = require("fs");
 const chalk = require('chalk');
 const Canvas = require('canvas');
