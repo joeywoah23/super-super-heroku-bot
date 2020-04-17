@@ -113,6 +113,12 @@ message.channel.send({embed: {
      })
    })
  } else
+	 if (message.content.startsWith(config.prefix + "clap")) {
+		 let text = args.join(" ");
+        message.delete();
+		 let spaces = ' ';
+		 spaces = '👏';
+	 } else
     if (message.content.startsWith(config.prefix + 'membercount')) {
       message.channel.send({embed: {
         color: 16231339,
@@ -406,8 +412,8 @@ let ship1 = args[0];
 let ship2 = args[1];
 	if (!args[1]) return message.reply("Please supply someone to ship you with.");
 let pres = "Unable to find compatibility words.";
-		 if (percent < 50) pres = " Not Compatible... Sadness.";
-		 if (percent > 50) pres = " Compatible! Go get them!";
+		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
+		 if (percent > 50) pres = "😁 Compatible! Go get them!";
 		 message.channel.send({embed: {
         color: 16231339,
         description: `**Crystelian Love Module**\nShip #1: ${ship1}\nShip #2: ${ship2}\nShipping Percent: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
@@ -544,26 +550,12 @@ return message.reply("You can\'t report yourself!");
 });;
   } else
 if(message.content.startsWith(config.prefix + "ppsize")) {
-function getRandomInt(max) {
+	function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-let esize = "=";
 let size = getRandomInt(12);
-	if (size += 0) esize = "=";
-	if (size += 1) esize = "=";
-	if (size += 2) esize = "==";
-	if (size += 3) esize = "===";
-	if (size += 4) esize = "====";
-	if (size += 5) esize = "=====";
-	if (size += 6) esize = "======";
-	if (size += 7) esize = "=======";
-	if (size += 8) esize = "========";
-	if (size += 9) esize = "=========";
-	if (size += 10) esize = "==========";
-	if (size += 11) esize = "===========";
-	if (size += 12) esize = "============";
-		
-	message.channel.send(`Crystelian PeePee Machine\n${message.author}'s peepee size\n8${esize}D`)
+	const target = message.mentions.members.first || message.author;
+	message.channel.send(`Crystelian PeePee Machine\n${message.author}'s peepee size\n8${'='.repeat(size)}D`)
 } else	
   if(message.content.startsWith(config.prefix + "happybirthday")) {
     if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
@@ -1633,7 +1625,7 @@ const help = {
 		},
 		{
 			name: 'Fun Commands',
-			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8.',
+			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8, ppsize.',
 			inline: false,
 		},
 		{
