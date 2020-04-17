@@ -116,7 +116,7 @@ message.channel.send({embed: {
  } else
 	 if (message.content.startsWith(config.prefix + "clap")) {
 
-    let claptext = args[0].split('').join(' 👏 ');
+    let claptext = args.join(' 👏 ');
      message.channel.send(claptext);
 	 } else
     if (message.content.startsWith(config.prefix + 'membercount')) {
