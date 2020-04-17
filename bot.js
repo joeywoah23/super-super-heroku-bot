@@ -792,31 +792,6 @@ if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets 
         if(message.content.indexOf(config.prefix) !== 0) return;
 	       if (talkedRecently.has(message.author.id))
   return;
-        
-const { CommandoClient } = require('discord.js-commando');
-const path = require('path');
-const config = require( path.resolve( __dirname, "config.json" ) );
-
-const client = new CommandoClient({
-    commandPrefix: config.prefix,
-    unknownCommandResponse: false,
-    owner: config.devID,
-    disableEveryone: true
-});
-
-client.registry
-    .registerDefaultTypes()
-    .registerGroups([
-        ['polls', 'Polls'],
-    ])
-    .registerDefaultGroups()
-    .registerDefaultCommands()
-    .registerCommandsIn(path.join(__dirname, 'commands'));
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(config.activity);
-}); 
 	     
         // Here we separate our "command" name, and our "arguments" for the command. 
         // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
@@ -1009,6 +984,26 @@ if(message.content.startsWith(config.prefix + "cleanup")) {
   message.channel.send(`I've cleaned up ${toRemove.size} old farts.`);
 }
 }); */
+
+const { CommandoClient } = require('discord.js-commando');
+const path = require('path');
+
+const client = new CommandoClient({
+    commandPrefix: config.prefix,
+    unknownCommandResponse: false,
+    owner: config.devID,
+    disableEveryone: true
+});
+
+client.registry
+    .registerDefaultTypes()
+    .registerGroups([
+        ['polls', 'Polls'],
+    ])
+    .registerDefaultGroups()
+    .registerDefaultCommands()
+    .registerCommandsIn(path.join(__dirname, 'commands'));
+}); 
 
         // Let's go with a few common example commands! Feel free to delete or change those.
 client.on("message", async message => {
