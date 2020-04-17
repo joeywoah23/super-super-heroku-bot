@@ -11,6 +11,7 @@
     "request": "2.81.0",
     "dotenv": "^8.2.0",
     "simple-youtube-api": "^5.0.2",
+    "moment": ">=2.0",
     "enmap": "^5.2.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^2.6.0",
