@@ -401,7 +401,7 @@ let ship2 = args[1];
 	if (!args[1]) return message.reply("Please supply someone to ship you with.");
 		 message.channel.send({embed: {
         color: 16231339,
-        description: `**Crystelian Love Module**/nShip #1: ${ship1}/nShip #2: ${ship2}/nShipping Percent: **${percent}%**/nThank You for using the Crystelian Love Module.`
+        description: `**Crystelian Love Module**\nShip #1: ${ship1}\nShip #2: ${ship2}\nShipping Percent: **${percent}%**\nThank You for using the Crystelian Love Module.`
       }});
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
