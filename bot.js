@@ -543,19 +543,19 @@ function getRandomInt(max) {
 }
 let esize = "=";
 let size = getRandomInt(12);
-	if (size = 0) esize = "=";
-	if (size = 1) esize = "=";
-	if (size = 2) esize = "==";
-	if (size = 3) esize = "===";
-	if (size = 4) esize = "====";
-	if (size = 5) esize = "=====";
-	if (size = 6) esize = "======";
-	if (size = 7) esize = "=======";
-	if (size = 8) esize = "========";
-	if (size = 9) esize = "=========";
-	if (size = 10) esize = "==========";
-	if (size = 11) esize = "===========";
-	if (size = 12) esize = "============";
+	if (size < 0) esize = "=";
+	if (size < 1) esize = "=";
+	if (size < 2) esize = "==";
+	if (size < 3) esize = "===";
+	if (size < 4) esize = "====";
+	if (size < 5) esize = "=====";
+	if (size < 6) esize = "======";
+	if (size < 7) esize = "=======";
+	if (size < 8) esize = "========";
+	if (size < 9) esize = "=========";
+	if (size < 10) esize = "==========";
+	if (size < 11) esize = "===========";
+	if (size < 12) esize = "============";
 		
 	message.channel.send(`Crystelian PeePee Machine\n${message.author}'s peepee size\n8${esize}D`)
 } else	
