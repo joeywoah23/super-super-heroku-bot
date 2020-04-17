@@ -89,6 +89,12 @@ if (!message.member.hasPermission('BAN_MEMBERS'))
     if(message.content.startsWith(config.prefix + 'cry')) {
         message.channel.send('https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif')
     } else
+if (message.content.startsWith(config.prefix + "perfectr8")) {
+message.channel.send({embed: {
+        color: 16231339,
+        description: `Crystelian R8 Module\n{message.author}'s Perfection\nYou are 100% perfect!`
+      }});
+} else
     if (message.content.startsWith(config.prefix + 'tea')) {
         message.channel.send('https://gph.is/1IFn5eh')
     } else
@@ -1623,11 +1629,11 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help, info, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest], openticket, ship.',
+			value: 'help, info, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest], openticket.',
 		},
 		{
 			name: 'Fun Commands',
-			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add].',
+			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8.',
 			inline: false,
 		},
 		{
