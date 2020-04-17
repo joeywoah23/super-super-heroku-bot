@@ -793,6 +793,31 @@ if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets 
 	       if (talkedRecently.has(message.author.id))
   return;
         
+const { CommandoClient } = require('discord.js-commando');
+const path = require('path');
+const config = require( path.resolve( __dirname, "config.json" ) );
+
+const client = new CommandoClient({
+    commandPrefix: config.prefix,
+    unknownCommandResponse: false,
+    owner: config.devID,
+    disableEveryone: true
+});
+
+client.registry
+    .registerDefaultTypes()
+    .registerGroups([
+        ['polls', 'Polls'],
+    ])
+    .registerDefaultGroups()
+    .registerDefaultCommands()
+    .registerCommandsIn(path.join(__dirname, 'commands'));
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setActivity(config.activity);
+}); 
+	     
         // Here we separate our "command" name, and our "arguments" for the command. 
         // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
         // command = say
