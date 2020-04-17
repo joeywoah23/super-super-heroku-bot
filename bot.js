@@ -24,8 +24,34 @@ const talkedRecently = new Set();
 
 // Set the bot's "Playing: " status (must be in an event!)
 client.on("ready", () => {
-    client.user.setActivity("Update v4.0", { type: "PLAYING"})
+    client.user.setActivity("Update v5.9.0", { type: "PLAYING"})
 })
+
+class ProgressBar {
+    constructor(value, maxValue, barSize) {
+            this.value = value;
+            this.maxValue = maxValue;
+            this.barSize = barSize;
+    }
+
+    /**
+     * Create a text progress bar
+     * @returns {String} - The bar
+     */
+    createBar() {
+        let percentage = this.value / this.maxValue; //Calculate the percentage of the bar
+        let progress = Math.round((this.barSize * percentage)); //Calculate the number of square caracters to fill the progress side.
+        let emptyProgress = this.barSize - progress; //Calculate the number of dash caracters to fill the empty progress side.
+
+        let progressText = "▇".repeat(progress); //Repeat is creating a string with progress * caracters in it
+        let emptyProgressText = "—".repeat(emptyProgress); //Repeat is creating a string with empty progress * caracters in it
+        let percentageText = Math.round(percentage * 100) + "%"; //Displaying the percentage of the bar
+
+        let bar = "[" + progressText + emptyProgressText + "] " + percentageText; //Creating the bar
+        return bar;
+    }
+
+}
 
 console.log(chalk.bgCyan('Crystelian:'), 'Loaded! Now Loading Commands...');
 client.on("message", async message => {
@@ -416,18 +442,19 @@ return message.reply("You can\'t unpunish yourself!");
 		 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
+let . = message.author;
 let percent = getRandomInt(100);
 let ship1 = args[0];
-	if (!args[0]) return message.reply("Please supply a user as arg #1");
+	if (!args[0]) return "Please supply someone to ship with or place a "." for it to be you.";
 let ship2 = args[1];
-	if (!args[1]) return message.reply("Please supply someone to ship you with.");
+	if (!args[1])
 let pres = "Unable to find compatibility words.";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
-		 message.channel.send({embed: {
+		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽``${ship1}``\n🔼``${ship2}```).then(message.channel.send({embed: {
         color: 16231339,
-        description: `**Crystelian Love Module | Compatibility**\nShip #1: ${ship1}\nShip #2: ${ship2}\nCompatiblity: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
-      }});
+        description: `Compatiblity: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
+      }}));
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
       let reason = args.slice(1).join(' ');
@@ -1653,7 +1680,7 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help, info, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest], openticket.',
+			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`',
 		},
 		{
 			name: 'Fun Commands',
