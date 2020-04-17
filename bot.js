@@ -637,7 +637,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       client.channels.get("618125415134920848").send({embed: {
         color: 16231339,
         author: {
-s          name: client.user.username,
+          name: client.user.username,
           icon_url: client.user.avatarURL
         },
         title: "SNOOPY WORKER NETWORK",
