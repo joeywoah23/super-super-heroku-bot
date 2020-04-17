@@ -1003,7 +1003,6 @@ comclient.registry
     .registerDefaultGroups()
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
-}); 
 
         // Let's go with a few common example commands! Feel free to delete or change those.
 client.on("message", async message => {
