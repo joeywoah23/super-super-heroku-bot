@@ -11,6 +11,7 @@ const youtube = new YouTube(process.env.YOUTUBE_API_KEY); //
 const fs = require("fs");
 const chalk = require('chalk');
 const Canvas = require('canvas');
+const { Command } = require('discord.js-commando');
 const gif = require("gif-search");
 const queue = new Map();
 const {
