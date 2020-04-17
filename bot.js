@@ -988,14 +988,14 @@ if(message.content.startsWith(config.prefix + "cleanup")) {
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
 
-const client = new CommandoClient({
+const comclient = new CommandoClient({
     commandPrefix: config.prefix,
     unknownCommandResponse: false,
     owner: config.devID,
     disableEveryone: true
 });
 
-client.registry
+comclient.registry
     .registerDefaultTypes()
     .registerGroups([
         ['polls', 'Polls'],
