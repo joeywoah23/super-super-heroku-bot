@@ -553,9 +553,12 @@ if(message.content.startsWith(config.prefix + "ppsize")) {
 	function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-let size = getRandomInt(12);
-	const target = message.mentions.members.first || message.author;
-	message.channel.send(`Crystelian PeePee Machine\n${message.author}'s peepee size\n8${'='.repeat(size)}D`)
+	let size = getRandomInt(12);
+	const ppsize = Discord.RichEmbed()
+	.setTitle("Crystlian Measure Module | PeePee Size")
+	.setDescription(`${message.author}'s penis size\n8${'='.repeat(size)}D - ${size}in.`)
+	.setColor(16231339);
+	message.channel.send(ppsize)
 } else	
   if(message.content.startsWith(config.prefix + "happybirthday")) {
     if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
