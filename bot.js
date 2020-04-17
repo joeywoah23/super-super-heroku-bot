@@ -115,10 +115,11 @@ message.channel.send({embed: {
    })
  } else
 	 if (message.content.startsWith(config.prefix + "clap")) {
-		 let text = args.join(" ");
-        message.delete();
-		 let spaces = ' ';
-		 spaces = '👏';
+
+    let claptext = args[0].split('').join(' 👏 ');
+    else {
+      args.join(' 👏 ');
+    } message.channel.send(claptext);
 	 } else
     if (message.content.startsWith(config.prefix + 'membercount')) {
       message.channel.send({embed: {
