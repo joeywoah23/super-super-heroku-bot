@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const Util = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
+const roast = require("./roasts.json");
 const ytdl = require('ytdl-core');
 const fetchVideoInfo = require('youtube-info'); //
 const getYoutubeID = require('get-youtube-id'); //
@@ -334,6 +335,13 @@ if (message.content.startsWith("k")) {
     }
   }
 });;
+} else
+if (message.content.startsWith(config.prefix + "roast")) {
+	function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+let rnumber = getRandomInt(94);
+	message.channel.send(`${user}, ${roast.rnumber}`);
 } else
   if (message.content.startsWith(config.prefix + "unmute"))
     {let role = message.guild.roles.find(r => r.name === "Muted");
