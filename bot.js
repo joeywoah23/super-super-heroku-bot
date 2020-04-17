@@ -396,12 +396,15 @@ return message.reply("You can\'t unpunish yourself!");
 }
 let percent = getRandomInt(100);
 let ship1 = args[0];
-	if (!args[0]) args[0] = message.author
+	if (!args[0]) return message.reply("Please supply a user as arg #1");
 let ship2 = args[1];
 	if (!args[1]) return message.reply("Please supply someone to ship you with.");
+let pres = "Unable to find compatibility words.";
+		 if (percent < 50) pres = " Not Compatible... Sadness.";
+		 if (percent > 50) pres = " Compatible! Go get them!";
 		 message.channel.send({embed: {
         color: 16231339,
-        description: `**Crystelian Love Module**\nShip #1: ${ship1}\nShip #2: ${ship2}\nShipping Percent: **${percent}%**\nThank You for using the Crystelian Love Module.`
+        description: `**Crystelian Love Module**\nShip #1: ${ship1}\nShip #2: ${ship2}\nShipping Percent: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
       }});
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
@@ -1598,7 +1601,7 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help, info, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest], openticket.',
+			value: 'help, info, apicheck, latency, membercount, channelcount, welcomeOSmsg, reportmember, version, [suggest], openticket, ship.',
 		},
 		{
 			name: 'Fun Commands',
