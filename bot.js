@@ -390,6 +390,17 @@ return message.reply("You can\'t unpunish yourself!");
     if (message.content.startsWith(config.prefix + "lmao")) {
         message.channel.send("https://gph.is/g/469ALg8")
     } else
+	 if (message.content.startsWith(config.prefix + "ship")) {
+		 function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+let percent = getRandomInt(100);
+let ship1 = args[0];
+	if (!args[0]) args[0] = message.author
+let ship2 = args[1];
+	if (!args[1]) return message.reply("Please supply someone to ship you with.");
+		 message.channel.send(`Crystelian Love Module/nShip #1: ${ship1}/nShip #2: ${ship2}/nShipping Percent: **${percent}%**/nThank You for using the Crystelian Love Module.`);
+	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
       let reason = args.slice(1).join(' ');
       let user = message.mentions.members.first() || client.users.get(args[0]);
@@ -626,7 +637,7 @@ if (message.content.startsWith(config.prefix + 'divide')) {
       client.channels.get("618125415134920848").send({embed: {
         color: 16231339,
         author: {
-          name: client.user.username,
+s          name: client.user.username,
           icon_url: client.user.avatarURL
         },
         title: "SNOOPY WORKER NETWORK",
