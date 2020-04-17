@@ -416,7 +416,7 @@ let pres = "Unable to find compatibility words.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
 		 message.channel.send({embed: {
         color: 16231339,
-        description: `**Crystelian Love Module**\nShip #1: ${ship1}\nShip #2: ${ship2}\nShipping Percent: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
+        description: `**Crystelian Love Module | Compatibility**\nShip #1: ${ship1}\nShip #2: ${ship2}\nCompatiblity: **${percent}%** ['❤'.repeat(percent)]\n${pres}\nThank You for using the Crystelian Love Module.`
       }});
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
@@ -554,7 +554,7 @@ if(message.content.startsWith(config.prefix + "ppsize")) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 	let size = getRandomInt(12);
-	const ppsize = Discord.RichEmbed()
+	const ppsize = new Discord.RichEmbed()
 	.setTitle("Crystlian Measure Module | PeePee Size")
 	.setDescription(`${message.author}'s penis size\n8${'='.repeat(size)}D - ${size}in.`)
 	.setColor(16231339);
