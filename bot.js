@@ -92,7 +92,7 @@ if (!message.member.hasPermission('BAN_MEMBERS'))
 if (message.content.startsWith(config.prefix + "perfectr8")) {
 message.channel.send({embed: {
         color: 16231339,
-        description: `Crystelian R8 Module\n{message.author}'s Perfection\nYou are 100% perfect!`
+        description: `Crystelian R8 Module\n${message.author}'s Perfection\nYou are 100% perfect!`
       }});
 } else
     if (message.content.startsWith(config.prefix + 'tea')) {
