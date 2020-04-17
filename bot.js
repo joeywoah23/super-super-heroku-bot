@@ -416,7 +416,7 @@ let pres = "Unable to find compatibility words.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
 		 message.channel.send({embed: {
         color: 16231339,
-        description: `**Crystelian Love Module | Compatibility**\nShip #1: ${ship1}\nShip #2: ${ship2}\nCompatiblity: **${percent}%** ['❤'.repeat(percent)]\n${pres}\nThank You for using the Crystelian Love Module.`
+        description: `**Crystelian Love Module | Compatibility**\nShip #1: ${ship1}\nShip #2: ${ship2}\nCompatiblity: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
       }});
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
