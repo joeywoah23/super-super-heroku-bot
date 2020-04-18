@@ -38,6 +38,7 @@ client.on("message", async message => {
     if (!message.member.hasPermission("KICK_MEMBERS"))
         return message.reply("You can\'t do that!");
         let text = args.join(" ");
+	    if (!text) return message.channel.send(errembed);
         message.delete();
         message.channel.send(text);
     } else
@@ -61,14 +62,15 @@ if (command === "announce") {
 	if (!message.member.hasPermission("KICK_MEMBERS"))
         return message.reply("You can\'t do that!");
 	let reason = args.slice(1).join(' ');
-          if(!reason) message.reply("Please supply something to say!");
+          if(!reason) message.channel.send(errembed);
 	let sayChannel = message.mentions.channels.first();
-	if(!sayChannel) message.reply("Please supply a channel!")
+	if(!sayChannel) message.channel.send(errembed);
 	message.delete();
 	message.guild.channels.find(t => t.id == sayChannel.id).send(reason);
 	} else
     if(command === "wigsnatch") {
       message.channel.send(`${message.author} snatched ${user}'s weave! https://gph.is/2vuHYua`)
+	    if (!user) message.channel.send(errembed);
     } else
     if (message.content.startsWith(config.prefix + 'latency')) {
       message.channel.send({embed: {
@@ -117,8 +119,8 @@ message.channel.send({embed: {
    })
  } else
 	 if (message.content.startsWith(config.prefix + "clapify")) {
-
     let claptext = args.join(' 👏 ');
+		 if (!claptext) message.channel.send(errembed);
      message.channel.send(claptext);
 	 } else
     if (message.content.startsWith(config.prefix + 'membercount')) {
@@ -135,12 +137,7 @@ message.channel.send({embed: {
       let member = message.mentions.members.first() || client.users.get(args[0]);
       if (!message.member.hasPermission("MUTE_MEMBERS"))
         return message.reply("You can\'t do that!");
-      if(!member) return message.channel.send({embed: {
-        color: 16231339,
-        description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-      }}).then(msg => {
-        msg.delete(10000)
-      }) 
+      if(!member) return message.channel.send(errembed) 
 if(member === message.author)
 return message.reply("You can\'t punish yourself!");
       //made the command: let member = message.member;
@@ -206,7 +203,7 @@ if (message.content.startsWith("k")) {
     if (message.content.startsWith(config.prefix + "grant")) {
       let reason = args.slice(1).join(' ');
           if(!reason)
-          return message.reply("Please mention a valid role to grant!");
+          return message.channel.send(errembed);
           let Role = message.guild.roles.find(r => r.name === `${reason}`);
     
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
@@ -214,12 +211,7 @@ if (message.content.startsWith("k")) {
       if (!message.member.hasPermission("MANAGE_ROLES"))
         return message.reply("You can\'t do that!");
       if(!member)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-            }}).then(msg => {
-              msg.delete(10000)
-            })
+            return message.channel.send(errembed)
       // or the person who made the command: let member = message.member;
       
       // Add the role!
@@ -273,7 +265,7 @@ if (message.content.startsWith("k")) {
   if (message.content.startsWith(config.prefix + "ungrant")) {
     let reason = args.slice(1).join(' ');
         if(!reason)
-        return message.reply("Please mention a valid role to ungrant!");
+        return message.channel.send(errembed);
 	  let Role = message.guild.roles.find(r => r.name === `${reason}`);
   
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
@@ -281,12 +273,7 @@ if (message.content.startsWith("k")) {
     if (!message.member.hasPermission("MANAGE_ROLES"))
         return message.reply("You can\'t do that!");
     if(!member)
-          return message.channel.send({embed: {
-            color: 16231339,
-            description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-          }}).then(msg => {
-            msg.delete(10000)
-          })
+          return message.channel.send(errembed)
     // or the person who made the command: let member = message.member;
     
     // Add the role!
@@ -352,12 +339,7 @@ let rnumber = getRandomInt(94);
       if (!message.member.hasPermission("MUTE_MEMBERS"))
         return message.reply("You can\'t do that!");
       if(!member)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-            }}).then(msg => {
-              msg.delete(10000)
-            })
+            return message.channel.send(errembed)
      
 if(member === message.author)
 return message.reply("You can\'t unpunish yourself!");
