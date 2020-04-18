@@ -442,13 +442,13 @@ return message.reply("You can\'t unpunish yourself!");
 		 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-let . = message.author;
+let me = message.author;
 let percent = getRandomInt(100);
 let ship1 = args[0];
-	if (!args[0]) return "Please supply someone to ship with or place a "." for it to be you.";
+	if (!args[0]) return "Please supply someone to ship with or place a "me" for it to be you.";
 let ship2 = args[1];
 	if (!args[1])
-let pres = "Unable to find compatibility words.";
+let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
 		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽``${ship1}``\n🔼``${ship2}```).then(message.channel.send({embed: {
