@@ -445,7 +445,7 @@ return message.reply("You can\'t unpunish yourself!");
 let me = message.author;
 let percent = getRandomInt(100);
 let ship1 = args[0];
-	if (!args[0]) return "Please supply someone to ship with or place a "me" for it to be you.";
+	if (!args[0]) return message.reply('Please supply someone to ship with or place a "me" for it to be you.');
 let ship2 = args[1];
 	if (!args[1])
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
