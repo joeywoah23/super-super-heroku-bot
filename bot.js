@@ -419,9 +419,9 @@ let me = message.author;
 const percent = getRandomInt(10);
 		 
 let barSize = 10
-let empty = barSize - percent
-let taken = "".repeat(percent);
-let nottaken = "❌".repeat(empty)
+let empty = barSize - percent;
+let taken = "🥰".repeat(percent);
+let nottaken = "💔".repeat(empty)
 
 
 let ship1 = args[0];
