@@ -444,13 +444,13 @@ class ProgressBar {
 
 }
 let ship1 = args[0];
-	if (!args[0]) return message.reply('Please supply someone to ship with or place a "me" for it to be you.');
+	if (!args[0]) return message.channel.send(errembed);
 let ship2 = args[1];;
-	if (!args[1]) return message.reply('Please supply someone to ship with the first person');
+	if (!args[1]) return message.channel.send(errembed);
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
-		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽``${ship1}``\n🔼``${ship2}```).then(message.channel.send({embed: {
+		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽${ship1}\n🔼${ship2}`).then(message.channel.send({embed: {
         color: 16231339,
         description: `Compatiblity: **${percent}%**\n${lovebar}\n${pres}\nThank You for using the Crystelian Love Module.`
       }}));
