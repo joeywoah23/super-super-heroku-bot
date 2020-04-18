@@ -1319,53 +1319,53 @@ const help = {
 	color: 16231339,
 	title: 'Help',
 	author: {
-		name: 'Help',
+		name: 'Crystelian | Help',
 		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 		url: 'https://discord.js.org',
 	},
-	description: 'Welcome to the help embed! You\'ll find most commands here! `()` - Remodel, `<>` - Beta, `[]` - WIP.',
+	description: 'Welcome to the help embed! You\'ll find most commands here!',
 	thumbnail: {
 		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 	fields: [
 		{
-			name: 'Utility Commands',
-			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`',
+			name: '⚙ | Utility Commands',
+			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`\n subtract `Usage: subtract <number> <number>`\n multiply `Usage: multiply <number> <number>`\n divide `Usage: <number> <number>\n add `Usage: UNAVAILABLE`',
 		},
 		{
-			name: 'Fun Commands',
-			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8, ppsize, clapify, howgay.',
+			name: '🎉 | Fun Commands',
+			value: 'asl `Usage: asl <age> <sex/gender> <location>`\n cry `Usage: cry`\n rip `Usage: rip`\n avatar `Usage: avatar <optional: member>`\n tea `Usage: tea`\n hot `Usage: hot`\n lmao `Usage: lmao`\n ship `Usage: ship <person name> <person name>`\n perfectr8 `Usage: perfectr8`\n ppsize `Usage: ppsize`\n clapify `Usage: clapify <text>`\n howgay `Usage: howgay`',
 			inline: false,
 		},
 		{
-			name: "Music Commands",
+			name: "🎶 | Music Commands",
 			value: "play, skip, np, queue, pause, resume.",
 			inline: false
 		},
 		{
-			name: 'Points Commands',
-			value: 'rank, leaderboard/top.',
+			name: '✨ | Custom Commands',
+			value: '`NONE',
 			inline: false,
 		},
 		{
-			name: 'Roleplay Commands',
+			name: '🌖 | Roleplay Commands',
 			value: 'shoot, wigsnatch, amithefather.',
 			inline: true,
 		},
 		{
-			name: 'CrystelianOS Moderation',
+			name: '⚒ | CrystelianOS Moderation',
 			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, stop, sayin, say.',
 			inline: true,
 		},
 		{
-			name: 'Agency Package',
+			name: '😎 | Agency Package',
 			value: 'wlistadd, welcomenet, connect, closeticket.',
 			inline: true,
 		},
 	],
 	timestamp: new Date(),
 	footer: {
-		text: 'Help',
+		text: 'Prefix: c?',
 		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 };
