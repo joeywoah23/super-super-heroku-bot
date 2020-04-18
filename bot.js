@@ -1241,164 +1241,49 @@ client.on('guildMemberAdd', async (member, guild) => {
 
 console.log(chalk.bgGreen('Crystelian:'), 'Successfully loaded CrystelianOS.');
 
-//"server rules",
-//"please abide by these rules in order to allow for everyone to have a good time ! :lovebongocat:",
-      
-//"☆ no spamming!",
-//"spam tagging, copypasta, purposeful character spam, raids, etc.",
-
-//"☆ use appropriate channels!",
-//"keep bot commands and media in the correct channels!",
-
-//"☆ no nsfw!",
-//"please refrain from anything nsfw in the server!",
-
-//"☆ be respectful of others!",
-//"bullying is not tolerated [bullying is a REPETITIVE action]",
-//"racism, homophobia, harassment, etc. [any type of discrimination] is not allowed",
-//"keep arguments outside of the server",
-//"do not leak personal information without consent",
-
-
-//"☆ use common sense!",
-//"if you feel its not allowed, don't do it",
-      
-//"☆ punishment is by staff jurisdiction",
-//"do not argue with staff !",
-//"if you feel unfairly punished, feel free to reach out to a staff member!",
-      
-//"☆ try not to queue long songs/earrape songs if others are listening along",
-//"unless consent is given!",
-      
-//"☆please refrain from earraping in the general voice channel",
-//"blowing into your microphone, using a loud voice changer, etc.",
-//"unless consent is given!",
-      
-//"☆ rules are subject to change",
-//"make sure you know about any updated/added rules",
-      
-//"☆ have fun!!",
-      
-//"☆ abide by the discord tos!",
-//"[for reference ]",
-//"https://discordapp.com/guidelines"
-
-// EMBEDS ARE NEXT
-
 const errembed = new Discord.RichEmbed()
-.setTitle("ERR!")
+.setTitle("Crystelian |ERR!")
 .setDescription("An error has been located!\nThis could have happened due to `missing argument, you are missing permissions, or I am lacking permissions.`\nIf this error persists and you have all then necessary arguments, permissions, etc.\nPlease contact joeywoah_#5364.")
 .setColor(16231339);
 
 const embed = new Discord.RichEmbed()
-  .setTitle("Information Embed")
+  .setTitle("Crystelian | Info")
   .setAuthor("Information", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
-  /*
-   * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
-   */
   .setColor(16231339)
-  .setDescription("Hello. Thank you for using `Crystelian`! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
-  .setFooter("Information", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+  .setDescription("Hello. Thank you for using `Crystelian`! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore!")
+  .setFooter("Prefix: c?", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
   .setThumbnail("https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
-  /*
-   * Takes a Date object, defaults to current date.
-   */
   .setTimestamp()
   .setURL("https://discord.js.org/#/docs/main/indev/class/RichEmbed")
-  .addField("Developer",
-    "joeywoah_#0001")
-  /*
-   * Inline fields may not display as inline if the thumbnail and/or image is too big.
-   */
-  .addField("GitHub Repository", "Click [here!](https://github.com/joeywoah23/snoopyworker)", true)
+  .addField("Developer", "joeywoah_")
   .addField("This bot was made using", "[Discord.js](https://discord.js.org)")
   .addBlankField(true)
   .addField("`OS`", "`RUNNING ON CrystelianOS`", true);
 
-const help = {
-	color: 16231339,
-	title: 'Help',
-	author: {
-		name: 'Crystelian | Help',
-		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
-		url: 'https://discord.js.org',
-	},
-	description: 'Welcome to the help embed! You\'ll find most commands here!',
-	thumbnail: {
-		url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
-	},
-	fields: [
-		{
-			name: '⚙ | Utility Commands',
-			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`\n subtract `Usage: subtract <number> <number>`\n multiply `Usage: multiply <number> <number>`\n divide `Usage: <number> <number>`\n add `Usage: UNAVAILABLE`',
-		},
-		{
-			name: '🎉 | Fun Commands',
-			value: 'asl `Usage: asl <age> <sex/gender> <location>`\n cry `Usage: cry`\n rip `Usage: rip`\n avatar `Usage: avatar <optional: member>`\n tea `Usage: tea`\n hot `Usage: hot`\n lmao `Usage: lmao`\n ship `Usage: ship <person name> <person name>`\n perfectr8 `Usage: perfectr8`\n ppsize `Usage: ppsize`\n clapify `Usage: clapify <text>`\n howgay `Usage: howgay`',
-			inline: false,
-		},
-		{
-			name: "🎶 | Music Commands",
-			value: "play `Usage: play <name or url>`\n skip `Usage: skip`\n np `Usage: np`\n queue `Usage: queue`\n pause `Usage: pause`\n resume `Usage: resume`",
-			inline: false
-		},
-		{
-			name: '✨ | Custom Commands',
-			value: '`NONE`',
-			inline: false,
-		},
-		{
-			name: '🌖 | Roleplay Commands',
-			value: 'shoot `Usage: shoot <member>`\n wigsnatch `Usage: wigsnatch`\n ruthefather `Usage: ruthefather`',
-			inline: false,
-		},
-		{
-			name: '⚒ | CrystelianOS Moderation',
-			value: 'kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`',
-			inline: false,
-		},
-		{
-			name: '😎 | Agency Package',
-			value: 'closeticket `Usage: closeticket`',
-			inline: false,
-		},
-	],
-	timestamp: new Date(),
-	footer: {
-		text: 'Prefix: c?',
-		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
-	},
-};
+const help = new Discord.RichEmbed()
+.setTitle("Crystelian | Help")
+.setDescription("Welcome to the help embed! You\'ll find most commands here!")
+.setColor(16231339)
+.setFooter("Prefix: c?", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+.setThumbnail("https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+.addField("⚙ | Utility Commands", "help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`\n subtract `Usage: subtract <number> <number>`\n multiply `Usage: multiply <number> <number>`\n divide `Usage: <number> <number>`\n add `Usage: UNAVAILABLE`")
+.addField("🎉 | Fun Commands", "asl `Usage: asl <age> <sex/gender> <location>`\n cry `Usage: cry`\n rip `Usage: rip`\n avatar `Usage: avatar <optional: member>`\n tea `Usage: tea`\n hot `Usage: hot`\n lmao `Usage: lmao`\n ship `Usage: ship <person name> <person name>`\n perfectr8 `Usage: perfectr8`\n ppsize `Usage: ppsize`\n clapify `Usage: clapify <text>`\n howgay `Usage: howgay`")
+.addField("🎶 | Music Commands", "play `Usage: play <name or url>`\n skip `Usage: skip`\n np `Usage: np`\n queue `Usage: queue`\n pause `Usage: pause`\n resume `Usage: resume`")
+.addField("✨ | Custom Commands", "`DIRECTORY EMPTY`")
+.addField("🌖 | Roleplay Commands", "shoot `Usage: shoot <member>`\n wigsnatch `Usage: wigsnatch`\n ruthefather `Usage: ruthefather`")
+.addField("⚒ | CrystelianOS Moderation", "kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`")
+.addField("😎 | Agency Package", "closeticket `Usage: closeticket`")
+.setTimestamp();
 
-const version = {
-	color: 16231339,
-	title: 'Version',
-	author: {
-		name: 'Version',
-		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
-		url: 'https://discord.js.org',
-	},
-	description: 'Welcome to the version embed! This is where you\'ll find the version the bots and packages running on!',
-	thumbnail: {
-		url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
-	},
-	fields: [
-		{
-			name: 'CrystelianOS',
-			value: '```RUNNING ON VERSION 4```',
-		},
-		{
-			name: 'AgentProjectOS',
-			value: '```RUNNING ON VERSION 1.0B```',
-			inline: true,
-		},
-	],
-	timestamp: new Date(),
-	footer: {
-		text: 'Version',
-		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
-	},
-};
+const version = new Discord.RichEmbed()
+.setTitle("Crystelian | Version")
+.setDescription("Welcome to the \"version\" embed! This is where you'll find the version the bot and packages are running on.")
+.setColor(16231339)
+.setFooter("Prefix: c?", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+.setThumbnail("https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+.addField("CrystelianOS", "```Running on v6.0.0 | Next Version v6.1.0```")
+.addField("AgentProjectOS", "```Running on v2.0a | Next Version v2.0c```")
+.setTimestamp();
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
