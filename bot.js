@@ -416,42 +416,27 @@ return message.reply("You can\'t unpunish yourself!");
   return Math.floor(Math.random() * Math.floor(max));
 }
 let me = message.author;
-const percent = getRandomInt(100);
-class ProgressBar {
-    constructor(value, maxValue, barSize) {
-            this.value = value;
-            this.maxValue = maxValue;
-            this.barSize = 10;
-    }
+const percent = getRandomInt(10);
+		 
+let barSize = 10
+let empty = barSize - percent
+let taken = "".repeat(percent);
+let nottaken = "❌".repeat(empty)
 
-    /**
-     * Create a text progress bar
-     * @returns {String} - The bar
-     */
-    createBar() {
-        let percentage = percent; //Calculate the percentage of the bar
-        let progress = Math.round((this.barSize * percentage)); //Calculate the number of square caracters to fill the progress side.
-        let emptyProgress = this.barSize - progress; //Calculate the number of dash caracters to fill the empty progress side.
 
-        let progressText = "▇".repeat(progress); //Repeat is creating a string with progress * caracters in it
-        let emptyProgressText = "=".repeat(emptyProgress); //Repeat is creating a string with empty progress * caracters in it
-        let percentageText = Math.round(percentage * 100) + "%"; //Displaying the percentage of the bar
-
-        const lbar = "[" + progressText + emptyProgressText + "]"; //Creating the bar
-   
 let ship1 = args[0];
 	if (!args[0]) return message.channel.send(errembed);
 let ship2 = args[1];
 	if (!args[1]) return message.channel.send(errembed);
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
-		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
-		 if (percent > 50) pres = "😁 Compatible! Go get them!";
+		 if (percent < 5) pres = "💔 Not Compatible... Sadness.";
+		 if (percent > 5) pres = "😁 Compatible! Go get them!";
 	    const loveembed = new Discord.RichEmbed()
 .setTitle("Compatibility")
-.setDescription(`Compatiblity: **${percent}%**\n${lbar}\n${pres}\nThank You for using the Crystelian Love Module.`)
+.setDescription(`[${taken}${nottaken}]\n${pres}\nThank you for using the Crystelian Love Module.`)
 .setColor(16231339);
 		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽${ship1}\n🔼${ship2}`)
-		 message.channel.send(loveembed)}};
+		 message.channel.send(loveembed);
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
       let reason = args.slice(1).join(' ');
