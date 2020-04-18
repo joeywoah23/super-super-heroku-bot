@@ -23,7 +23,7 @@ const talkedRecently = new Set();
 
 // Set the bot's "Playing: " status (must be in an event!)
 client.on("ready", () => {
-    client.user.setActivity("Update v5.9.0", { type: "PLAYING"})
+    client.user.setActivity("Update v6.0.0", { type: "PLAYING"})
 })
 
 console.log(chalk.bgCyan('Crystelian:'), 'Loaded! Now Loading Commands...');
@@ -346,7 +346,7 @@ return message.reply("You can\'t report yourself!");
     return message.channel.send(errembed)
     message.delete();
 	  const reported = new Discord.RichEmbed()
-	  .setTitle("Crystelian | Report Member")asas
+	  .setTitle("Crystelian | Report Member")
 	  .setDescription("Reported")
 	  .setColor(16231339)
 	  .addField("Notifier", `${message.author}`)
