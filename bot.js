@@ -356,8 +356,8 @@ return message.reply("You can\'t report yourself!");
     client.channels.get("618125415134920848").send(reported)
   	  const thankreport = new Discord.RichEmbed
   	  .setTitle("Crystelian | Report Member")
-	  .setDescription("Reported! Thank you for reporting this member! Your message has been deleted sue to Security Reasons! **NOTE:** Staff may or may not take action!", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
-	  .setColor(16231339)
+	  .setDescription("Reported! Thank you for reporting this member! Your message has been deleted sue to Security Reasons! **NOTE:** Staff may or may not take action!")
+	  .setColor(16231339);
 	  message.channel.send(thankreport)
   } else
 if(message.content.startsWith(config.prefix + "respond")) {
