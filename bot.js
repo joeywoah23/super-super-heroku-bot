@@ -441,6 +441,15 @@ if (message.content.startsWith(config.prefix + "add")) {
 	let number2 = args[1];
 	message.reply(`The answer to ${number1} + ${number2} = ${number1 + number2}.`);
 } else
+if (message.content.startsWith(config.prefix + "porn")) {
+  const pornembed = new Discord.RichEmbed()
+  .setTitle("Crysteli- Excuse me... the fuck")
+  .setDescription("Did you really mf think i was gonna put PORN as a command? who THE FUCK do you think i am? a disgusting ass bitch?")
+  .setColor(16231339)
+  .setFooter("WHAT THE FUCKKK EWWWWW")
+  .setTimestamp();
+  message.channel.send(pornembed)
+} else
 if (message.content.startsWith(config.prefix + "subtract")) {
 	let number1 = args[0];
 	let number2 = args[1];
@@ -1238,6 +1247,7 @@ const help = new Discord.RichEmbed()
 .addField("🌖 | Roleplay Commands", "shoot `Usage: shoot <member>`\n wigsnatch `Usage: wigsnatch`\n ruthefather `Usage: ruthefather`")
 .addField("⚒ | CrystelianOS Moderation", "kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`")
 .addField("😎 | Agency Package", "closeticket `Usage: closeticket`")
+.addField("😏 | NSFW Commands", "porn")
 .setTimestamp();
 
 const version = new Discord.RichEmbed()
