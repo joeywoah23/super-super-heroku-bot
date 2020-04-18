@@ -1013,24 +1013,6 @@ if(message.content.startsWith(config.prefix + "cleanup")) {
 }
 }); */
 
-const { CommandoClient } = require('discord.js-commando');
-const path = require('path');
-
-const comclient = new CommandoClient({
-    commandPrefix: config.prefix,
-    unknownCommandResponse: false,
-    owner: config.devID,
-    disableEveryone: true
-});
-
-comclient.registry
-    .registerDefaultTypes()
-    .registerGroups([
-        ['polls', 'Polls'],
-    ])
-    .registerDefaultGroups()
-    .registerDefaultCommands()
-    .registerCommandsIn(path.join(__dirname, 'commands'));
 
         // Let's go with a few common example commands! Feel free to delete or change those.
 client.on("message", async message => {
