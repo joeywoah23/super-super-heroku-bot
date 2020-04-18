@@ -417,7 +417,7 @@ const percent = getRandomInt(10);
 let barSize = 10
 let empty = barSize - percent;
 let taken = "🥰".repeat(percent);
-let nottaken = "💔".repeat(empty)
+let nottaken = "💔".repeat(empty);
 
 
 let ship1 = args[0];
@@ -441,6 +441,25 @@ let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 	    .setColor(16231339);
 	    message.channel.send(warningem);
   } else
+if(message.content.startsWith(config.prefix + "howgay")) {
+	function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+let howgay = getRandomInt(10)
+let barSize = 10
+let empty = barSize - howgay;
+let gay = "🏳️‍🌈".repeat(howgay);
+let notgay = "🏁".repeat(empty)
+const howgayembed = new Discord.RichEmbed()
+.setTitle("Crystelian R8 Module | HowGay?")
+.setDescription(`${message.author}, You are ${howgay} gay out of 10\n [${gay}${notgay}]`)
+.setColor(16231339);
+message.channel.send(howgay);
+} else
+if (message.content.startsWith(config.prefix + "amithefather")) {
+	var amifather = ["**ARE**", "**ARE NOT**"];
+	var aif = amifather[Math.floor(Math.random()*amifather.length)];
+	message.channel.send(`Results came back... and you ${aif} the father!`);
+} else
   if(message.content.startsWith(config.prefix + "reportmember")) {
 
     let reason = args.slice(1).join(' ');
@@ -1593,7 +1612,7 @@ const help = {
 		},
 		{
 			name: 'Fun Commands',
-			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8, ppsize, clapify.',
+			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8, ppsize, clapify, howgay.',
 			inline: false,
 		},
 		{
@@ -1608,7 +1627,7 @@ const help = {
 		},
 		{
 			name: 'Roleplay Commands',
-			value: 'shoot, wigsnatch.',
+			value: 'shoot, wigsnatch, amithefather.',
 			inline: true,
 		},
 		{
