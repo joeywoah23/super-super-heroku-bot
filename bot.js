@@ -435,67 +435,11 @@ let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 message.channel.send(loveembed);
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
-      let reason = args.slice(1).join(' ');
-      let user = message.mentions.members.first() || client.users.get(args[0]);
-      if (!message.member.hasPermission("KICK_MEMBERS"))
-        return message.reply("You can\'t do that!");;
-      if(!user)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-            }}).then(msg => {
-              msg.delete(10000)
-            })
-	    if(user === message.author)
-return message.reply("You can\'t punish yourself!");
-      // **CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!
-      // or the person who made the command: let member = message.member;
-      if(!reason) reason = "No reason provided";
-      client.channels.get("618125415134920848").send({embed: {
-        color: 16231339,
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        title: "Warning Action",
-        fields: [{
-            name: "Moderator",
-            value: `${message.author.tag}`
-          },
-          {
-            name: "User warned",
-            value: `${user}`
-          },
-          {
-            name: "Reason",
-            value: `${reason}`
-          }
-        ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: client.user.avatarURL,
-          text: "Warning Action"
-        }
-      }
-    });
-    message.channel.send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "WARNING",
-          fields: [{
-          name: "Warning!",
-          value: `**${message.author.tag}**, User ${user} has been warned because: **${reason}**.`
-        }
-      ],
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Warning Action"
-      }
-    }
-  });;
+	    const warningem = new Discord.RichEmbed()
+	    .setTitle("Alert!")
+	    .setDescription("This alert was triggered by the command `warn`. Warnings are not currently supported on Crystelian at this time. They are soon to be added by the developer. Meanwhile you may use MEE6 for warnings but still use Crystelian for Kicking and Banning. Sorry for any inconvenience.")
+	    .setColor(16231339);
+	    message.channel.send(warningem);
   } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
 
