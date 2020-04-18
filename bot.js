@@ -9,7 +9,6 @@ const getYoutubeID = require('get-youtube-id'); //
 const YouTube = require('simple-youtube-api'); //
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY); //
 const moment = require("moment");
-const getUserProfile = require("./UserProfile.js");
 const fs = require("fs");
 const chalk = require('chalk');
 const Canvas = require('canvas');
@@ -27,31 +26,7 @@ client.on("ready", () => {
     client.user.setActivity("Update v5.9.0", { type: "PLAYING"})
 })
 
-class ProgressBar {
-    constructor(value, maxValue, barSize) {
-            this.value = value;
-            this.maxValue = maxValue;
-            this.barSize = barSize;
-    }
 
-    /**
-     * Create a text progress bar
-     * @returns {String} - The bar
-     */
-    createBar() {
-        let percentage = this.value / this.maxValue; //Calculate the percentage of the bar
-        let progress = Math.round((this.barSize * percentage)); //Calculate the number of square caracters to fill the progress side.
-        let emptyProgress = this.barSize - progress; //Calculate the number of dash caracters to fill the empty progress side.
-
-        let progressText = "▇".repeat(progress); //Repeat is creating a string with progress * caracters in it
-        let emptyProgressText = "—".repeat(emptyProgress); //Repeat is creating a string with empty progress * caracters in it
-        let percentageText = Math.round(percentage * 100) + "%"; //Displaying the percentage of the bar
-
-        let bar = "[" + progressText + emptyProgressText + "] " + percentageText; //Creating the bar
-        return bar;
-    }
-
-}
 
 console.log(chalk.bgCyan('Crystelian:'), 'Loaded! Now Loading Commands...');
 client.on("message", async message => {
@@ -444,16 +419,40 @@ return message.reply("You can\'t unpunish yourself!");
 }
 let me = message.author;
 let percent = getRandomInt(100);
+class ProgressBar {
+    constructor(value, maxValue, barSize) {
+            this.value = value;
+            this.maxValue = maxValue;
+            this.barSize = 10;
+    }
+
+    /**
+     * Create a text progress bar
+     * @returns {String} - The bar
+     */
+    createBar() {
+        let percentage = percent; //Calculate the percentage of the bar
+        let progress = Math.round((this.barSize * percentage)); //Calculate the number of square caracters to fill the progress side.
+        let emptyProgress = this.barSize - progress; //Calculate the number of dash caracters to fill the empty progress side.
+
+        let progressText = "▇".repeat(progress); //Repeat is creating a string with progress * caracters in it
+        let emptyProgressText = "=".repeat(emptyProgress); //Repeat is creating a string with empty progress * caracters in it
+        let percentageText = Math.round(percentage * 100) + "%"; //Displaying the percentage of the bar
+
+        let lovebar = "[" + progressText + emptyProgressText + "] " + percentageText; //Creating the bar
+    }
+
+}
 let ship1 = args[0];
 	if (!args[0]) return message.reply('Please supply someone to ship with or place a "me" for it to be you.');
 let ship2 = args[1];;
-	if (!args[1]) return message.reply('Please supply someone to ship with the first person')
+	if (!args[1]) return message.reply('Please supply someone to ship with the first person');
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
 		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽``${ship1}``\n🔼``${ship2}```).then(message.channel.send({embed: {
         color: 16231339,
-        description: `Compatiblity: **${percent}%**\n${pres}\nThank You for using the Crystelian Love Module.`
+        description: `Compatiblity: **${percent}%**\n${lovebar}\n${pres}\nThank You for using the Crystelian Love Module.`
       }}));
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
