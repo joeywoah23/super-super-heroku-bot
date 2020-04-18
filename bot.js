@@ -63,6 +63,7 @@ if(command === "botsuggest") {
 	.setTitle("Bot Suggestions")
 	.setDescription("This is a bot suggestion.")
 	.setColor(16231339)
+	.setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
 	.addField("Suggested by:", `${message.author.tag}`)
 	.addField("Suggestions:", `${suggestion}`);
 	
@@ -94,7 +95,7 @@ client.users.get(config.devID).send(suggestionembed);
     } else
 	    if (message.content.startsWith(config.prefix + "leave")) {
 if (!message.member.hasPermission('BAN_MEMBERS'))
-	return message.reply("You can\'t do that!");
+	return message.cannel.send(errembed)
 		    message.reply("Now leaving by your command. Goodbye.");
 		    message.guild.leave();
 } else
@@ -102,9 +103,6 @@ if (!message.member.hasPermission('BAN_MEMBERS'))
     if(message.content.startsWith(config.prefix + 'rip')) {
         message.channel.send('https://gph.is/g/4MWX3bx');
     } else
-	    if(message.content.startsWith(config.prefix + 'shard')) {
-		    message.channel.send(`This bot is on **Shard ${message.guild.shardID}**.`);
-	    } else
     if(message.content.startsWith(config.prefix + 'cry')) {
         message.channel.send('https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif')
     } else
@@ -125,7 +123,7 @@ message.channel.send({embed: {
     } else
   if (message.content.startsWith(config.prefix + 'reboot')) {
    if (!message.member.hasPermission("DELETE_MESSAGES"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed);
    message.channel.send('Rebooting...').then(() => {
      client.destroy().then(() => {
        process.exit();
@@ -150,7 +148,7 @@ message.channel.send({embed: {
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
       if (!message.member.hasPermission("MUTE_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed);
       if(!member) return message.channel.send(errembed) 
 if(member === message.author)
 return message.reply("You can\'t punish yourself!");
@@ -158,61 +156,22 @@ return message.reply("You can\'t punish yourself!");
       let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
       // Add the role!
-	    member.removeRole(member.roles).catch(console.error)
       member.addRole(role).catch(console.error)
-      client.channels.get("695153276601106443").send({embed: {
-        color: 16231339,
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        title: "Mute Action",
-        fields: [{
-            name: "Moderator",
-            value: `${message.author.tag}`
-          },
-          {
-            name: "User muted",
-            value: `${user}`
-          },
-          {
-          name: "Reason",
-            value: `${reason}`
-          }
-        ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: client.user.avatarURL,
-          text: "Mute Action"
-        }
-      }
-    });
-    message.channel.send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Mute Action",
-          fields: [{
-          name: "Mute",
-          value: `**${message.author.tag}**, User ${user} has been muted for **${reason}**.`
-        }
-      ],
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Mute Action"
-      }
-    }
-  });;
-    } else
-if (message.content.startsWith("k")) {
-	message.channel.send({embed: {
-              color: 16231339,
-              description: 'Please refrain from saying "k" by itself.'
-            }}).then(msg => {
-              msg.delete(10000)
-            });
+	    const muteembedo = new Discord.RichEmbed()
+	    .setTitle("Crystelian | Mute")
+	    .setDescription("Muted")
+	    .setColor(16231339)
+	    .addField("Moderator | Administrator", `${message.author}`)
+	    .addField("User Muted", `${member}`)
+	    .addField("Reason", `${reason}`)
+	    .setFooter("Crystelian | Mute", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048");
+      client.channels.get("695153276601106443").send(muteembedo)
+	    const mutesendembed = new Discord.RichEmbed()
+	    .setTitle("Crystelian | Mute")
+	    .setDescription(`**${message.author.tag}**, You have muted ${member} for ${reason}!`)
+	    .setFooter("Undo this by using command c?unmute <member>")
+	    .setColor(16231339);
+	    message.channel.send(mutesendembed)
 } else
     if (message.content.startsWith(config.prefix + "grant")) {
       let reason = args.slice(1).join(' ');
@@ -230,53 +189,23 @@ if (message.content.startsWith("k")) {
       
       // Add the role!
       member.addRole(Role).catch(console.error)
-      client.channels.get("695153276601106443").send({embed: {
-        color: 16231339,
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        title: "Grant Action",
-        fields: [{
-            name: "Moderator",
-            value: `${message.author.tag}`
-          },
-          {
-            name: "Role granted to:",
-            value: `${user}`
-          },
-          {
-          name: "Role Granted",
-            value: `${reason}`
-          }
-        ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: client.user.avatarURL,
-          text: "Snoopy Worker"
-        }
-      }
-    });
-    message.channel.send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Grant Action",
-          fields: [{
-          name: "Grant",
-          value: `**${message.author.tag}**, Role **${reason}** has been granted to **${user}**`
-        }
-      ],
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Grant Action"
-      }
-    }
-  });;
+	    const grantembed = new Discord.RichEmbed()
+	    .setTitle("Crystelian | Grant")
+	    .setDescription("Granted")
+	    .setColor(16231339)
+	    .setFooter("Undo this command by doing c?ungrant <member> <role>", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048")
+	    .addField("Administrator", `${message.author}`)
+	    .addField("User role has been granted to", `${member}`)
+	    .addField("Granted Role", `${Role}`);
+      client.channels.get("695153276601106443").send(grantembed);
+	    const grantembedo = new Discord.RichEmbed()
+	    .setTitle("Crystelian | Grant")
+	    .setDescription(`**${message.author.tag}**, You have granted role ${Role} to user ${member}!`)
+	    .setColor(16231339)
+	    .setFooter("Undo this command by doing c?ungrant <member> <role>", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048");
+    message.channel.send(grantembedo);
   } else
-  if (message.content.startsWith(config.prefix + "ungrant")) {
+  if (message.content.startsWith(config.prefix + "revoke")) {
     let reason = args.slice(1).join(' ');
         if(!reason)
         return message.channel.send(errembed);
@@ -292,58 +221,21 @@ if (message.content.startsWith("k")) {
     
     // Add the role!
     member.removeRole(Role).catch(console.error)
-    client.channels.get("695153276601106443").send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Ungrant Action",
-      fields: [{
-          name: "Moderator",
-          value: `${message.author.tag}`
-        },
-        {
-          name: "Role ungranted to:",
-          value: `${user}`
-        },
-        {
-        name: "Role Ungranted",
-          value: `${reason}`
-        }
-      ],
-      timestamp: new Date(),
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Snoopy Worker"
-      }
-    }
-  });
-  message.channel.send({embed: {
-    color: 16231339,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "Ungrant Action",
-        fields: [{
-        name: "Ungrant",
-        value: `**${message.author.tag}**, Role **${reason}** has been ungranted from **${user}.**`
-      }
-    ],
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "Ungrant Action"
-    }
-  }
-});;
-} else
-if (message.content.startsWith(config.prefix + "roast")) {
-	function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-let rnumber = getRandomInt(94);
-	message.channel.send(`${user}, ${roast.rnumber}`);
+	  const revokeembed = new Discord.RichEmbed()
+	  .setTitle("Crystelian | Revoke")
+	  .setDescription("Revoked!")
+	  .setColor(16231339)
+	  .setFooter("Undo this command by doing c?grant <member> <role>", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048")
+	  .addField("Administrator", `${message.author}`)
+	  .addField("User role has been revoked from", `${member}`)
+	  .addField("Revoked Role", `${Role}`);
+    client.channels.get("695153276601106443").send(revokeembed)
+	  const revokeembedo = new Discord.RichEmbed()
+	  .setTitle("Crystelian | Revoke")
+	  .setDescription(`**${message.author.tag}**, You have revoked role ${Role} from user ${member}!`)
+	  .setColor(16231339)
+	  .setFooter("Undo this command by doing c?grant <member> <role>", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048");
+  message.channel.send(revokeembedo)
 } else
   if (message.content.startsWith(config.prefix + "unmute"))
     {let role = message.guild.roles.find(r => r.name === "Muted");
@@ -351,7 +243,7 @@ let rnumber = getRandomInt(94);
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
       if (!message.member.hasPermission("MUTE_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
       if(!member)
             return message.channel.send(errembed)
      
@@ -362,47 +254,22 @@ return message.reply("You can\'t unpunish yourself!");
           if(!reason) reason = "No reason provided";
       // Remove a role!
       member.removeRole(role).catch(console.error)
-      client.channels.get("695153276601106443").send({embed: {
-        color: 16231339,
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        title: "Unmute Action",
-        fields: [{
-            name: "Moderator",
-            value: `${message.author.tag}`
-          },
-          {
-            name: "User unmuted",
-            value: `${user}`
-          },
-        ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: client.user.avatarURL,
-          text: "Unmute Action"
-        }
-      }
-    });
-    message.channel.send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Unmute Action",
-          fields: [{
-          name: "Unmute",
-          value: `**${message.author.tag}**, User ${user} has been unmuted because: **${reason}**.`
-        }
-      ],
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Unmute Action"
-      }
-    }
-  });;
+      const unmuteembedo = new Discord.RichEmbed()
+	    .setTitle("Crystelian | Unmute")
+	    .setDescription("Unmuted")
+	    .setColor(16231339)
+      	    .setFooter("Undo this by doing c?mute <member> <reason>")
+	    .addField("Moderator | Administrator", `${message.author}`)
+	    .addField("User Muted", `${member}`)
+	    .addField("Reason", `${reason}`)
+	    .setFooter("Crystelian | Mute", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048");
+      client.channels.get("695153276601106443").send(unmuteembedo)
+	    const unmutesendembed = new Discord.RichEmbed()
+	    .setTitle("Crystelian | Unmute")
+	    .setDescription(`**${message.author.tag}**, You have unmuted ${member} for ${reason}!`)
+	    .setFooter("Undo this by using command c?unmute <member>", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048")
+	    .setColor(16231339);
+	    message.channel.send(unmutesendembed)
   } else
     if (message.content.startsWith(config.prefix + "lmao")) {
         message.channel.send("https://gph.is/g/469ALg8")
@@ -463,7 +330,7 @@ if (message.content.startsWith(config.prefix + "amithefather")) {
 } else
 if (message.content.startsWith(config.prefix + "8ball")) {
 	var responses = ["As I see it, yes.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don’t count on it.", "It is certain.", "It is decidedly so.", "Most likely.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes – definitely.", "You may rely on it."]
-        var answer = answer[Math.floor(Math.random()*answer.length)];
+        var answer = responses[Math.floor(Math.random()*responses.length)];
 	message.reply(`${answer}`);
 } else
   if(message.content.startsWith(config.prefix + "reportmember")) {
@@ -471,67 +338,27 @@ if (message.content.startsWith(config.prefix + "8ball")) {
     let reason = args.slice(1).join(' ');
     let user = message.mentions.members.first() || client.users.get(args[0]);
     if(!user)
-    return message.channel.send({embed: {
-      color: 16231339,
-      description: "Please supply a user to report!"
-    }}).then(msg => {
-      msg.delete(10000)
-    })
+    return message.channel.send(errembed)
 	  
 if(user === message.author)
 return message.reply("You can\'t report yourself!");
     if(!reason) 
-    return message.channel.send({embed: {
-      color: 16231339,
-      description: "Please supply a reason!"
-    }});
+    return message.channel.send(errembed)
     message.delete();
-    client.channels.get("618125415134920848").send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Report Member Action",
-      fields: [{
-          name: "Member",
-          value: `${message.author.tag}`
-        },
-        {
-          name: "User reported",
-          value: `${user}`
-        },
-        {
-          name: "Reason",
-          value: `${reason}`
-        }
-      ],
-      timestamp: new Date(),
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Report Member Action"
-      }
-    }
-  });
-  message.channel.send({embed: {
-    color: 16231339,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "Report Member Action",
-    description: "Report Member",
-    fields: [{
-        name: "Member Report",
-        value: `**${message.author.tag}**, The user has been reported to staff! Thank you!`
-      }
-    ],
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "Report Member Action"
-    }
-  }
-});;
+	  const reported = new Discord.RichEmbed()
+	  .setTitle("Crystelian | Report Member")asas
+	  .setDescription("Reported")
+	  .setColor(16231339)
+	  .addField("Notifier", `${message.author}`)
+	  .addField("Member Reported", `${user}`)
+	  .addField("Reason", `${reason}`)
+	  .setFooter("Take action with kick, ban, mute or not.", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048")
+    client.channels.get("618125415134920848").send(reported)
+  	  const thankreport = new Discord.RichEmbed
+  	  .setTitle("Crystelian | Report Member)
+	  .setDescription("Reported! Thank you for reporting this member! Your message has been deleted sue to Security Reasons! **NOTE:** Staff may or may not take action!", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
+	  .setColor(16231339)
+	  message.channel.send(thankreport)
   } else
 if(message.content.startsWith(config.prefix + "respond")) {
 if (!message.member.hasPermission("ADMINISTRATOR"))
@@ -623,10 +450,10 @@ if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggest
     if(message.content.startsWith(config.prefix + 'beep')) {
         message.channel.send({embed2})
     } else
-if (message.content.startsWith(config.prefix + "replydev")) { // https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot
+if (message.content.startsWith(config.prefix + "devreply")) { // https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot
 let reason = args.join(' ');
 const devreply = new Discord.RichEmbed()
-.setTitle("Some Responded to your message!")
+.setTitle("Someone responded to your message!")
 .setDescription(`${message.author} responded to your message: ${reason}`)
 .setColor(16231339)
 .setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
@@ -662,38 +489,6 @@ if (message.content.startsWith(config.prefix + 'divide')) {
     if (message.content.startsWith(config.prefix + 'info')) {
       message.channel.send({embed})
     } else
-    if (message.content.startsWith(config.prefix + 'welcomenet')) {
-      if (!message.member.hasPermission("ADMINISTRATOR"))
-        return message.reply("You can\'t do that!");
-      //"Hello. Welcome to the `SNOOPY WORKER NETWORK`. All moderation commands and report commands will now be transmitted throughout the `SNOOPY WORKER NETWORK`. Thank you for using Snoopy Worker."
-      message.channel.send({embed: {
-        color: 16231339,
-        description: "Hello. Welcome to the `SNOOPY WORKER NETWORK`. All moderation commands and report commands will now be transmitted throughout the `SNOOPY WORKER NETWORK`. Thank you for using Snoopy Worker."
-      }});
-      client.channels.get("618125415134920848").send({embed: {
-        color: 16231339,
-        author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
-        },
-        title: "SNOOPY WORKER NETWORK",
-        fields: [{
-            name: "Member Activated",
-            value: `${message.author.tag}`
-          },
-          {
-            name: "Logs",
-            value: "```SNOOPY WORKER NETWORK HAS BEEN ACTIVATED!!```"
-          }
-        ],
-        timestamp: new Date(),
-        footer: {
-          icon_url: client.user.avatarURL,
-          text: "SNOOPY WORKER NETWORK"
-        }
-      }
-    });
-    }
     if (message.content.startsWith(config.prefix + 'version')) {
       message.channel.send({embed: version})
   } else
@@ -739,38 +534,6 @@ if (message.content.startsWith(config.prefix + 'closeticket')) {
 	let ticketchannel = message.guild.channels.find(`name`, "♡-･ﾟtickets");
 if(!ticketchannel) return message.channel.send("Couldn't find ♡-･ﾟtickets channel.");
 	ticketchannel.send(closeticketEmbed);
-} else
-  if (message.content.startsWith(config.prefix + 'connect')) {
-    if (!message.member.hasPermission("MANAGE_CHANNELS"))
-        return message.reply("You can\'t do that!");
-    message.reply("Connected to Wi-fi. Network details sent to #<695153276601106443>!")
-    client.channels.get("618125415134920848").send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Crystelian Network ",
-      fields: [{
-          name: "WiFi Connection",
-          value: `Skynet-5`
-        },
-        {
-          name: "IP",
-          value: "172.12.42.134"
-        },
-        {
-          name: "Connected by command of",
-          value: `${message.author.tag}`
-        }
-      ],
-      timestamp: new Date(),
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "SNOOPY WORKER NETWORK"
-      }
-    }
-  });
   } else
     if(message.content.startsWith(config.prefix + 'help')) {
 	 message.react('📬')
@@ -998,26 +761,20 @@ client.on("message", async message => {
           // Please read on Array.some() to understand this bit: 
           // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
           if (!message.member.hasPermission("KICK_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed);
           
           // Let's first check if we have a member and if we can kick them!
           // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
           // We can also support getting the member by ID, which would be args[0]
           let member = message.mentions.members.first() || message.guild.members.get(args[0]);
           if(!member)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-            }});
+            return message.channel.send(errembed);
 	
 if(member === message.author)
 return message.reply("You can\'t punish yourself!");
 		
           if(!member.kickable) 
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "There was an error kicking this user!"
-            }});
+            return message.channel.send(errembed)
           // **CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!
           // slice(1) removes the first part, which here should be the user mention or ID
           // join(' ') takes all the various parts to make it a single string.
@@ -1027,52 +784,22 @@ return message.reply("You can\'t punish yourself!");
           // Now, time for a swift kick in the nuts!
           await member.kick(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-            client.channels.get("695153276601106443").send({embed: {
-              color: 16231339,
-              author: {
-                name: client.user.username,
-                icon_url: client.user.avatarURL
-              },
-              title: "Kick Action",
-              fields: [{
-                  name: "Moderator",
-                  value: `${message.author.tag}`
-                },
-                {
-                  name: "User kicked",
-                  value: `${member}`
-                },
-                {
-                  name: "Reason",
-                  value: `${reason}`
-                }
-              ],
-              timestamp: new Date(),
-              footer: {
-                icon_url: client.user.avatarURL,
-                text: "Kick Action"
-              }
-            }
-          });
-          message.channel.send({embed: {
-            color: 16231339,
-            author: {
-              name: client.user.username,
-              icon_url: client.user.avatarURL
-            },
-            title: "Kick Action",
-                fields: [{
-                name: "Kick",
-                value: `**${message.author.tag}**, User ${member} has been kicked from the server for **${reason}**.`
-              }
-            ],
-            footer: {
-              icon_url: client.user.avatarURL,
-              text: "Kick Action"
-            }
-          }
-        });;
-      
+		const kicklog = new Discord.RichEmbed()
+		.setTitle("Crystelian | Kick")
+		.setDescription("Kicked")
+		.setColor(16231339)
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.addField("Moderator | Administrator", `${message.author}`)
+		.addField("Member Kicked", `${member}`)
+		.addField("Reason", `${reason}`);
+            client.channels.get("695153276601106443").send(kicklog)
+		const kicked = new Discord.RichEmbed()
+		.setTitle("Crystelian | Kicked")
+		.setDescription("Kicked")
+		.setColor(16231339)
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.addField(`**${message.author}**, You have kicked ${member} from the server for ${reason}`);
+          message.channel.send(kicked)
         }
           
 
@@ -1085,77 +812,46 @@ return message.reply("You can\'t punish yourself!");
           
           let member = message.mentions.members.first() || client.users.get(args[0]);
           if(!member)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "**CrystelianOS** syntax error: Argument Missing: Please mention a valid member of the server!"
-            }});
+            return message.channel.send(errembed)
 
 if(member === message.author)
 return message.reply("You can\'t punish yourself!");
 		
           if(!member.bannable) 
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "There was an error banning this user!"
-            }});
+            return message.channel.send(errembed)
       
           let reason = args.slice(1).join(' ');
           if(!reason) reason = "No reason provided";
           
           await member.ban(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`))
-            client.channels.get("695153276601106443").send({embed: {
-              color: 16231339,
-              author: {
-                name: client.user.username,
-                icon_url: client.user.avatarURL
-              },
-              title: "Ban Action",
-              fields: [{
-                  name: "Moderator",
-                  value: `${message.author.tag}`
-                },
-                {
-                  name: "User banned",
-                  value: `${member}`
-                },
-                {
-                  name: "Reason",
-                  value: `${reason}`
-                }
-              ],
-              timestamp: new Date(),
-              footer: {
-                icon_url: client.user.avatarURL,
-                text: "Ban Action"
-              }
-            }
-          });
-          message.channel.send({embed: {
-            color: 16231339,
-            author: {
-              name: client.user.username,
-              icon_url: client.user.avatarURL
-            },
-            title: "Ban Action",
-                fields: [{
-                name: "Ban",
-                value: `**${message.author.tag}**, User ${member} has been banned from the server for **${reason}**.`
-              }
-            ],
-            footer: {
-              icon_url: client.user.avatarURL,
-              text: "Ban Action"
-            }
-          }
-        });;
+            const banlog = new Discord.RichEmbed()
+		.setTitle("Crystelian | Ban")
+		.setDescription("Banned")
+		.setColor(16231339)
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.addField("Moderator | Administrator", `${message.author}`)
+		.addField("Member Banned", `${member}`)
+		.addField("Reason", `${reason}`);
+            client.channels.get("695153276601106443").send(banlog)
+		const banned = new Discord.RichEmbed()
+		.setTitle("Crystelian | Kicked")
+		.setDescription("Kicked")
+		.setColor(16231339)
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.addField(`**${message.author}**, You have banned ${member} from the server for ${reason}`);
+          message.channel.send(banned)
         }
         
 	if(message.content.startsWith(config.prefix + 'lockdown on')) {
+	if (!message.member.hasPermission("MANAGE_MESSAGES"))
+        return message.channel.send(errembed)
 	message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: false });
 	message.channel.send("This channel has been locked down.");
 	} else
 	if(message.content.startsWith(config.prefix + 'lockdown off')) {
+	if (!message.member.hasPermission("MANAGE_MESSAGES"))
+        return message.channel.send(errembed)
 	message.channel.overwritePermissions(message.guild.defaultRole, { SEND_MESSAGES: true });	
 	message.channel.send("This channel has been unlocked.");
 	}
@@ -1164,16 +860,13 @@ return message.reply("You can\'t punish yourself!");
 		message.react('✅')
           // This command removes all messages from all users in the channel, up to 100.
           if (!message.member.hasPermission("MANAGE_MESSAGES"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
           // get the delete count, as an actual number.
           const deleteCount = parseInt(args[0], 10);
           
           // Ooooh nice, combined conditions. <3
           if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-            return message.channel.send({embed: {
-              color: 16231339,
-              description: "Please provide a number between 2 and 100 for the number of messages to delete"
-            }});
+            return message.channel.send(errembed)
           
           // Please provide a number between 2 and 100 for the number of messages to delete
           // So we get our messages, and delete them. Simple enough, right?
