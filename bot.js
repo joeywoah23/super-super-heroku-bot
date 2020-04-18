@@ -1339,7 +1339,7 @@ const help = {
 		},
 		{
 			name: "🎶 | Music Commands",
-			value: "play `Usage: play <name or url>\n skip `Usage: skip`\n np `Usage: np`\n queue `Usage: queue`\n pause `Usage: pause`\n resume `Usage: resume`",
+			value: "play `Usage: play <name or url>`\n skip `Usage: skip`\n np `Usage: np`\n queue `Usage: queue`\n pause `Usage: pause`\n resume `Usage: resume`",
 			inline: false
 		},
 		{
@@ -1354,7 +1354,7 @@ const help = {
 		},
 		{
 			name: '⚒ | CrystelianOS Moderation',
-			value: 'kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>1\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`',
+			value: 'kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`',
 			inline: false,
 		},
 		{
