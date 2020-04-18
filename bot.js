@@ -433,7 +433,7 @@ let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent > 5) pres = "😁 Compatible! Go get them!";
 	    const loveembed = new Discord.RichEmbed()
 .setTitle("Compatibility")
-.setDescription(`[${taken}${nottaken}]\n${pres}\nThank you for using the Crystelian Love Module.`)
+.setDescription(`[${taken}${nottaken}] - ${percent}/10\n${pres}\nThank you for using the Crystelian Love Module.`)
 .setColor(16231339);
 		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽${ship1}\n🔼${ship2}`)
 		 message.channel.send(loveembed);
