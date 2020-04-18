@@ -454,7 +454,7 @@ const howgayembed = new Discord.RichEmbed()
 .setTitle("Crystelian R8 Module | HowGay?")
 .setDescription(`${message.author}, You are ${howgay} gay out of 10\n [${gay}${notgay}]`)
 .setColor(16231339);
-message.channel.send(howgay);
+message.channel.send(howgayembed);
 } else
 if (message.content.startsWith(config.prefix + "amithefather")) {
 	var amifather = ["**ARE**", "**ARE NOT**"];
@@ -537,7 +537,8 @@ let respondmsg = args.slice(2).join(' ');
 const respondembed = new Discord.RichEmbed()
 .setTitle("You have recieved a message!")
 .setDescription(`This message is from ${message.author} regarding ${regarding}: ${respondmsg}`)
-.setColor(16231339);
+.setColor(16231339)
+.setFooter("Respond to this by using command c?devreply <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
 client.users.get(`${personID}`).send(respondembed);	
 } else
 if(message.content.startsWith(config.prefix + "ppsize")) {
@@ -617,6 +618,17 @@ if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggest
     if(message.content.startsWith(config.prefix + 'beep')) {
         message.channel.send({embed2})
     } else
+if (message.content.startsWith(config.prefix + "replydev")) {
+if (message.channel.type === 'dm') // https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot
+let reason = args.join(' ');
+const devreply = new Discord.RichEmbed()
+.setTitle("Some Responded to your message!")
+.setDescription(`${message.author} responded to your message: ${reason}`)
+.setColor(16231339)
+.setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
+	
+client.users.get(`${config.devID}`).send(devreply);
+} else
     if (message.content.startsWith(config.prefix + "asl")) {
       let age = args[0]; // Remember arrays are 0-based!.
       let sex = args[1];
