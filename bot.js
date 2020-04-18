@@ -446,8 +446,8 @@ let me = message.author;
 let percent = getRandomInt(100);
 let ship1 = args[0];
 	if (!args[0]) return message.reply('Please supply someone to ship with or place a "me" for it to be you.');
-let ship2 = args[1];
-	if (!args[1])
+let ship2 = args[1];;
+	if (!args[1]) return message.reply('Please supply someone to ship with the first person')
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
@@ -1639,6 +1639,11 @@ console.log(chalk.bgGreen('Crystelian:'), 'Successfully loaded CrystelianOS.');
 //"https://discordapp.com/guidelines"
 
 // EMBEDS ARE NEXT
+
+const errembed = new Discord.RichEmbed()
+.setTitle("ERR!")
+.setDescription("An error has been located!\nThis could have happened due to a missing argument, missing permissions, or I am lacking permissions.\nIf this error persists and you have all then necessary arguments, permissions, etc.\n Please contact joeywoah_#5364.")
+.setColor(16231339);
 
 const embed = new Discord.RichEmbed()
   .setTitle("Information Embed")
