@@ -1344,7 +1344,7 @@ const help = {
 		},
 		{
 			name: '✨ | Custom Commands',
-			value: '`NONE',
+			value: '`NONE`',
 			inline: false,
 		},
 		{
