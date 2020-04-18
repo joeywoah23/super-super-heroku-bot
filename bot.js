@@ -55,6 +55,19 @@ if (command === "announce") {
         description: `API Latency is **${Math.round(client.ping)}**ms!`
       }});
     } else
+if(command === "botsuggest") {
+	let suggestion = args.join(" ");
+	    if (!suggestion) return message.channel.send(errembed);
+        message.delete();
+	const suggestionembed = new Discord.RichEmbed()
+	.setTitle("Bot Suggestions")
+	.setDescription("This is a bot suggestion.")
+	.setColor(16231339)
+	.addField("Suggested by:", `${message.author.tag}`)
+	.addField("Suggestions:", `${suggestion}`);
+	
+client.users.get(config.devID).send(suggestionembed);	
+} else
     if(command === "shoot") {
       message.channel.send(`${message.author} shot ${user}! https://gph.is/1f1KOgp`)
     } else
@@ -1631,11 +1644,11 @@ const help = {
 	fields: [
 		{
 			name: 'Utility Commands',
-			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`',
+			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`',
 		},
 		{
 			name: 'Fun Commands',
-			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8, ppsize.',
+			value: 'asl, cry, rip, avatar, tea, hot, lmao, happybirthday, subtract, multiply, divide, [add], ship, perfectr8, ppsize, clapify.',
 			inline: false,
 		},
 		{
