@@ -63,7 +63,7 @@ if(command === "botsuggest") {
 	.setTitle("Bot Suggestions")
 	.setDescription("This is a bot suggestion.")
 	.setColor(16231339)
-	.setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+	.setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
 	.addField("Suggested by:", `${message.author.tag}`)
 	.addField("Suggestions:", `${suggestion}`);
 	
@@ -370,7 +370,7 @@ const respondembed = new Discord.RichEmbed()
 .setTitle("You have recieved a message!")
 .setDescription(`This message is from ${message.author} regarding ${regarding}: ${respondmsg}`)
 .setColor(16231339)
-.setFooter("Respond to this by using command c?devreply <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
+.setFooter("Respond to this by using command c?devreply <message>", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048");
 client.users.get(`${personID}`).send(respondembed);	
 } else
 if(message.content.startsWith(config.prefix + "ppsize")) {
@@ -450,13 +450,13 @@ if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggest
     if(message.content.startsWith(config.prefix + 'beep')) {
         message.channel.send({embed2})
     } else
-if (message.content.startsWith(config.prefix + "devreply")) { // https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot
+if (message.content.startsWith(config.prefix + "devreply")) { // https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048
 let reason = args.join(' ');
 const devreply = new Discord.RichEmbed()
 .setTitle("Someone responded to your message!")
 .setDescription(`${message.author} responded to your message: ${reason}`)
 .setColor(16231339)
-.setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot");
+.setFooter("Respond to this by using command c?respond <personID> <about> <message>", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048");
 	
 client.users.get(`${config.devID}`).send(devreply);
 } else
@@ -788,7 +788,7 @@ return message.reply("You can\'t punish yourself!");
 		.setTitle("Crystelian | Kick")
 		.setDescription("Kicked")
 		.setColor(16231339)
-		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
 		.addField("Moderator | Administrator", `${message.author}`)
 		.addField("Member Kicked", `${member}`)
 		.addField("Reason", `${reason}`);
@@ -797,7 +797,7 @@ return message.reply("You can\'t punish yourself!");
 		.setTitle("Crystelian | Kicked")
 		.setDescription("Kicked")
 		.setColor(16231339)
-		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
 		.addField(`**${message.author}**, You have kicked ${member} from the server for ${reason}`);
           message.channel.send(kicked)
         }
@@ -829,7 +829,7 @@ return message.reply("You can\'t punish yourself!");
 		.setTitle("Crystelian | Ban")
 		.setDescription("Banned")
 		.setColor(16231339)
-		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
 		.addField("Moderator | Administrator", `${message.author}`)
 		.addField("Member Banned", `${member}`)
 		.addField("Reason", `${reason}`);
@@ -838,7 +838,7 @@ return message.reply("You can\'t punish yourself!");
 		.setTitle("Crystelian | Kicked")
 		.setDescription("Kicked")
 		.setColor(16231339)
-		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+		.setFooter("You cannot undo this command", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
 		.addField(`**${message.author}**, You have banned ${member} from the server for ${reason}`);
           message.channel.send(banned)
         }
@@ -899,12 +899,12 @@ const avatar1 = {
 	url: 'https://discord.js.org',
 	author: {
 		name: 'Crystelian',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 		url: 'https://discord.js.org',
 	},
 	description: 'Avatar\'s Central!',
 	thumbnail: {
-		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 	fields: [
 		{
@@ -918,7 +918,7 @@ const avatar1 = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Crystelian',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 };
           msg.channel.send({embed: avatar1})
@@ -930,12 +930,12 @@ const avatar2 = {
 	url: 'https://discord.js.org',
 	author: {
 		name: 'Crystelian',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 		url: 'https://discord.js.org',
 	},
 	description: 'Avatar\'s Central!',
 	thumbnail: {
-		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 	fields: [
 		{
@@ -949,7 +949,7 @@ const avatar2 = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Crystelian',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 };
           msg.channel.send({embed: avatar2})
@@ -1292,14 +1292,14 @@ const errembed = new Discord.RichEmbed()
 
 const embed = new Discord.RichEmbed()
   .setTitle("Information Embed")
-  .setAuthor("Information", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+  .setAuthor("Information", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
   .setColor(16231339)
   .setDescription("Hello. Thank you for using `Crystelian`! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
-  .setFooter("Information", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
-  .setThumbnail("https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
+  .setFooter("Information", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+  .setThumbnail("https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
   /*
    * Takes a Date object, defaults to current date.
    */
@@ -1320,12 +1320,12 @@ const help = {
 	title: 'Help',
 	author: {
 		name: 'Crystelian | Help',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 		url: 'https://discord.js.org',
 	},
 	description: 'Welcome to the help embed! You\'ll find most commands here!',
 	thumbnail: {
-		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 	fields: [
 		{
@@ -1366,7 +1366,7 @@ const help = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Prefix: c?',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 };
 
@@ -1375,12 +1375,12 @@ const version = {
 	title: 'Version',
 	author: {
 		name: 'Version',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 		url: 'https://discord.js.org',
 	},
 	description: 'Welcome to the version embed! This is where you\'ll find the version the bots and packages running on!',
 	thumbnail: {
-		url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 	fields: [
 		{
@@ -1396,7 +1396,7 @@ const version = {
 	timestamp: new Date(),
 	footer: {
 		text: 'Version',
-		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
+		icon_url: 'https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048',
 	},
 };
 
