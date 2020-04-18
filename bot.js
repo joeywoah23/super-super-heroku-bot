@@ -66,7 +66,8 @@ if(command === "botsuggest") {
 	.addField("Suggested by:", `${message.author.tag}`)
 	.addField("Suggestions:", `${suggestion}`);
 	
-client.users.get(config.devID).send(suggestionembed);	
+client.users.get(config.devID).send(suggestionembed);
+	message.channel.send("Thank you for your suggestion!\nYour suggestion has been sent to the bot developer!\nYou may recieve a response or not.\nHave a great day!");
 } else
     if(command === "shoot") {
       message.channel.send(`${message.author} shot ${user}! https://gph.is/1f1KOgp`)
