@@ -36,7 +36,7 @@ client.on("message", async message => {
     const user = message.mentions.members.first() || client.users.get(args[0]);
     if(command === "say") {
     if (!message.member.hasPermission("KICK_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
         let text = args.join(" ");
 	    if (!text) return message.channel.send(errembed);
         message.delete();
@@ -44,7 +44,7 @@ client.on("message", async message => {
     } else
 if (command === "announce") {
 	if (!message.member.hasPermission("KICK_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
         let text = args.join(" ");
         message.delete();
         message.channel.send("/tts " + text);
@@ -75,7 +75,7 @@ client.users.get(config.devID).send(suggestionembed);
     } else
 	if(command === "sayin") {
 	if (!message.member.hasPermission("KICK_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
 	let reason = args.slice(1).join(' ');
           if(!reason) message.channel.send(errembed);
 	let sayChannel = message.mentions.channels.first();
@@ -182,7 +182,7 @@ return message.reply("You can\'t punish yourself!");
       // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
       let member = message.mentions.members.first() || client.users.get(args[0]);
       if (!message.member.hasPermission("MANAGE_ROLES"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
       if(!member)
             return message.channel.send(errembed)
       // or the person who made the command: let member = message.member;
@@ -214,7 +214,7 @@ return message.reply("You can\'t punish yourself!");
     // Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
     let member = message.mentions.members.first() || client.users.get(args[0]);
     if (!message.member.hasPermission("MANAGE_ROLES"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
     if(!member)
           return message.channel.send(errembed)
     // or the person who made the command: let member = message.member;
@@ -386,7 +386,7 @@ if(message.content.startsWith(config.prefix + "ppsize")) {
 } else	
   if(message.content.startsWith(config.prefix + "happybirthday")) {
     if(!message.member.roles.some(r=>["⋆ ˚｡⋆୨୧˚　moderator　˚୨୧⋆｡˚ ⋆", "♡ Administrators"].includes(r.name)) )
-      return message.reply("You can\'t do that!");
+      return message.channel.send(errembed)
     message.channel.send(`HAPPY BIRTHDAY ${user}!! https://gph.is/g/4DAAReP`)
   } else
   if(message.content.startsWith(config.prefix + "suggest")) {
@@ -489,7 +489,7 @@ message.guild.createChannel(name, "text")
 } else
 if (message.content.startsWith(config.prefix + 'closeticket')) {
 	if (!message.member.hasPermission("MANAGE_CHANNELS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
 	message.channel.delete();
 	let closeticketEmbed = new Discord.RichEmbed()
 .setDescription("Crystelian Ticket Module")
@@ -661,7 +661,7 @@ if(message.content.startsWith(config.prefix + "top")) {
 if(message.content.startsWith(config.prefix + "give")) {
   // Limited to guild owner - adjust to your own preference!
   if (!message.member.hasPermission("MANAGE_MESSAGES"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
 
   const user = message.mentions.users.first() || client.users.get(args[0]);
   if(!user) return message.reply("You must mention someone or give their ID!");
@@ -693,7 +693,7 @@ if(message.content.startsWith(config.prefix + "cleanup")) {
   // Let's clean up the database of all "old" users, 
   // and those who haven't been around for... say a month.
   if (!message.member.hasPermission("ADMINISTRATOR"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
   // Get a filtered list (for this guild only).
   const filtered = client.points.filter( p => p.guild === message.guild.id );
 
@@ -773,7 +773,7 @@ return message.reply("You can\'t punish yourself!");
           // Most of this command is identical to kick, except that here we'll only let admins do it.
           // In the real world mods could ban too, but this is just an example, right? ;)
           if (!message.member.hasPermission("BAN_MEMBERS"))
-        return message.reply("You can\'t do that!");
+        return message.channel.send(errembed)
           
           let member = message.mentions.members.first() || client.users.get(args[0]);
           if(!member)
