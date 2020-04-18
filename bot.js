@@ -1287,7 +1287,7 @@ console.log(chalk.bgGreen('Crystelian:'), 'Successfully loaded CrystelianOS.');
 
 const errembed = new Discord.RichEmbed()
 .setTitle("ERR!")
-.setDescription("An error has been located!\nThis could have happened due to a missing argument, missing permissions, or I am lacking permissions.\nIf this error persists and you have all then necessary arguments, permissions, etc.\n Please contact joeywoah_#5364.")
+.setDescription("An error has been located!\nThis could have happened due to `missing argument, you are missing permissions, or I am lacking permissions.`\nIf this error persists and you have all then necessary arguments, permissions, etc.\nPlease contact joeywoah_#5364.")
 .setColor(16231339);
 
 const embed = new Discord.RichEmbed()
@@ -1297,7 +1297,7 @@ const embed = new Discord.RichEmbed()
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
   .setColor(16231339)
-  .setDescription("Hello. Thank you for using Snoopy Worker! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
+  .setDescription("Hello. Thank you for using `Crystelian`! Welcome to the updated version of the `Information` embed! You can't invite this bot anymore! You can fork the repository on the GitHub page!")
   .setFooter("Information", "https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
   .setThumbnail("https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot")
   /*
@@ -1330,7 +1330,7 @@ const help = {
 	fields: [
 		{
 			name: '⚙ | Utility Commands',
-			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`\n subtract `Usage: subtract <number> <number>`\n multiply `Usage: multiply <number> <number>`\n divide `Usage: <number> <number>\n add `Usage: UNAVAILABLE`',
+			value: 'help `Usage: help`\n info `Usage: info`\n apicheck `Usage: apicheck`\n latency `Usage: latency`\n membercount `Usage: membercount`\n channelcount `Usage: channelcount`\n welcomeOSmsg `Usage: welcomeOsmsg`\n reportmember `Usage: reportmember <member> <reason>`\n version `Usage: version`\n suggest `Usage: suggest <suggestions>`\n openticket `Usage: openticket`\n botsuggest `Usage: botsuggest <suggestions>`\n subtract `Usage: subtract <number> <number>`\n multiply `Usage: multiply <number> <number>`\n divide `Usage: <number> <number>`\n add `Usage: UNAVAILABLE`',
 		},
 		{
 			name: '🎉 | Fun Commands',
@@ -1339,7 +1339,7 @@ const help = {
 		},
 		{
 			name: "🎶 | Music Commands",
-			value: "play, skip, np, queue, pause, resume.",
+			value: "play `Usage: play <name or url>\n skip `Usage: skip`\n np `Usage: np`\n queue `Usage: queue`\n pause `Usage: pause`\n resume `Usage: resume`",
 			inline: false
 		},
 		{
@@ -1349,18 +1349,18 @@ const help = {
 		},
 		{
 			name: '🌖 | Roleplay Commands',
-			value: 'shoot, wigsnatch, amithefather.',
-			inline: true,
+			value: 'shoot `Usage: shoot <member>`\n wigsnatch `Usage: wigsnatch`\n ruthefather `Usage: ruthefather`',
+			inline: false,
 		},
 		{
 			name: '⚒ | CrystelianOS Moderation',
-			value: 'kick, ban, purge, mute, unmute, grant, ungrant, warn, reboot, stop, sayin, say.',
-			inline: true,
+			value: 'kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>1\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`',
+			inline: false,
 		},
 		{
 			name: '😎 | Agency Package',
-			value: 'wlistadd, welcomenet, connect, closeticket.',
-			inline: true,
+			value: 'closeticket `Usage: closeticket`',
+			inline: false,
 		},
 	],
 	timestamp: new Date(),
