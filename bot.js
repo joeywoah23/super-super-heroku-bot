@@ -618,8 +618,7 @@ if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggest
     if(message.content.startsWith(config.prefix + 'beep')) {
         message.channel.send({embed2})
     } else
-if (message.content.startsWith(config.prefix + "replydev")) {
-if (message.channel.type === 'dm') // https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot
+if (message.content.startsWith(config.prefix + "replydev")) { // https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot
 let reason = args.join(' ');
 const devreply = new Discord.RichEmbed()
 .setTitle("Some Responded to your message!")
