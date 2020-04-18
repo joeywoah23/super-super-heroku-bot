@@ -444,6 +444,7 @@ let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 if(message.content.startsWith(config.prefix + "howgay")) {
 	function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
+	}
 let howgay = getRandomInt(10)
 let barSize = 10
 let empty = barSize - howgay;
@@ -527,6 +528,18 @@ return message.reply("You can\'t report yourself!");
   }
 });;
   } else
+if(message.content.startsWith(config.prefix + "respond")) {
+if (!message.member.hasPermission("ADMINISTRATOR"))
+        return message.channel.send(errembed);
+let personID = args[0];
+let regarding = args[1];
+let respondmsg = args.slice(2).join(' ');
+const respondembed = new Discord.RichEmbed()
+.setTitle("You have recieved a message!")
+.setDescription(`This message is from ${message.author} regarding ${regarding}: ${respondmsg}`)
+.setColor(16231339);
+client.users.get(`${personID}`).send(respondembed);	
+} else
 if(message.content.startsWith(config.prefix + "ppsize")) {
 	function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
