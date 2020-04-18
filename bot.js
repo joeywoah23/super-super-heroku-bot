@@ -165,7 +165,7 @@ return message.reply("You can\'t punish yourself!");
 	    .addField("User Muted", `${member}`)
 	    .addField("Reason", `${reason}`)
 	    .setFooter("Crystelian | Mute", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048");
-      client.channels.get("695153276601106443").send(muteembedo)
+      client.channels.get(`${config.modlogID}`).send(muteembedo)
 	    const mutesendembed = new Discord.RichEmbed()
 	    .setTitle("Crystelian | Mute")
 	    .setDescription(`**${message.author.tag}**, You have muted ${member} for ${reason}!`)
@@ -197,7 +197,7 @@ return message.reply("You can\'t punish yourself!");
 	    .addField("Administrator", `${message.author}`)
 	    .addField("User role has been granted to", `${member}`)
 	    .addField("Granted Role", `${Role}`);
-      client.channels.get("695153276601106443").send(grantembed);
+      client.channels.get(`${config.modlogID}`).send(grantembed);
 	    const grantembedo = new Discord.RichEmbed()
 	    .setTitle("Crystelian | Grant")
 	    .setDescription(`**${message.author.tag}**, You have granted role ${Role} to user ${member}!`)
@@ -229,7 +229,7 @@ return message.reply("You can\'t punish yourself!");
 	  .addField("Administrator", `${message.author}`)
 	  .addField("User role has been revoked from", `${member}`)
 	  .addField("Revoked Role", `${Role}`);
-    client.channels.get("695153276601106443").send(revokeembed)
+    client.channels.get(`${config.modlogID}`).send(revokeembed)
 	  const revokeembedo = new Discord.RichEmbed()
 	  .setTitle("Crystelian | Revoke")
 	  .setDescription(`**${message.author.tag}**, You have revoked role ${Role} from user ${member}!`)
@@ -263,7 +263,7 @@ return message.reply("You can\'t unpunish yourself!");
 	    .addField("User Muted", `${member}`)
 	    .addField("Reason", `${reason}`)
 	    .setFooter("Crystelian | Mute", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048");
-      client.channels.get("695153276601106443").send(unmuteembedo)
+      client.channels.get(`${config.modlogID}`).send(unmuteembedo)
 	    const unmutesendembed = new Discord.RichEmbed()
 	    .setTitle("Crystelian | Unmute")
 	    .setDescription(`**${message.author.tag}**, You have unmuted ${member} for ${reason}!`)
@@ -353,7 +353,7 @@ return message.reply("You can\'t report yourself!");
 	  .addField("Member Reported", `${user}`)
 	  .addField("Reason", `${reason}`)
 	  .setFooter("Take action with kick, ban, mute or not.", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048")
-    client.channels.get("618125415134920848").send(reported)
+    client.channels.get(`${config.modlogID}`).send(reported)
   	  const thankreport = new Discord.RichEmbed
   	  .setTitle("Crystelian | Report Member")
 	  .setDescription("Reported! Thank you for reporting this member! Your message has been deleted sue to Security Reasons! **NOTE:** Staff may or may not take action!")
@@ -390,59 +390,24 @@ if(message.content.startsWith(config.prefix + "ppsize")) {
     message.channel.send(`HAPPY BIRTHDAY ${user}!! https://gph.is/g/4DAAReP`)
   } else
   if(message.content.startsWith(config.prefix + "suggest")) {
-	  let suggestchannel = message.guild.channels.find(`name`, "♡-･ﾟsuggestions");
-if(!suggestchannel) return message.channel.send("Couldn't find ♡-･ﾟsuggestions channel.");
-    let reason = args.join(' ');
-    if(!reason)
-    return message.channel.send({embed: {
-      color: 16231339,
-      description: "Please supply a suggestion!"
-    }}).then(msg => {
-      msg.delete(10000)
-    });
-	  message.delete();
-    suggestchannel.send({embed: {
-      color: 16231339,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "Suggestion Action",
-      fields: [{
-          name: "Member",
-          value: `${message.author.tag}`
-        },
-        {
-          name: "Suggestion",
-          value: `${reason}`
-        }
-      ],
-      timestamp: new Date(),
-      footer: {
-        icon_url: client.user.avatarURL,
-        text: "Suggestion Action"
-      }
-    }
-  });
-  message.channel.send({embed: {
-    color: 16231339,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: "Suggestion Action",
-    description: "Crystelian Suggestions Module",
-    fields: [{
-        name: "Suggestion has been sent!",
-        value: `**${message.author.tag}**, The suggestion has been sent to the suggestions channel! Thank you!`
-      }
-    ],
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "Suggestion Action"
-    }
-  }
-});;
+    let suggestion = args.join(' ');
+    if(!suggestion)
+    return message.channel.send(errembed)
+    message.delete();
+    const suggestionaction = new Discord.RichEmbed()
+    .setTitle("Crystelian | Suggestion")
+    .setDescription("Suggested")
+    .setColor(16231339)
+    .setFooter("Admins: You can respond to this in the suggestions channel", "https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048")
+    .addField("User", `${message.author}`)
+    .addField("Suggestion(s)", `${suggestion}`)
+    .setTimestamp();
+    client.channels.get(`${config.suggestID}`).send(suggestionaction)
+    const suggestthanks = new Discord.RichEmbed()
+    .setTitle("Crystelian | Suggestion")
+    .setDescription("Suggested! Thank you for sending this suggestion! You may hear a reply from the Developer!")
+    .setColor(16231339);
+    message.channel.send(suggestthanks)
   } else
     if (message.content.startsWith(config.prefix + "hot")) {
         message.channel.send("https://media.giphy.com/media/JwLY4ToQwe4yA/giphy.gif")
@@ -792,7 +757,7 @@ return message.reply("You can\'t punish yourself!");
 		.addField("Moderator | Administrator", `${message.author}`)
 		.addField("Member Kicked", `${member}`)
 		.addField("Reason", `${reason}`);
-            client.channels.get("695153276601106443").send(kicklog)
+            client.channels.get(`${config.modlogID}`).send(kicklog)
 		const kicked = new Discord.RichEmbed()
 		.setTitle("Crystelian | Kicked")
 		.setDescription("Kicked")
@@ -833,7 +798,7 @@ return message.reply("You can\'t punish yourself!");
 		.addField("Moderator | Administrator", `${message.author}`)
 		.addField("Member Banned", `${member}`)
 		.addField("Reason", `${reason}`);
-            client.channels.get("695153276601106443").send(banlog)
+            client.channels.get(`${config.modlogID}`).send(banlog)
 		const banned = new Discord.RichEmbed()
 		.setTitle("Crystelian | Kicked")
 		.setDescription("Kicked")
