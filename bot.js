@@ -26,8 +26,6 @@ client.on("ready", () => {
     client.user.setActivity("Update v5.9.0", { type: "PLAYING"})
 })
 
-
-
 console.log(chalk.bgCyan('Crystelian:'), 'Loaded! Now Loading Commands...');
 client.on("message", async message => {
     if (message.author.bot) return;
@@ -441,7 +439,6 @@ class ProgressBar {
 
         const lbar = "[" + progressText + emptyProgressText + "]"; //Creating the bar
 
-
    
 let ship1 = args[0];
 	if (!args[0]) return message.channel.send(errembed);
@@ -450,10 +447,8 @@ let ship2 = args[1];
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
-		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽${ship1}\n🔼${ship2}`).then(message.channel.send({embed: {
-        color: 16231339,
-        description: `Compatiblity: **${percent}%**\n${lbar}\n${pres}\nThank You for using the Crystelian Love Module.`
-      }}))}};
+		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽${ship1}\n🔼${ship2}`)
+		 message.channel.send(loveembed)}};
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
       let reason = args.slice(1).join(' ');
@@ -1705,6 +1700,11 @@ const help = {
 		icon_url: 'https://cdn.discordapp.com/app-icons/684941677802029101/9d71fcfa4405407d7ef750dc2262734d.png?size=256&quot',
 	},
 };
+
+const loveembed = new Discord.RichEmbed()
+.setTitle("Compatibility")
+.setDescription(`Compatiblity: **${percent}%**\n${lbar}\n${pres}\nThank You for using the Crystelian Love Module.`)
+.setColor(16231339);
 
 const version = {
 	color: 16231339,
