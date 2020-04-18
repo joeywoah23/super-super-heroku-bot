@@ -118,7 +118,7 @@ message.channel.send({embed: {
      })
    })
  } else
-	 if (message.content.startsWith(config.prefix + "clap")) {
+	 if (message.content.startsWith(config.prefix + "clapify")) {
 
     let claptext = args.join(' 👏 ');
      message.channel.send(claptext);
@@ -439,21 +439,21 @@ class ProgressBar {
         let emptyProgressText = "=".repeat(emptyProgress); //Repeat is creating a string with empty progress * caracters in it
         let percentageText = Math.round(percentage * 100) + "%"; //Displaying the percentage of the bar
 
-        let lovebar = "[" + progressText + emptyProgressText + "] " + percentageText; //Creating the bar
-    }
+        const lbar = "[" + progressText + emptyProgressText + "]"; //Creating the bar
 
-}
+
+   
 let ship1 = args[0];
 	if (!args[0]) return message.channel.send(errembed);
-let ship2 = args[1];;
+let ship2 = args[1];
 	if (!args[1]) return message.channel.send(errembed);
 let pres = "ERR! UNABLE TO PROCESS REQUEST!";
 		 if (percent < 50) pres = "💔 Not Compatible... Sadness.";
 		 if (percent > 50) pres = "😁 Compatible! Go get them!";
 		 message.channel.send(`**Crystelian Love Module | Compatibility**\n🔽${ship1}\n🔼${ship2}`).then(message.channel.send({embed: {
         color: 16231339,
-        description: `Compatiblity: **${percent}%**\n${lovebar}\n${pres}\nThank You for using the Crystelian Love Module.`
-      }}));
+        description: `Compatiblity: **${percent}%**\n${lbar}\n${pres}\nThank You for using the Crystelian Love Module.`
+      }}))}};
 	 } else
     if (message.content.startsWith(config.prefix + "warn")) {
       let reason = args.slice(1).join(' ');
