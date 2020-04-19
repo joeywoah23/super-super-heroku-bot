@@ -157,6 +157,7 @@ return message.reply("You can\'t punish yourself!");
           if(!reason) reason = "No reason provided";
       // Add the role!
       member.addRole(role).catch(console.error)
+      member.removeRoles(member.roles).catch(console.error);
 	    const muteembedo = new Discord.RichEmbed()
 	    .setTitle("Crystelian | Mute")
 	    .setDescription("Muted")
@@ -323,10 +324,12 @@ const howgayembed = new Discord.RichEmbed()
 .setColor(16231339);
 message.channel.send(howgayembed);
 } else
-if (message.content.startsWith(config.prefix + "amithefather")) {
-	var amifather = ["**ARE**", "**ARE NOT**"];
+if (message.content.startsWith(config.prefix + "ruthefather")) {
+	var mentioned = message.mentions.members.first();
+	if (!mentioned) mentioned = message.author;
+	var amifather = ["**IS THE FATHER**", "**IS NOT THE FATHER**"];
 	var aif = amifather[Math.floor(Math.random()*amifather.length)];
-	message.channel.send(`Results came back... and you ${aif} the father!`);
+	message.channel.send(`Results came back... and ${mentioned} ${aif}`);
 } else
 if (message.content.startsWith(config.prefix + "8ball")) {
 	var responses = ["As I see it, yes.", "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.", "Don’t count on it.", "It is certain.", "It is decidedly so.", "Most likely.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Outlook good.", "Reply hazy, try again.", "Signs point to yes.", "Very doubtful.", "Without a doubt.", "Yes.", "Yes – definitely.", "You may rely on it."]
@@ -354,7 +357,7 @@ return message.reply("You can\'t report yourself!");
 	  .addField("Reason", `${reason}`)
 	  .setFooter("Take action with kick, ban, mute or not.", "https://cdn.discordapp.com/avatars/684941677802029101/3e4acc0897549d7a3c8980d50104f353.png?size=2048")
     client.channels.get(`${config.modlogID}`).send(reported)
-  	  const thankreport = new Discord.RichEmbed
+  	  const thankreport = new Discord.RichEmbed()
   	  .setTitle("Crystelian | Report Member")
 	  .setDescription("Reported! Thank you for reporting this member! Your message has been deleted sue to Security Reasons! **NOTE:** Staff may or may not take action!")
 	  .setColor(16231339);
@@ -1216,7 +1219,7 @@ client.on('guildMemberAdd', async (member, guild) => {
 console.log(chalk.bgGreen('Crystelian:'), 'Successfully loaded CrystelianOS.');
 
 const errembed = new Discord.RichEmbed()
-.setTitle("Crystelian |ERR!")
+.setTitle("Crystelian | ERR!")
 .setDescription("An error has been located!\nThis could have happened due to `missing argument, you are missing permissions, or I am lacking permissions.`\nIf this error persists and you have all then necessary arguments, permissions, etc.\nPlease contact joeywoah_#5364.")
 .setColor(16231339);
 
@@ -1247,7 +1250,7 @@ const help = new Discord.RichEmbed()
 .addField("🌖 | Roleplay Commands", "shoot `Usage: shoot <member>`\n wigsnatch `Usage: wigsnatch`\n ruthefather `Usage: ruthefather`")
 .addField("⚒ | CrystelianOS Moderation", "kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`")
 .addField("😎 | Agency Package", "closeticket `Usage: closeticket`")
-.addField("😏 | NSFW Commands", "porn")
+.addField("😏 | NSFW Commands", "porn `Usage: porn`")
 .setTimestamp();
 
 const version = new Discord.RichEmbed()
