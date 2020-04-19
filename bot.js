@@ -23,7 +23,7 @@ const talkedRecently = new Set();
 
 // Set the bot's "Playing: " status (must be in an event!)
 client.on("ready", () => {
-    client.user.setActivity("Update v6.0.0", { type: "PLAYING"})
+    client.user.setActivity(`${config.activity}`, { type: "PLAYING"})
 })
 
 console.log(chalk.bgCyan('Crystelian:'), 'Loaded! Now Loading Commands...');
