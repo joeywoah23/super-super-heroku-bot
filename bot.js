@@ -74,7 +74,7 @@ client.users.get(config.devID).send(suggestionembed);
 		if (!message.member.hasPermission("KICK_MEMBERS"))
         return message.channel.send(errembed)
 	let repeat = args[0];
-        let text = args.slice.(1)join(" ");
+        let text = args.slice(1).join(" ");
 	if (!text) return message.channel.send(errembed);
         message.delete();
         message.channel.send(text).repeat(repeat);	
