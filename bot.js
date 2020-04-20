@@ -70,6 +70,15 @@ if(command === "botsuggest") {
 client.users.get(config.devID).send(suggestionembed);
 	message.channel.send("Thank you for your suggestion!\nYour suggestion has been sent to the bot developer!\nYou may recieve a response or not.\nHave a great day!");
 } else
+	if(command === "sayrepeat") {
+		if (!message.member.hasPermission("KICK_MEMBERS"))
+        return message.channel.send(errembed)
+	let repeat = args[0];
+        let text = args.slice.(1)join(" ");
+	if (!text) return message.channel.send(errembed);
+        message.delete();
+        message.channel.send(text).repeat(repeat);	
+	} else
     if(command === "shoot") {
       message.channel.send(`${message.author} shot ${user}! https://gph.is/1f1KOgp`)
     } else
@@ -369,6 +378,7 @@ if (!message.member.hasPermission("ADMINISTRATOR"))
 let personID = args[0];
 let regarding = args[1];
 let respondmsg = args.slice(2).join(' ');
+message.delete();
 const respondembed = new Discord.RichEmbed()
 .setTitle("You have recieved a message!")
 .setDescription(`This message is from ${message.author} regarding ${regarding}: ${respondmsg}`)
@@ -420,6 +430,7 @@ if(message.content.startsWith(config.prefix + "ppsize")) {
     } else
 if (message.content.startsWith(config.prefix + "devreply")) { // https://cdn.discordapp.com/avatars/684941677802029101/19bf176ef249013eb8f12b3da9e84af8.png?size=2048
 let reason = args.join(' ');
+message.delete();
 const devreply = new Discord.RichEmbed()
 .setTitle("Someone responded to your message!")
 .setDescription(`${message.author} responded to your message: ${reason}`)
@@ -1248,7 +1259,7 @@ const help = new Discord.RichEmbed()
 .addField("🎶 | Music Commands", "play `Usage: play <name or url>`\n skip `Usage: skip`\n np `Usage: np`\n queue `Usage: queue`\n pause `Usage: pause`\n resume `Usage: resume`")
 .addField("✨ | Custom Commands", "`DIRECTORY EMPTY`")
 .addField("🌖 | Roleplay Commands", "shoot `Usage: shoot <member>`\n wigsnatch `Usage: wigsnatch`\n ruthefather `Usage: ruthefather`")
-.addField("⚒ | CrystelianOS Moderation", "kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`")
+.addField("⚒ | CrystelianOS Moderation", "kick `Usage: kick <member> <reason>`\n ban `Usage: ban <member> <reason>`\n purge `Usage: purge <1 - 100>`\n mute `Usage: mute <member> <reason>`\n unmute `Usage: unmute <member>`\n grant `Usage: grant <member> <role>`\n revoke `Usage: revoke <member> <role>`\n warn `Usage: warn <member> <reason>`\n reboot `Usage: reboot`\n stop `Usage: stop`\n sayin `Usage: sayin <channel name> <text>`\n say `Usage: say <text>`\n sayrepeat `Usage: sayrepeat <repeatnumber> <text>`")
 .addField("😎 | Agency Package", "closeticket `Usage: closeticket`")
 .addField("😏 | NSFW Commands", "porn `Usage: porn`")
 .setTimestamp();
