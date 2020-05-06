@@ -1,0 +1,103 @@
+const ytdl = require('ytdl-core');
+const fetchVideoInfo = require('youtube-info'); //
+const getYoutubeID = require('get-youtube-id'); //
+const YouTube = require('simple-youtube-api'); //
+const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
+
+        const { RichEmbed, Util } = require('discord.js');
+        const { stripIndents } = require('common-tags');
+        const beautify = require('beautify');
+        const errembed = new RichEmbed()
+        .setTitle(`${process.env.OS_NAME} | ERR!`)
+        .setDescription("An error has been located!\nThis could have happened due to `missing argument, you are missing permissions, or I am lacking permissions.`\nIf this error persists and you have all then necessary arguments, permissions, etc.\nPlease contact joeywoah_#5364.")
+        .setColor('RED');
+        
+        module.exports = {
+            name: "queue",
+            aliases: ["q"],
+            category: "music",
+            description: "shows whats currently and soon to be playing",
+            usage: "<none>",
+            run: async (client, message, args, queue) => {
+                 
+                const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
+                const serverQueue = queue.get(message.guild.id);
+                const voiceChannel = message.member.voiceChannel;
+                const searchString = args.slice(1).join(' ');
+                if (!serverQueue) return message.channel.send('There is no Queue!!');
+		let index = 0;
+//	//	//
+		const embedqu = new RichEmbed()
+        .setTitle("The Queue Songs :")
+        .setDescription(`
+        ${serverQueue.songs.map(song => `${++index}. **${song.title}**`).join('\n')}
+**Now playing :** **${serverQueue.songs[0].title}**`)
+        .setColor("#b603fc");
+        if (serverQueue.loop === true) embedqu.addField("🔁 | Loop is enabled!");
+        message.channel.send(embedqu)
+        
+        play(guild, serverQueue.songs[0]);
+                
+                async function handleVideo(video,  message, voiceChannel, playlist = false) {
+                    const serverQueue = queue.get( message.guild.id);
+                    console.log(video);
+                    const song = {
+                        id: video.id,
+                        title: Util.escapeMarkdown(video.title),
+                        url: `https://www.youtube.com/watch?v=${video.id}`
+                    };
+                    if (!serverQueue) {
+                        const queueConstruct = {
+                            textChannel:  message.channel,
+                            voiceChannel: voiceChannel,
+                            connection: null,
+                            songs: [],
+                            volume: 5,
+                            playing: true
+                        };
+                        queue.set( message.guild.id, queueConstruct);
+                
+                        queueConstruct.songs.push(song);
+                
+                        try {
+                            var connection = await voiceChannel.join();
+                            queueConstruct.connection = connection;
+                            play( message.guild, queueConstruct.songs[0]);
+                        } catch (error) {
+                            console.error(`I could not join the voice channel: ${error}!`);
+                            queue.delete( message.guild.id);
+                            return  message.channel.send(`Can't join this channel: ${error}!`);
+                        }
+                    } else {
+                        serverQueue.songs.push(song);
+                        console.log(serverQueue.songs);
+                        if (playlist) return undefined;
+                        else return  message.channel.send(`**${song.title}**, just added to the queue! `);
+                    } 
+                    return undefined;
+                }
+                
+                function play(guild, song) {
+                    const serverQueue = queue.get(guild.id);
+                
+                    if (!song) {
+                        serverQueue.voiceChannel.leave();
+                        queue.delete(guild.id);
+                        return;
+                    }
+                    console.log(serverQueue.songs);
+                
+                    const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+                        .on('end', reason => {
+                            if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
+                            else console.log(reason);
+                            serverQueue.songs.shift();
+                            play(guild, serverQueue.songs[0]);
+                        })
+                        .on('error', error => console.error(error));
+                    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+                
+                    serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
+                }
+            }
+        }

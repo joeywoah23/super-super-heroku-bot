@@ -1,49 +1,36 @@
 {
-  "name": "snoopyworker",
-  "version": "0.0.0",
-  "description": "snoopyworker package",
-  "main": "bot.js",
+  "name": "crystelian-dev",
+  "version": "1.0.0",
+  "description": "Crystelian Development",
+  "main": "index.js",
+  "scripts": {
+    "test": "node .",
+    "start": "node ."
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "better-sqlite-pool": "^0.2.2",
-    "chalk": "^3.0.0",
-    "discord.js": "^11.5.1",
-    "gif-search": "^2.0.1",
-    "request": "2.81.0",
-    "dotenv": "^8.2.0",
-    "simple-youtube-api": "^5.0.2",
-    "moment": ">=2.0",
-    "enmap": "^5.2.0",
-    "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^2.6.0",
-    "get-youtube-id": "^1.0.0",
+    "ascii": "^1.0.0",
+    "ascii-table": "0.0.9",
+    "beautify": "0.0.8",
     "common-tags": "^1.8.0",
-    "youtube-info": "^1.2.0",
-    "discord.js-commando": "^0.9.0",
-    "ms": "^2.1.2",
-    "node-opus": "^0.3.3",
+    "discord.js": "^11.5.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
+    "random-puppy": "^1.1.0",
     "opusscript": "^0.0.7",
-    "sequelize": "^5.21.2",
-    "sqlite3": "^4.1.0",
-    "ytdl-core": "^1.0.0",
-    "canvas": "^2.0.1"
+    "ms": "^2.1.2",
+    "ffmpeg": "^0.0.4",
+    "canvas": "^2.0.1",
+    "ffmpeg-static": "^4.1.1",
+    "ffmpeg-binaries": "^4.0.0",
+    "get-youtube-id": "^1.0.0",
+    "simple-youtube-api": "^5.0.2",
+    "youtube-info": "^1.2.0",
+    "urban": "^0.3.2",
+    "ytdl-core": "^1.0.0"
   },
   "engines": {
-    "node": "8.x"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
-  },
-  "keywords": [],
-  "author": "joeywoah",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joeywoah23/super-super-heroku-bot.git"
-  },
-  "bugs": {
-    "url": "https://github.com/joeywoah23/super-super-heroku-bot/issues"
-  },
-  "homepage": "https://github.com/joeywoah23/super-super-heroku-bot#readme"
+    "node": "12.16.1"
+  }
 }
